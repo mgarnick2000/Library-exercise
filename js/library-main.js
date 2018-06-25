@@ -5,7 +5,8 @@ Library.prototype.bookShelf = new Array();
 
 Library.prototype.addBooks = function(books) {
   for (var i = 0; i < this.bookShelf.length; i++) {
-    if (this.bookShelf[i].title.indexOf(books.title) > -1) {
+    var currentBooks = this.bookShelf[i];
+    if (books === currentBooks) {
       console.log("this book already exists.");
       return false;
       }
