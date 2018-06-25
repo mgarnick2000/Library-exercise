@@ -93,6 +93,11 @@ document.addEventListener('DOMContentLoaded', function() {
   gLibrary.addBooks(gBookSix)
   gLibrary.addBooks(gBookSeven)
   gLibrary.addBooks(gBookEight)
+  gLibrary.addBooks(gBookNine)
+  gLibrary.addBooks(gBookTen)
+  gLibrary.addBooks(gBookEleven)
+  gLibrary.addBooks(gBookTwelve)
+
 
 
 });
@@ -108,3 +113,4 @@ var gBookEight = new Book ("A Game of Thrones", "George R.R Martin", 694, new Da
 var gBookNine = new Book ("Sapiens: A Brief History of Humankind", "Yuval Noah Harari", 464, new Date(2015, 01, 10));
 var gBookTen = new Book ("The Culture Code: The Secrets of Highly Successful Groups", "Daniel Coyle", 304, new Date(2018, 00, 30));
 var gBookEleven = new Book ("Life 3.0: Being Human in the Age of Artificial Intelligence", "Max Tegmark", 384, new Date(2017, 07, 29));
+var gBookTwelve = new Book("Words of Radiance", "Brandon Sanderson", 1087, new Date(2014, 02, 14));
