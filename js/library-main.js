@@ -58,4 +58,5 @@ var Book = function (title, author, numberOfPages, publishDate) {
 
 document.addEventListener('DOMContentLoaded', function() {
   window.gLibrary = new Library ();
+  var bookOne = new Book ("Promise of Blood", "Brian McClellan", 545, new Date("2013" "04" "16"));
 };
