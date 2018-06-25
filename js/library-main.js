@@ -1,12 +1,17 @@
 var Library = function() {
-  this._bookShelf = new Array ();
+  this.bookShelf = new Array ();
 };
-Library.prototype._bookShelf = new Array();
+Library.prototype.bookShelf = new Array();
 
 Library.prototype.addBooks = function(books) {
   // Purpose: Add a book object to your books array. 
   // Return: boolean true if it is not already added, false if it is already added. 
-};
+    this.bookShelf.push(books);
+    return true;
+}
+
+
+
 
 
 
@@ -49,14 +54,15 @@ Library.prototype.getRandomAuthorName = function () {
 //  Return: string author name, null if no books exist
 };
 
-var Book = function (title, author, numberOfPages, publishDate) {
+var Book = function(title, author, numberOfPages, publishDate) {
   this.title = title;
   this.author = author;
   this.numberOfPages = numberOfPages;
   this.publishDate = new Date(publishDate);
-}
+};
 
 document.addEventListener('DOMContentLoaded', function() {
   window.gLibrary = new Library ();
-  var bookOne = new Book ("Promise of Blood", "Brian McClellan", 545, new Date("2013" "04" "16"));
-};
+});
+
+var gBookOne = new Book ("Promise of Blood", "Brian McClellan", 545, new Date(2013, 03, 16));
