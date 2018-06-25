@@ -32,6 +32,20 @@ Library.prototype.removeBookByTitle = function (title) {
 Library.prototype.removeBookByAuthor = function (authorName) {
   // Purpose: Remove a specific book from your books array by the author name. 
   // Return: boolean true if the book(s) were removed, false if no books match 
+var authorRemove = 0;
+  for (var i = 0; i < this.bookShelf.length; i++) {
+    if (authorName === this.bookShelf[i].author) {
+      this.bookShelf.splice(i,1);
+      i--;
+      authorRemove++;
+    }
+  }
+  if (authorRemove > 0) {
+    return true;
+  } else {
+    console.log("No books match that Author's name.");
+    return false;
+  }
 };
 
 Library.prototype.getRandomBook = function () {
@@ -71,6 +85,16 @@ var Book = function(title, author, numberOfPages, publishDate) {
 
 document.addEventListener('DOMContentLoaded', function() {
   window.gLibrary = new Library ();
+  gLibrary.addBooks(gBookOne)
+  gLibrary.addBooks(gBookTwo)
+  gLibrary.addBooks(gBookThree)
+  gLibrary.addBooks(gBookFour)
+  gLibrary.addBooks(gBookFive)
+  gLibrary.addBooks(gBookSix)
+  gLibrary.addBooks(gBookSeven)
+  gLibrary.addBooks(gBookEight)
+
+
 });
 
 var gBookOne = new Book ("Promise of Blood", "Brian McClellan", 545, new Date(2013, 03, 16));
