@@ -15,14 +15,17 @@ Library.prototype.addBooks = function(books) {
     return true;
 }
 
-
-
-
-
-
 Library.prototype.removeBookByTitle = function (title) {
 //   Purpose: Remove book from from the books array by its title. 
 //   Return: boolean true if the book(s) were removed, false if no books match
+  for (var i = 0; i < this.bookShelf.length; i++) {
+    if(title === this.bookShelf[i].title) {
+      this.bookShelf.splice(i,1);
+      return true;
+    }
+  }
+  console.log("No books match the title.");
+  return false
 };
 
 
