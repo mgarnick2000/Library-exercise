@@ -4,8 +4,12 @@ var Library = function() {
 Library.prototype.bookShelf = new Array();
 
 Library.prototype.addBooks = function(books) {
-  // Purpose: Add a book object to your books array. 
-  // Return: boolean true if it is not already added, false if it is already added. 
+  for (var i = 0; i < this.bookShelf.length; i++) {
+    if (this.bookShelf[i].title.indexOf(books.title) > -1) {
+      console.log("this book already exists.");
+      return false;
+      }
+    }
     this.bookShelf.push(books);
     return true;
 }
