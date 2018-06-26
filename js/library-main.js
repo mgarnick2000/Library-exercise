@@ -19,7 +19,7 @@ Library.prototype.removeBookByTitle = function (title) {
 //   Purpose: Remove book from from the books array by its title. 
 //   Return: boolean true if the book(s) were removed, false if no books match
   for (var i = 0; i < this.bookShelf.length; i++) {
-    if(title.toLowerCase() === this.bookShelf[i].title.toLowerCase()) {
+    if(title.toLowerCase().trim() === this.bookShelf[i].title.toLowerCase().trim()) {
       this.bookShelf.splice(i,1);
       return true;
     }
@@ -34,7 +34,7 @@ Library.prototype.removeBookByAuthor = function (authorName) {
   // Return: boolean true if the book(s) were removed, false if no books match 
 var authorRemove = 0;
   for (var i = 0; i < this.bookShelf.length; i++) {
-    if (authorName.toLowerCase() === this.bookShelf[i].author.toLowerCase()) {
+    if (authorName.toLowerCase().trim() === this.bookShelf[i].author.toLowerCase().trim()) {
       this.bookShelf.splice(i,1);
       i--;
       authorRemove++;
@@ -64,7 +64,7 @@ Library.prototype.getBookByTitle = function (title) {
 //   no books are found 
 var matchTitleSearch = [];
   for (var i = 0; i < this.bookShelf.length; i++) {
-    if (this.bookShelf[i].title.toLowerCase().search(title.toLowerCase()) >= 0) {
+    if (this.bookShelf[i].title.toLowerCase().search(title.toLowerCase().trim()) >= 0) {
       matchTitleSearch.push(this.bookShelf[i]);
     }
   }
@@ -78,7 +78,7 @@ Library.prototype.getBooksByAuthor = function (authorName) {
   // Return: array of books if you find books with match authors, empty array if no books match
 var matchAuthSearch = [];
   for (var i = 0; i < this.bookShelf.length; i++) {
-    if (this.bookShelf[i].author.toLowerCase().match(authorName.toLowerCase()) !== null) {
+    if (this.bookShelf[i].author.toLowerCase().match(authorName.toLowerCase().trim()) !== null) {
       matchAuthSearch.push(this.bookShelf[i]);
     }
   }
@@ -130,6 +130,8 @@ document.addEventListener('DOMContentLoaded', function() {
   gLibrary.addBooks(gBookTen)
   gLibrary.addBooks(gBookEleven)
   gLibrary.addBooks(gBookTwelve)
+  gLibrary.addBooks(gBookThirteen)
+  gLibrary.addBooks(gBookFourteen)
 
 
 
@@ -147,3 +149,5 @@ var gBookNine = new Book ("Sapiens: A Brief History of Humankind", "Yuval Noah H
 var gBookTen = new Book ("The Culture Code: The Secrets of Highly Successful Groups", "Daniel Coyle", 304, new Date(2018, 00, 30));
 var gBookEleven = new Book ("Life 3.0: Being Human in the Age of Artificial Intelligence", "Max Tegmark", 384, new Date(2017, 07, 29));
 var gBookTwelve = new Book("Words of Radiance", "Brandon Sanderson", 1087, new Date(2014, 02, 14));
+var gBookThirteen = new Book ("Possession", "A.S Byatt", 576, new Date (1991, 09, 01));
+var gBookFourteen = new Book ("Possession", "Ann Rule", 384, new Date (2011, 03, 02));
