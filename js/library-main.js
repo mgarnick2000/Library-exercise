@@ -92,6 +92,15 @@ var matchAuthSearch = [];
 Library.prototype.getAuthors = function () {
 //   Purpose: Find the distinct authors’ names from all books in your library 
 //   Return: array of strings the names of all distinct authors, empty array if no books exist or if no authors exist 
+var allAuthors = [];
+var indivAuthors = [];
+  for (var i = 0; i < this.bookShelf.length; i++) {
+      allAuthors.push(this.bookShelf[i].author);
+    }
+      indivAuthors = allAuthors.filter(function(value, index, self) {
+        return self.indexOf(value) === index
+      });
+  return indivAuthors;
 };
 
 Library.prototype.getRandomAuthorName = function () {
