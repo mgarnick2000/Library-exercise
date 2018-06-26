@@ -66,7 +66,17 @@ Library.prototype.getBookByTitle = function (title) {
 //   passed into the function 
 //   Return: array of book objects if you find books with matching titles, empty array if
 //   no books are found 
+var matchSearch = [];
+  for (var i = 0; i < this.bookShelf.length; i++) {
+    if (this.bookShelf[i].title.toLowerCase().search(title.toLowerCase()) >= 0) {
+      matchSearch.push(this.bookShelf[i]);
+    }
+  }
+  console.log("Here are your books!");
+  return matchSearch;
+
 };
+
 
 Library.prototype.getBooksByAuthor = function (authorName) {
   // Purpose: Finds all books where the author’s name partially or completely match- es the authorName argument passed to the function.
