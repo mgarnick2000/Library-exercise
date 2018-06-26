@@ -64,7 +64,7 @@ Library.prototype.getBookByTitle = function (title) {
 //   no books are found 
 var matchTitleSearch = [];
   for (var i = 0; i < this.bookShelf.length; i++) {
-    if (this.bookShelf[i].title.toLowerCase().search(title.toLowerCase().trim()) >= 0) {
+    if (this.bookShelf[i].title.toLowerCase().indexOf(title.toLowerCase().trim()) > -1) {
       matchTitleSearch.push(this.bookShelf[i]);
     }
   }
@@ -78,7 +78,7 @@ Library.prototype.getBooksByAuthor = function (authorName) {
   // Return: array of books if you find books with match authors, empty array if no books match
 var matchAuthSearch = [];
   for (var i = 0; i < this.bookShelf.length; i++) {
-    if (this.bookShelf[i].author.toLowerCase().match(authorName.toLowerCase().trim()) !== null) {
+    if (this.bookShelf[i].author.toLowerCase().indexOf(authorName.toLowerCase().trim()) > -1) {
       matchAuthSearch.push(this.bookShelf[i]);
     }
   }
