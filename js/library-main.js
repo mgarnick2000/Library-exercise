@@ -51,14 +51,10 @@ var authorRemove = 0;
 Library.prototype.getRandomBook = function () {
   // Purpose: Return a random book object from your books array 
   // Return: book object if you find a book, null if there are no books
-var randomBook = this.bookShelf[Math.floor(Math.random() * this.bookShelf.length)];
   if(this.bookShelf.length === 0) {
-    console.log(null);
-    return false;
-  } else {
-    console.log(randomBook);
-    return true;
-    }
+    return null;
+  }
+  return this.bookShelf[Math.floor(Math.random() * this.bookShelf.length)];
 };
 
 Library.prototype.getBookByTitle = function (title) {
@@ -106,6 +102,11 @@ var indivAuthors = [];
 Library.prototype.getRandomAuthorName = function () {
 //  Purpose: Retrieves a random author name from your books collection 
 //  Return: string author name, null if no books exist
+if (this.bookShelf.length === 0) {
+  return null;
+};
+ return this.getRandomBook().author;
+
 };
 
 var Book = function(title, author, numberOfPages, publishDate) {
