@@ -51,6 +51,14 @@ var authorRemove = 0;
 Library.prototype.getRandomBook = function () {
   // Purpose: Return a random book object from your books array 
   // Return: book object if you find a book, null if there are no books
+var randomBook = this.bookShelf[Math.floor(Math.random() * this.bookShelf.length)];
+  if(this.bookShelf.length === 0) {
+    console.log(null);
+    return false;
+  } else {
+    console.log(randomBook);
+    return true;
+    }
 };
 
 Library.prototype.getBookByTitle = function (title) {
