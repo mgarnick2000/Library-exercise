@@ -66,14 +66,13 @@ Library.prototype.getBookByTitle = function (title) {
 //   passed into the function 
 //   Return: array of book objects if you find books with matching titles, empty array if
 //   no books are found 
-var matchSearch = [];
+var matchTitleSearch = [];
   for (var i = 0; i < this.bookShelf.length; i++) {
     if (this.bookShelf[i].title.toLowerCase().search(title.toLowerCase()) >= 0) {
-      matchSearch.push(this.bookShelf[i]);
+      matchTitleSearch.push(this.bookShelf[i]);
     }
   }
-  console.log("Here are your books!");
-  return matchSearch;
+  return matchTitleSearch;
 
 };
 
@@ -81,7 +80,13 @@ var matchSearch = [];
 Library.prototype.getBooksByAuthor = function (authorName) {
   // Purpose: Finds all books where the author’s name partially or completely match- es the authorName argument passed to the function.
   // Return: array of books if you find books with match authors, empty array if no books match
-
+var matchAuthSearch = [];
+  for (var i = 0; i < this.bookShelf.length; i++) {
+    if (this.bookShelf[i].author.toLowerCase().match(authorName.toLowerCase()) !== null) {
+      matchAuthSearch.push(this.bookShelf[i]);
+    }
+  }
+  return matchAuthSearch;
 };
 
 Library.prototype.getAuthors = function () {
