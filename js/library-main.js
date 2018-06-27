@@ -122,7 +122,6 @@ if (this.bookShelf.length === 0) {
 
 Library.prototype.getBooksByPubDate = function (year) {
 var dateArr = [];
-var filterYear = [];
   for (i = 0; i < this.bookShelf.length; i++) {
     if(this.bookShelf[i].publishDate.getFullYear(year)) {
       dateArr.push(this.bookShelf[i].publishDate.getFullYear(year));
@@ -146,8 +145,8 @@ searchAuthorDate = [];
     // searchObj.publishDate = "";
     if (this.bookShelf[i].author.toLowerCase().indexOf(authorName.toLowerCase().trim()) > -1 && this.bookShelf[i].publishDate.getFullYear(pubDate)) {
     // searchObj.publishDate = this.bookShelf[i].publishDate;
-    searchAuthorDate.push(this.bookShelf[i].publishDate);
     searchAuthorDate.push(this.bookShelf[i].author);
+    searchAuthorDate.push(this.bookShelf[i].publishDate.getFullYear());
       }
   }
 
