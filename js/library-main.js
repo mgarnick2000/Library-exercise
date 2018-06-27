@@ -3,17 +3,28 @@ var Library = function() {
 };
 Library.prototype.bookShelf = new Array();
 
-Library.prototype.addBooks = function(books) {
+Library.prototype.addBook = function(book) {
   for (var i = 0; i < this.bookShelf.length; i++) {
     var currentBooks = this.bookShelf[i];
-    if (books === currentBooks) {
+    if (book === currentBooks) {
       console.log("this book already exists.");
       return false;
       }
     }
-    this.bookShelf.push(books);
+    this.bookShelf.push(book);
     return true;
 }
+
+Library.prototype.addBooks = function (books) {
+var addNewBooks = 0;
+  for (var i = 0; i < books.length; i++) {
+    if (this.addBook(books[i]) && Array.isArray(books)) {
+      this.addBook(books[i]);
+      addNewBooks++;
+    }
+  }
+  return addNewBooks;
+};
 
 Library.prototype.removeBookByTitle = function (title) {
 //   Purpose: Remove book from from the books array by its title. 
@@ -118,20 +129,21 @@ var Book = function(title, author, numberOfPages, publishDate) {
 
 document.addEventListener('DOMContentLoaded', function() {
   window.gLibrary = new Library ();
-  gLibrary.addBooks(gBookOne)
-  gLibrary.addBooks(gBookTwo)
-  gLibrary.addBooks(gBookThree)
-  gLibrary.addBooks(gBookFour)
-  gLibrary.addBooks(gBookFive)
-  gLibrary.addBooks(gBookSix)
-  gLibrary.addBooks(gBookSeven)
-  gLibrary.addBooks(gBookEight)
-  gLibrary.addBooks(gBookNine)
-  gLibrary.addBooks(gBookTen)
-  gLibrary.addBooks(gBookEleven)
-  gLibrary.addBooks(gBookTwelve)
-  gLibrary.addBooks(gBookThirteen)
-  gLibrary.addBooks(gBookFourteen)
+  gLibrary.addBook(gBookOne)
+  gLibrary.addBook(gBookTwo)
+  gLibrary.addBook(gBookThree)
+  gLibrary.addBook(gBookFour)
+  gLibrary.addBook(gBookFive)
+  gLibrary.addBook(gBookSix)
+  gLibrary.addBook(gBookSeven)
+  gLibrary.addBook(gBookEight)
+  gLibrary.addBook(gBookNine)
+  gLibrary.addBook(gBookTen)
+  gLibrary.addBook(gBookEleven)
+  gLibrary.addBook(gBookTwelve)
+  gLibrary.addBook(gBookThirteen)
+  gLibrary.addBook(gBookFourteen)
+
 
 
 
@@ -151,3 +163,7 @@ var gBookEleven = new Book ("Life 3.0: Being Human in the Age of Artificial Inte
 var gBookTwelve = new Book("Words of Radiance", "Brandon Sanderson", 1087, new Date(2014, 02, 14));
 var gBookThirteen = new Book ("Possession", "A.S Byatt", 576, new Date (1991, 09, 01));
 var gBookFourteen = new Book ("Possession", "Ann Rule", 384, new Date (2011, 03, 02));
+var gBookFifteen = new Book ("Assassin's Apprentice", "Robin Hobb", 448, new Date (1996, 02, 01));
+var gBookSixteen = new Book ("Genghis Khan and the Making of the Modern World", "Jack Weatherford", 312, new Date(2005, 02, 22));
+var gBookSeventeen = new Book("Pale Blue Dot: A Vision of the Human Future in Space", "Carl Sagan", 386, new Date(1997, 08, 08));
+var booksLibrary = [gBookOne, gBookTwo, gBookThree, gBookFour, gBookFive, gBookSix, gBookSeven, gBookEight, gBookNine, gBookTen, gBookEleven, gBookTwelve, gBookThirteen, gBookFourteen, gBookFifteen, gBookSixteen, gBookSeventeen];
