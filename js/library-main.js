@@ -120,6 +120,20 @@ if (this.bookShelf.length === 0) {
 
 };
 
+Library.prototype.getBooksByPubDate = function (year) {
+var dateArr = [];
+var filterYear = [];
+  for (i = 0; i < this.bookShelf.length; i++) {
+    if(this.bookShelf[i].publishDate.getFullYear(year)) {
+      dateArr.push(this.bookShelf[i].publishDate.getFullYear(year));
+    }
+    dateArr.sort(function(a,b) {
+      return a-b
+    });
+  }
+  return dateArr;
+};
+
 var Book = function(title, author, numberOfPages, publishDate) {
   this.title = title;
   this.author = author;
