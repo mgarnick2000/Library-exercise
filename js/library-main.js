@@ -120,11 +120,10 @@ if (this.bookShelf.length === 0) {
 
 Library.prototype.getBooksByPubDate = function (year) {
 var dateArr = [];
-var filterYear = [];
   for (i = 0; i < this.bookShelf.length; i++) {
     if(this.bookShelf[i].publishDate.toString().indexOf(year) > -1 && this.bookShelf[i].title) {
       dateArr.push(this.bookShelf[i].title);
-      dateArr.push(this.bookShelf[i].publishDate);
+      dateArr.push(this.bookShelf[i].publishDate.toString());
     }
     dateArr.sort(function(a,b) {
       return a-b;
@@ -136,12 +135,17 @@ var filterYear = [];
 Library.prototype.search = function (authorName, pubDate) {
 searchAuthorDate = [];
   for(var i = 0; i < this.bookShelf.length; i++) {
-    if (this.bookShelf[i].author.toLowerCase().indexOf(authorName.toLowerCase().trim()) > -1 && this.bookShelf[i].publishDate) {
+    if (this.bookShelf[i].author.toLowerCase().indexOf(authorName.toLowerCase().trim()) > -1 && this.bookShelf[i].publishDate.toString()) {
     searchAuthorDate.push(this.bookShelf[i].author);
     searchAuthorDate.push(this.bookShelf[i].publishDate.toString());
       }
   }
-  return searchAuthorDate;
+  var searchContate = []
+  for (var j = 0; j < searchAuthorDate.length - 1; j++) {
+    searchContate.push(searchAuthorDate[j] + " " + searchAuthorDate[j+1])
+  }
+  return searchContate;
+
 };
 
 var Book = function(title, author, numberOfPages, publishDate) {
