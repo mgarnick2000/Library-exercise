@@ -95,11 +95,20 @@ var matchAuthSearch = [];
   return matchAuthSearch;
 };
 
-Library.prototype.getAuthors = function () {
+Library.prototype.getAuthors = function (authorName) {
 //   Purpose: Find the distinct authors’ names from all books in your library 
 //   Return: array of strings the names of all distinct authors, empty array if no books exist or if no authors exist 
-var allAuthors = [];
 var indivAuthors = [];
+// var allAuthors = this.getBooksByAuthor(authorName);
+var allAuthors = [];
+
+// if (allAuthors.length > 0) {
+//   for (var i = 0; i < allAuthors.length; i++) {
+//     if(allAuthors[i].author) {
+//       indivAuthors.push(allAuthors[i].author)
+//       }
+//     }
+//   }
   for (var i = 0; i < this.bookShelf.length; i++) {
       allAuthors.push(this.bookShelf[i].author);
     }
