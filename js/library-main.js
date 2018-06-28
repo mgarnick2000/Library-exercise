@@ -1,7 +1,7 @@
 var Library = function() {
   this.bookShelf = new Array ();
 };
-Library.prototype.bookShelf = new Array();
+// Library.prototype.bookShelf = new Array();
 
 Library.prototype.addBook = function(book) {
   for (var i = 0; i < this.bookShelf.length; i++) {
@@ -138,20 +138,19 @@ var dateArr = [];
 };
 
 Library.prototype.search = function (authorName, pubDate) {
-searchAuthorDate = [];
-  for(var i = 0; i < this.bookShelf.length; i++) {
-    if (this.bookShelf[i].author.toLowerCase().indexOf(authorName.toLowerCase().trim()) > -1 && this.bookShelf[i].publishDate.toString().indexOf(pubDate) > -1) {
-    searchAuthorDate.push(this.bookShelf[i].author);
-    searchAuthorDate.push(this.bookShelf[i].publishDate.toString());
-      }
-  }
   var searchContate = [];
-  for (var j = 0; j < searchAuthorDate.length - 1; j++) {
-    searchContate.push(searchAuthorDate[j] + " " + searchAuthorDate[j+1])
-    j++
-  }
-  return searchContate;
+  var aAuthSearch = this.getBooksByAuthor(authorName);
 
+  if(aAuthSearch.length > 0) {
+    for(var i = 0; i < aAuthSearch.length; i++) {
+
+      if (aAuthSearch[i].publishDate.toString().indexOf(pubDate) > -1) {
+        searchContate.push(aAuthSearch[i].author + " " + aAuthSearch[i].publishDate);
+      }
+    }
+  }
+
+  return searchContate;
 };
 
 var Book = function(title, author, numberOfPages, publishDate) {
@@ -163,6 +162,7 @@ var Book = function(title, author, numberOfPages, publishDate) {
 
 document.addEventListener('DOMContentLoaded', function() {
   window.gLibrary = new Library ();
+  window.gLibraryTwo = new Library();
   gLibrary.addBook(gBookOne)
   gLibrary.addBook(gBookTwo)
   gLibrary.addBook(gBookThree)
