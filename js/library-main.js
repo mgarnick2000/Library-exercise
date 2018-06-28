@@ -120,8 +120,9 @@ if (this.bookShelf.length === 0) {
 
 Library.prototype.getBooksByPubDate = function (year) {
 var dateArr = [];
+var filterYear = [];
   for (i = 0; i < this.bookShelf.length; i++) {
-    if(this.bookShelf[i].publishDate.getFullYear(year)) {
+    if(this.bookShelf[i].publishDate.getFullYear(year).toString().indexOf(year) > -1) {
       dateArr.push(this.bookShelf[i].publishDate.getFullYear(year));
     }
     dateArr.sort(function(a,b) {
