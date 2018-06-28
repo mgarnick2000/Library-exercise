@@ -1,7 +1,9 @@
-var Library = function() {
+var Library = function(key) {
   this.bookShelf = new Array ();
+  this._Libkey = key;
 };
 // Library.prototype.bookShelf = new Array();
+
 
 Library.prototype.addBook = function(book) {
   for (var i = 0; i < this.bookShelf.length; i++) {
@@ -12,6 +14,7 @@ Library.prototype.addBook = function(book) {
       }
     }
     this.bookShelf.push(book);
+    this.storage();
     return true;
 }
 
@@ -32,6 +35,7 @@ Library.prototype.removeBookByTitle = function (title) {
   for (var i = 0; i < this.bookShelf.length; i++) {
     if(title.toLowerCase().trim() === this.bookShelf[i].title.toLowerCase().trim()) {
       this.bookShelf.splice(i,1);
+      this.storage();
       return true;
     }
   }
@@ -52,6 +56,7 @@ var authorRemove = 0;
     }
   }
   if (authorRemove > 0) {
+    this.storage();
     return true;
   } else {
     console.log("No books match that Author's name.");
@@ -153,7 +158,6 @@ Library.prototype.search = function (authorName, pubDate) {
       }
     }
   }
-
   return searchContate;
 };
 
@@ -161,26 +165,45 @@ var Book = function(title, author, numberOfPages, publishDate) {
   this.title = title;
   this.author = author;
   this.numberOfPages = numberOfPages;
-  this.publishDate = new Date(publishDate).getFullYear();
+  this.publishDate = new Date(publishDate.toString()).getFullYear();
 };
+
+// Local Storage
+Library.prototype.storage = function () {
+  var dataLib = JSON.stringify(this.bookShelf);
+  localStorage.setItem(this._Libkey, dataLib);
+};
+
+Library.prototype.pull = function () {
+  var translate = JSON.parse(localStorage.getItem(this._Libkey));
+  var StorageLib = new Array ();
+  for (i = 0; i < translate.length; i++) {
+    this.bookShelf[i] = new Book(translate[i].title, translate[i].author, translate[i].numberOfPages, translate[i].publishDate);
+  }
+};
+
+
 
 document.addEventListener('DOMContentLoaded', function() {
   window.gLibrary = new Library ();
-  window.gLibraryTwo = new Library();
-  gLibrary.addBook(gBookOne)
-  gLibrary.addBook(gBookTwo)
-  gLibrary.addBook(gBookThree)
-  gLibrary.addBook(gBookFour)
-  gLibrary.addBook(gBookFive)
-  gLibrary.addBook(gBookSix)
-  gLibrary.addBook(gBookSeven)
-  gLibrary.addBook(gBookEight)
-  gLibrary.addBook(gBookNine)
-  gLibrary.addBook(gBookTen)
-  gLibrary.addBook(gBookEleven)
-  gLibrary.addBook(gBookTwelve)
-  gLibrary.addBook(gBookThirteen)
-  gLibrary.addBook(gBookFourteen)
+  // gLibrary.addBook(gBookOne)
+  // gLibrary.addBook(gBookTwo)
+  // gLibrary.addBook(gBookThree)
+  // gLibrary.addBook(gBookFour)
+  // gLibrary.addBook(gBookFive)
+  // gLibrary.addBook(gBookSix)
+  // gLibrary.addBook(gBookSeven)
+  // gLibrary.addBook(gBookEight)
+  // gLibrary.addBook(gBookNine)
+  // gLibrary.addBook(gBookTen)
+  // gLibrary.addBook(gBookEleven)
+  // gLibrary.addBook(gBookTwelve)
+  // gLibrary.addBook(gBookThirteen)
+  // gLibrary.addBook(gBookFourteen)
+  if(localStorage.length > 0) {
+    console.log("Successfully pulled from Local Storage.");
+    window.gLibrary.pull();
+  }
 });
 
 var gBookOne = new Book ("Promise of Blood", "Brian McClellan", 545, new Date(2013, 03, 16));
