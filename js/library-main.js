@@ -165,13 +165,13 @@ var Book = function(title, author, numberOfPages, publishDate) {
   this.title = title;
   this.author = author;
   this.numberOfPages = numberOfPages;
-  this.publishDate = new Date(publishDate.toString()).getFullYear();
+  this.publishDate = new Date(publishDate.toString()).getUTCFullYear();
 };
 
 // Local Storage
 Library.prototype.storage = function () {
   var dataLib = JSON.stringify(this.bookShelf);
-  localStorage.setItem(this._Libkey, dataLib);
+  localStorage.setItem(this._Libkey, dataLib);  
 };
 
 Library.prototype.pull = function () {
