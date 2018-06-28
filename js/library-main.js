@@ -132,6 +132,7 @@ var dateArr = [];
   var pubDateTitleConcate = [];
   for (var j = 0; j < dateArr.length - 1; j++) {
     pubDateTitleConcate.push(dateArr[j] + " " + dateArr[j + 1])
+    j++
   }
   return pubDateTitleConcate;
 };
@@ -139,7 +140,7 @@ var dateArr = [];
 Library.prototype.search = function (authorName, pubDate) {
 searchAuthorDate = [];
   for(var i = 0; i < this.bookShelf.length; i++) {
-    if (this.bookShelf[i].author.toLowerCase().indexOf(authorName.toLowerCase().trim()) > -1 && this.bookShelf[i].publishDate.toString()) {
+    if (this.bookShelf[i].author.toLowerCase().indexOf(authorName.toLowerCase().trim()) > -1 && this.bookShelf[i].publishDate.toString().indexOf(pubDate) > -1) {
     searchAuthorDate.push(this.bookShelf[i].author);
     searchAuthorDate.push(this.bookShelf[i].publishDate.toString());
       }
@@ -147,6 +148,7 @@ searchAuthorDate = [];
   var searchContate = [];
   for (var j = 0; j < searchAuthorDate.length - 1; j++) {
     searchContate.push(searchAuthorDate[j] + " " + searchAuthorDate[j+1])
+    j++
   }
   return searchContate;
 
