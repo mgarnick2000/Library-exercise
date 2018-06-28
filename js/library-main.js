@@ -129,7 +129,11 @@ var dateArr = [];
       return a-b;
     });
   }
-  return dateArr;
+  var pubDateTitleConcate = [];
+  for (var j = 0; j < dateArr.length - 1; j++) {
+    pubDateTitleConcate.push(dateArr[j] + " " + dateArr[j + 1])
+  }
+  return pubDateTitleConcate;
 };
 
 Library.prototype.search = function (authorName, pubDate) {
@@ -140,7 +144,7 @@ searchAuthorDate = [];
     searchAuthorDate.push(this.bookShelf[i].publishDate.toString());
       }
   }
-  var searchContate = []
+  var searchContate = [];
   for (var j = 0; j < searchAuthorDate.length - 1; j++) {
     searchContate.push(searchAuthorDate[j] + " " + searchAuthorDate[j+1])
   }
