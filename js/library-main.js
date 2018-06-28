@@ -80,7 +80,6 @@ var matchTitleSearch = [];
     }
   }
   return matchTitleSearch;
-
 };
 
 
@@ -117,7 +116,6 @@ if (this.bookShelf.length === 0) {
   return null;
 };
  return this.getRandomBook().author;
-
 };
 
 Library.prototype.getBooksByPubDate = function (year) {
@@ -134,24 +132,16 @@ var dateArr = [];
 };
 
 Library.prototype.search = function (authorName, pubDate) {
-  // var searchObj = {
-  //   author:this.bookShelf.author,
-  //   publishDate:this.bookShelf.publishDate
-  // }
-
 searchAuthorDate = [];
   for(var i = 0; i < this.bookShelf.length; i++) {
-    // searchObj.author = "";
-    // searchObj.publishDate = "";
     if (this.bookShelf[i].author.toLowerCase().indexOf(authorName.toLowerCase().trim()) > -1 && this.bookShelf[i].publishDate.getFullYear(pubDate)) {
-    // searchObj.publishDate = this.bookShelf[i].publishDate;
     searchAuthorDate.push(this.bookShelf[i].author);
     searchAuthorDate.push(this.bookShelf[i].publishDate.getFullYear());
       }
   }
-
   return searchAuthorDate;
 };
+
 var Book = function(title, author, numberOfPages, publishDate) {
   this.title = title;
   this.author = author;
@@ -175,10 +165,6 @@ document.addEventListener('DOMContentLoaded', function() {
   gLibrary.addBook(gBookTwelve)
   gLibrary.addBook(gBookThirteen)
   gLibrary.addBook(gBookFourteen)
-
-
-
-
 });
 
 var gBookOne = new Book ("Promise of Blood", "Brian McClellan", 545, new Date(2013, 03, 16));
