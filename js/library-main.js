@@ -125,7 +125,7 @@ Library.prototype.getBooksByPubDate = function (title, year) {
   if (titleSearchPubD.length > 0) {
     for (var i = 0; i < titleSearchPubD.length; i++) {
       if (titleSearchPubD[i].publishDate.toString().indexOf(year) > -1) {
-        pubDateTitleConcate.push(titleSearchPubD[i].title + " " + titleSearchPubD[i].publishDate)
+        pubDateTitleConcate.push(titleSearchPubD[i].title + " " + titleSearchPubD[i].publishDate.toString())
       }
     }
   }
