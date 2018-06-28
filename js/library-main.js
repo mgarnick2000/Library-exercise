@@ -118,21 +118,16 @@ if (this.bookShelf.length === 0) {
  return this.getRandomBook().author;
 };
 
-Library.prototype.getBooksByPubDate = function (year) {
-var dateArr = [];
-  for (i = 0; i < this.bookShelf.length; i++) {
-    if(this.bookShelf[i].publishDate.toString().indexOf(year) > -1 && this.bookShelf[i].title) {
-      dateArr.push(this.bookShelf[i].title);
-      dateArr.push(this.bookShelf[i].publishDate.toString());
-    }
-    dateArr.sort(function(a,b) {
-      return a-b;
-    });
-  }
+Library.prototype.getBooksByPubDate = function (title, year) {
   var pubDateTitleConcate = [];
-  for (var j = 0; j < dateArr.length - 1; j++) {
-    pubDateTitleConcate.push(dateArr[j] + " " + dateArr[j + 1])
-    j++
+  var titleSearchPubD = this.getBookByTitle(title);
+
+  if (titleSearchPubD.length > 0) {
+    for (var i = 0; i < titleSearchPubD.length; i++) {
+      if (titleSearchPubD[i].publishDate.toString().indexOf(year) > -1) {
+        pubDateTitleConcate.push(titleSearchPubD[i].title + " " + titleSearchPubD[i].publishDate)
+      }
+    }
   }
   return pubDateTitleConcate;
 };
