@@ -16,8 +16,15 @@
 //   this._Libkey = key;
 // };
 // Library.prototype.bookShelf = new Array();
+Library.prototype.validInput = function (input) {
+  if (input && input !== "") {
+    return true
+  }
+  return false;
+};
 
 Library.prototype.addBook = function(book) {
+if(this.validInput(book)) {
   for (var i = 0; i < this.bookShelf.length; i++) {
     var currentBooks = this.bookShelf[i];
     if (book === currentBooks) {
@@ -28,6 +35,8 @@ Library.prototype.addBook = function(book) {
     this.bookShelf.push(book);
     this.storage();
     return true;
+  }
+  return false;
 }
 
 Library.prototype.addBooks = function (books) {
