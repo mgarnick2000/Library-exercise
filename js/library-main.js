@@ -189,30 +189,21 @@ Library.prototype.search = function (authorName, pubDate) {
   return searchContate;
 };
 
-Library.prototype.searchBookSize500 = function () {
+Library.prototype.searchPageNumber = function (pages, range) {
 var bookLengthGreater500 = [];
-var authNameTitleSearch = this.bookShelf;
+var range = range || 100;
 
-    for (var i = 0; i < authNameTitleSearch.length; i++) {
-      if (authNameTitleSearch[i].numberOfPages > 500) {
-        bookLengthGreater500.push(authNameTitleSearch[i].author + " " + authNameTitleSearch[i].title + " " + authNameTitleSearch[i].numberOfPages);
+
+    for (var i = 0; i < this.bookShelf.length; i++) {
+      var bookPagesSearch = this.bookShelf[i].numberOfPages;
+      if (bookPagesSearch >= pages - range && bookPagesSearch <= pages + range) {
+        bookLengthGreater500.push(this.bookShelf[i].author + ", " + this.bookShelf[i].title + ", " + this.bookShelf[i].numberOfPages);
       }
     }
 
   return bookLengthGreater500;
 };
 
-Library.prototype.SearchBklessThan500 = function () {
-var bookLengthLess500 = [];
-var lessThan500 = this.bookShelf;
-
-  for (var i = 0; i < lessThan500.length; i++) {
-    if (lessThan500[i].numberOfPages < 500) {
-      bookLengthLess500.push(lessThan500[i].author + " " + lessThan500[i].title + " " + lessThan500[i].numberOfPages);
-    }
-  }
-  return bookLengthLess500;
-};
 
 var Book = function(title, author, numberOfPages, publishDate) {
   this.title = title;
