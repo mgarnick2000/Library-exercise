@@ -1,3 +1,4 @@
+// Singleton content
 (function() {
  var instance;
 
@@ -186,6 +187,31 @@ Library.prototype.search = function (authorName, pubDate) {
     }
   }
   return searchContate;
+};
+
+Library.prototype.searchBookSize500 = function () {
+var bookLengthGreater500 = [];
+var authNameTitleSearch = this.bookShelf;
+
+    for (var i = 0; i < authNameTitleSearch.length; i++) {
+      if (authNameTitleSearch[i].numberOfPages > 500) {
+        bookLengthGreater500.push(authNameTitleSearch[i].author + " " + authNameTitleSearch[i].title + " " + authNameTitleSearch[i].numberOfPages);
+      }
+    }
+
+  return bookLengthGreater500;
+};
+
+Library.prototype.SearchBklessThan500 = function () {
+var bookLengthLess500 = [];
+var lessThan500 = this.bookShelf;
+
+  for (var i = 0; i < lessThan500.length; i++) {
+    if (lessThan500[i].numberOfPages < 500) {
+      bookLengthLess500.push(lessThan500[i].author + " " + lessThan500[i].title + " " + lessThan500[i].numberOfPages);
+    }
+  }
+  return bookLengthLess500;
 };
 
 var Book = function(title, author, numberOfPages, publishDate) {
