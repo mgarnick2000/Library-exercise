@@ -164,8 +164,10 @@ if (this.bookShelf.length === 0) {
 Library.prototype.getBooksByPubDate = function (title, year) {
   /* This searches for title and publication date.
   Users can search by partial information and partial year.
-  if you know the year and title, you can partially enter the year
-  and title to get results ("sh", "19"). Output is ["Shogun 1975"]
+  if you know the year and title, you can partially or completely enter the year
+  and title to get results ("sh", "19"). Output is ["Shogun 1975"].
+  if you know the year and title, users can enter it in the quotations
+   to find intended results.
   */
   if(this.validInput(title, year)) {
     var pubDateTitleConcate = [];
@@ -203,6 +205,12 @@ Library.prototype.getBooksByYear = function (year) {
 };
 
 Library.prototype.removeAllBooksInBookShelf = function () {
+  /*
+  this was used to clear all the books in the bookshelf when i was testing
+  local storage. the addBooks function did not have this.storage() initially
+  and was causing duplicates. i had to remove books by author to remove duplicates.
+  this function expedites this process. it is long on purpose to discourage use.
+  */
   this.bookShelf = [];
   return true;
 };
@@ -229,7 +237,10 @@ Library.prototype.search = function (authorName, pubDate) {
 };
 
 Library.prototype.searchAnyAuthTitleYear = function (args) {
-
+/*
+This allows users to search for any book by the year, author, and title
+with full or partial search capability.
+*/
   var searchResults = [];
   if (this.validInput(args)) {
   var searchAnyArg = this.getBooksByAuthor(args).concat(this.getBookByTitle(args), this.getBooksByYear(args));
@@ -244,6 +255,10 @@ Library.prototype.searchAnyAuthTitleYear = function (args) {
 };
 
 Library.prototype.searchPageNumber = function (pages, range) {
+  /*
+  this allows users to search for books by the number of pages. Users simply enter
+  a number in the parentheses and a list of books from the library within 100 pages.
+  */
 var bookLengthGreater500 = [];
 var range = range || 100;
     for (var i = 0; i < this.bookShelf.length; i++) {
