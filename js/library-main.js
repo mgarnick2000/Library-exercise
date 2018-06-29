@@ -189,6 +189,17 @@ Library.prototype.search = function (authorName, pubDate) {
   return searchContate;
 };
 
+Library.prototype.searchAnyAuthTitle = function (args) {
+var searchResults = [];
+var searchAnyArg = this.getBooksByAuthor(args).concat(this.getBookByTitle(args));
+  if(searchAnyArg.length > 0) {
+    for (var i = 0; i < searchAnyArg.length; i++) {
+      searchResults.push(searchAnyArg[i])
+    }
+  }
+  return searchResults;
+};
+
 Library.prototype.searchPageNumber = function (pages, range) {
 var bookLengthGreater500 = [];
 var range = range || 100;
