@@ -101,26 +101,32 @@ Library.prototype.getBookByTitle = function (title) {
 //   passed into the function 
 //   Return: array of book objects if you find books with matching titles, empty array if
 //   no books are found 
-var matchTitleSearch = [];
-  for (var i = 0; i < this.bookShelf.length; i++) {
-    if (this.bookShelf[i].title.toLowerCase().indexOf(title.toLowerCase().trim()) > -1) {
-      matchTitleSearch.push(this.bookShelf[i]);
+if(this.validInput(title)) {
+  var matchTitleSearch = [];
+    for (var i = 0; i < this.bookShelf.length; i++) {
+      if (this.bookShelf[i].title.toLowerCase().indexOf(title.toLowerCase().trim()) > -1) {
+        matchTitleSearch.push(this.bookShelf[i]);
+      }
     }
+    return matchTitleSearch;
   }
-  return matchTitleSearch;
+  return false;
 };
 
 
 Library.prototype.getBooksByAuthor = function (authorName) {
   // Purpose: Finds all books where the author’s name partially or completely match- es the authorName argument passed to the function.
   // Return: array of books if you find books with match authors, empty array if no books match
-var matchAuthSearch = [];
-  for (var i = 0; i < this.bookShelf.length; i++) {
-    if (this.bookShelf[i].author.toLowerCase().indexOf(authorName.toLowerCase().trim()) > -1) {
-      matchAuthSearch.push(this.bookShelf[i]);
+if(this.validInput(authorName)) {
+  var matchAuthSearch = [];
+    for (var i = 0; i < this.bookShelf.length; i++) {
+      if (this.bookShelf[i].author.toLowerCase().indexOf(authorName.toLowerCase().trim()) > -1) {
+        matchAuthSearch.push(this.bookShelf[i]);
+      }
     }
+    return matchAuthSearch;
   }
-  return matchAuthSearch;
+  return false;
 };
 
 Library.prototype.getAuthors = function (authorName) {
@@ -156,27 +162,44 @@ if (this.bookShelf.length === 0) {
 };
 
 Library.prototype.getBooksByPubDate = function (title, year) {
-  var pubDateTitleConcate = [];
-  var titleSearchPubD = this.getBookByTitle(title);
+  /* This searches for title and publication date.
+  Users can search by partial information and partial year.
+  if you know the year and title, you can partially enter the year
+  and title to get results ("sh", "19"). Output is ["Shogun 1975"]
+  */
+  if(this.validInput(title, year)) {
+    var pubDateTitleConcate = [];
+    var titleSearchPubD = this.getBookByTitle(title);
 
-  if (titleSearchPubD.length > 0) {
-    for (var i = 0; i < titleSearchPubD.length; i++) {
-      if (titleSearchPubD[i].publishDate.toString().indexOf(year) > -1) {
-        pubDateTitleConcate.push(titleSearchPubD[i].title + " " + titleSearchPubD[i].publishDate.toString())
+    if (titleSearchPubD.length > 0) {
+      for (var i = 0; i < titleSearchPubD.length; i++) {
+        if (titleSearchPubD[i].publishDate.toString().indexOf(year) > -1) {
+          pubDateTitleConcate.push(titleSearchPubD[i].title + ", " + titleSearchPubD[i].publishDate.toString())
+        }
       }
     }
+    return pubDateTitleConcate;
   }
-  return pubDateTitleConcate;
+  return false;
 };
 
 Library.prototype.getBooksByYear = function (year) {
+  /* This is used to search by year as a string to find books that partially
+  match the year. This is also used in the searchAuthTitleYear to allow users
+  to allow users to search for books by year. The year is formatted to a string
+  and the output is set to the book object that matches the year input.
+  */
+
   var pubYear = [];
-  for (var i = 0; i < this.bookShelf.length; i++) {
-    if (this.bookShelf[i].publishDate.toString().indexOf(year) > -1) {
-      pubYear.push(this.bookShelf[i]);
+  if(this.validInput(year)) {
+    for (var i = 0; i < this.bookShelf.length; i++) {
+      if (this.bookShelf[i].publishDate.toString().indexOf(year) > -1) {
+        pubYear.push(this.bookShelf[i]);
+      }
     }
+    return pubYear;
   }
-  return pubYear;
+  return false;
 };
 
 Library.prototype.removeAllBooksInBookShelf = function () {
@@ -185,9 +208,15 @@ Library.prototype.removeAllBooksInBookShelf = function () {
 };
 
 Library.prototype.search = function (authorName, pubDate) {
+  // You need two quotations inside the parentheses to use the search function.
+  // One example is ("", ""). if you know the author and the year,
+  // you can search for the exact book. Otherwise,
+  // if you know the author you can type the name and leave the second quotation blank.
+  // if you know the year, you can type the year as a string, and leave the first quotation an empty string.
+  // examples, ("carl", "") Output equals ["Carl Sagan", "1997"]
+  // second example ("", "1997") Output equals ["Carl Sagan", "1997"]
   var searchContate = [];
   var aAuthSearch = this.getBooksByAuthor(authorName);
-
   if(aAuthSearch.length > 0) {
     for(var i = 0; i < aAuthSearch.length; i++) {
 
@@ -200,28 +229,29 @@ Library.prototype.search = function (authorName, pubDate) {
 };
 
 Library.prototype.searchAnyAuthTitleYear = function (args) {
-var searchResults = [];
-var searchAnyArg = this.getBooksByAuthor(args).concat(this.getBookByTitle(args), this.getBooksByYear(args));
-  if(searchAnyArg.length > 0) {
-    for (var i = 0; i < searchAnyArg.length; i++) {
-      searchResults.push(searchAnyArg[i])
+
+  var searchResults = [];
+  if (this.validInput(args)) {
+  var searchAnyArg = this.getBooksByAuthor(args).concat(this.getBookByTitle(args), this.getBooksByYear(args));
+    if(searchAnyArg.length > 0) {
+      for (var i = 0; i < searchAnyArg.length; i++) {
+        searchResults.push(searchAnyArg[i])
+      }
     }
+    return searchResults;
   }
-  return searchResults;
+  return false;
 };
 
 Library.prototype.searchPageNumber = function (pages, range) {
 var bookLengthGreater500 = [];
 var range = range || 100;
-
-
     for (var i = 0; i < this.bookShelf.length; i++) {
       var bookPagesSearch = this.bookShelf[i].numberOfPages;
       if (bookPagesSearch >= pages - range && bookPagesSearch <= pages + range) {
         bookLengthGreater500.push(this.bookShelf[i].author + ", " + this.bookShelf[i].title + ", " + this.bookShelf[i].numberOfPages);
       }
     }
-
   return bookLengthGreater500;
 };
 
