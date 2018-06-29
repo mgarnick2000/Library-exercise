@@ -169,6 +169,16 @@ Library.prototype.getBooksByPubDate = function (title, year) {
   return pubDateTitleConcate;
 };
 
+Library.prototype.getBooksByYear = function (year) {
+  var pubYear = [];
+  for (var i = 0; i < this.bookShelf.length; i++) {
+    if (this.bookShelf[i].publishDate.toString().indexOf(year) > -1) {
+      pubYear.push(this.bookShelf[i]);
+    }
+  }
+  return pubYear;
+};
+
 Library.prototype.removeAllBooksInBookShelf = function () {
   this.bookShelf = [];
   return true;
@@ -189,9 +199,9 @@ Library.prototype.search = function (authorName, pubDate) {
   return searchContate;
 };
 
-Library.prototype.searchAnyAuthTitle = function (args) {
+Library.prototype.searchAnyAuthTitleYear = function (args) {
 var searchResults = [];
-var searchAnyArg = this.getBooksByAuthor(args).concat(this.getBookByTitle(args));
+var searchAnyArg = this.getBooksByAuthor(args).concat(this.getBookByTitle(args), this.getBooksByYear(args));
   if(searchAnyArg.length > 0) {
     for (var i = 0; i < searchAnyArg.length; i++) {
       searchResults.push(searchAnyArg[i])
@@ -240,7 +250,7 @@ Library.prototype.pull = function () {
 // Local Storage End
 
 document.addEventListener('DOMContentLoaded', function() {
-  window.gLibrary = new Library ();
+  window.gLibrary = new Library ("gLibrary");
   // gLibrary.addBook(gBookOne)
   // gLibrary.addBook(gBookTwo)
   // gLibrary.addBook(gBookThree)
