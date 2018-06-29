@@ -47,6 +47,7 @@ var addNewBooks = 0;
       addNewBooks++;
     }
   }
+  this.storage();
   return addNewBooks;
 };
 
@@ -165,6 +166,11 @@ Library.prototype.getBooksByPubDate = function (title, year) {
     }
   }
   return pubDateTitleConcate;
+};
+
+Library.prototype.removeAllBooksInBookShelf = function () {
+  this.bookShelf = [];
+  return true;
 };
 
 Library.prototype.search = function (authorName, pubDate) {
