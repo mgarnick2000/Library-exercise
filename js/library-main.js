@@ -18,15 +18,15 @@ var Library;
 //   this._Libkey = key;
 // };
 // Library.prototype.bookShelf = new Array();
-Library.prototype.validInput = function (input) {
-  if (input && input !== "") {
-    return true
-  }
-  return false;
-};
+// Library.prototype.validInput = function (input) {
+//   if (input && input !== "") {
+//     return true
+//   }
+//   return false;
+// };
 
 Library.prototype.addBook = function(book) {
-if(this.validInput(book)) {
+if(book) {
   for (var i = 0; i < this.bookShelf.length; i++) {
     var currentBooks = this.bookShelf[i];
     if (book === currentBooks) {
@@ -92,7 +92,7 @@ Library.prototype.getRandomBook = function () {
 };
 
 Library.prototype.getBookByTitle = function (title) {
-if(this.validInput(title)) {
+if(title) {
   var matchTitleSearch = [];
     for (var i = 0; i < this.bookShelf.length; i++) {
       if (this.bookShelf[i].title.toLowerCase().indexOf(title.toLowerCase().trim()) > -1) {
@@ -106,7 +106,7 @@ if(this.validInput(title)) {
 
 
 Library.prototype.getBooksByAuthor = function (authorName) {
-if(this.validInput(authorName)) {
+if(authorName) {
   var matchAuthSearch = [];
     for (var i = 0; i < this.bookShelf.length; i++) {
       if (this.bookShelf[i].author.toLowerCase().indexOf(authorName.toLowerCase().trim()) > -1) {
@@ -146,29 +146,29 @@ if (this.bookShelf.length === 0) {
  return this.getRandomBook().author;
 };
 
-Library.prototype.getBooksByPubDate = function (title, year) {
-  /* This searches for title and publication date.
-  Users can search by partial information and partial year.
-  if you know the year and title, you can partially or completely enter the year
-  and title to get results ("sh", "19"). Output is ["Shogun 1975"].
-  if you know the year and title, users can enter it in the quotations
-   to find intended results.
-  */
-  if(this.validInput(title, year)) {
-    var pubDateTitleConcate = [];
-    var titleSearchPubD = this.getBookByTitle(title);
-
-    if (titleSearchPubD.length > 0) {
-      for (var i = 0; i < titleSearchPubD.length; i++) {
-        if (titleSearchPubD[i].publishDate.toString().indexOf(year) > -1) {
-          pubDateTitleConcate.push(titleSearchPubD[i].title + ", " + titleSearchPubD[i].publishDate.toString())
-        }
-      }
-    }
-    return pubDateTitleConcate;
-  }
-  return false;
-};
+// Library.prototype.getBooksByPubDate = function (title, year) {
+//   /* This searches for title and publication date.
+//   Users can search by partial information and partial year.
+//   if you know the year and title, you can partially or completely enter the year
+//   and title to get results ("sh", "19"). Output is ["Shogun 1975"].
+//   if you know the year and title, users can enter it in the quotations
+//    to find intended results.
+//   */
+//   if(title, year)) {
+//     var pubDateTitleConcate = [];
+//     var titleSearchPubD = this.getBookByTitle(title);
+//
+//     if (titleSearchPubD.length > 0) {
+//       for (var i = 0; i < titleSearchPubD.length; i++) {
+//         if (titleSearchPubD[i].publishDate.toString().indexOf(year) > -1) {
+//           pubDateTitleConcate.push(titleSearchPubD[i].title + ", " + titleSearchPubD[i].publishDate.toString())
+//         }
+//       }
+//     }
+//     return pubDateTitleConcate;
+//   }
+//   return false;
+// };
 
 Library.prototype.getBooksByYear = function (year) {
   /* This is used to search by year as a string to find books that partially
@@ -178,7 +178,7 @@ Library.prototype.getBooksByYear = function (year) {
   */
 
   var pubYear = [];
-  if(this.validInput(year)) {
+  if(year) {
     for (var i = 0; i < this.bookShelf.length; i++) {
       if (this.bookShelf[i].publishDate.toString().indexOf(year) > -1) {
         pubYear.push(this.bookShelf[i]);
@@ -200,34 +200,34 @@ Library.prototype.removeAllBooksInBookShelf = function () {
   return true;
 };
 
-Library.prototype.search = function (authorName, pubDate) {
-  // You need two quotations inside the parentheses to use the search function.
-  // One example is ("", ""). if you know the author and the year,
-  // you can search for the exact book. Otherwise,
-  // if you know the author you can type the name and leave the second quotation blank.
-  // if you know the year, you can type the year as a string, and leave the first quotation an empty string.
-  // examples, ("carl", "") Output equals ["Carl Sagan", "1997"]
-  // second example ("", "1997") Output equals ["Carl Sagan", "1997"]
-  var searchContate = [];
-  var aAuthSearch = this.getBooksByAuthor(authorName);
-  if(aAuthSearch.length > 0) {
-    for(var i = 0; i < aAuthSearch.length; i++) {
+// Library.prototype.search = function (authorName, pubDate) {
+//   // You need two quotations inside the parentheses to use the search function.
+//   // One example is ("", ""). if you know the author and the year,
+//   // you can search for the exact book. Otherwise,
+//   // if you know the author you can type the name and leave the second quotation blank.
+//   // if you know the year, you can type the year as a string, and leave the first quotation an empty string.
+//   // examples, ("carl", "") Output equals ["Carl Sagan", "1997"]
+//   // second example ("", "1997") Output equals ["Carl Sagan", "1997"]
+//   var searchContate = [];
+//   var aAuthSearch = this.getBooksByAuthor(authorName);
+//   if(aAuthSearch.length > 0) {
+//     for(var i = 0; i < aAuthSearch.length; i++) {
+//
+//       if (aAuthSearch[i].publishDate.toString().indexOf(pubDate) > -1) {
+//         searchContate.push(aAuthSearch[i].author + " " + aAuthSearch[i].publishDate);
+//       }
+//     }
+//   }
+//   return searchContate;
+// };
 
-      if (aAuthSearch[i].publishDate.toString().indexOf(pubDate) > -1) {
-        searchContate.push(aAuthSearch[i].author + " " + aAuthSearch[i].publishDate);
-      }
-    }
-  }
-  return searchContate;
-};
-
-Library.prototype.searchAnyAuthTitleYear = function (args) {
+Library.prototype.search = function (args) {
 /*
 This allows users to search for any book by the year, author, and title
 with full or partial search capability.
 */
   var searchResults = [];
-  if (this.validInput(args)) {
+  if (args) {
   var searchAnyArg = this.getBooksByAuthor(args).concat(this.getBookByTitle(args), this.getBooksByYear(args));
     if(searchAnyArg.length > 0) {
       for (var i = 0; i < searchAnyArg.length; i++) {
@@ -244,14 +244,14 @@ Library.prototype.searchPageNumber = function (pages, range) {
   this allows users to search for books by the number of pages. Users simply enter
   a number in the parentheses and a list of books from the library within 100 pages.
   */
-var bookLengthGreater500 = [];
-var range = range || 100;
-    for (var i = 0; i < this.bookShelf.length; i++) {
-      var bookPagesSearch = this.bookShelf[i].numberOfPages;
-      if (bookPagesSearch >= pages - range && bookPagesSearch <= pages + range) {
-        bookLengthGreater500.push(this.bookShelf[i].author + ", " + this.bookShelf[i].title + ", " + this.bookShelf[i].numberOfPages);
-      }
+  var bookLengthGreater500 = [];
+  var range = range || 100;
+  for (var i = 0; i < this.bookShelf.length; i++) {
+    var bookPagesSearch = this.bookShelf[i].numberOfPages;
+    if (bookPagesSearch >= pages - range && bookPagesSearch <= pages + range) {
+      bookLengthGreater500.push(this.bookShelf[i].author + ", " + this.bookShelf[i].title + ", " + this.bookShelf[i].numberOfPages);
     }
+  }
   return bookLengthGreater500;
 };
 
@@ -319,4 +319,4 @@ var gBookFifteen = new Book ("Assassin's Apprentice", "Robin Hobb", 448, new Dat
 var gBookSixteen = new Book ("Genghis Khan and the Making of the Modern World", "Jack Weatherford", 312, new Date(2005, 02, 22));
 var gBookSeventeen = new Book("Pale Blue Dot: A Vision of the Human Future in Space", "Carl Sagan", 386, new Date(1997, 08, 08));
 var gBookEighteen = new Book("A Brief History of Time", "Stephen Hawking", 212, new Date (1998, 08, 01));
-var booksLibrary = [gBookOne, gBookTwo, gBookThree, gBookFour, gBookFive, gBookSix, gBookSeven, gBookEight, gBookNine, gBookTen, gBookEleven, gBookTwelve, gBookThirteen, gBookFourteen, gBookFifteen, gBookSixteen, gBookSeventeen, gBookEighteen];
+var booksLibrary = [gBookOne, gBookTwo, gBookThree, gBookFour, gBookFive, gBookSix, gBookSeven, gBookEight, gBookNine, gBookTen, gBookEleven, gBookTwelve, gBookThirteen,  gBookFifteen, gBookSixteen, gBookSeventeen, gBookEighteen];
