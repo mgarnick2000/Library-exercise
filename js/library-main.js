@@ -53,8 +53,6 @@ var addNewBooks = 0;
 };
 
 Library.prototype.removeBookByTitle = function (title) {
-//   Purpose: Remove book from from the books array by its title. 
-//   Return: boolean true if the book(s) were removed, false if no books match
   for (var i = 0; i < this.bookShelf.length; i++) {
     if(title.toLowerCase().trim() === this.bookShelf[i].title.toLowerCase().trim()) {
       this.bookShelf.splice(i,1);
@@ -68,8 +66,6 @@ Library.prototype.removeBookByTitle = function (title) {
 
 
 Library.prototype.removeBookByAuthor = function (authorName) {
-  // Purpose: Remove a specific book from your books array by the author name. 
-  // Return: boolean true if the book(s) were removed, false if no books match 
 var authorRemove = 0;
   for (var i = 0; i < this.bookShelf.length; i++) {
     if (authorName.toLowerCase().trim() === this.bookShelf[i].author.toLowerCase().trim()) {
@@ -88,8 +84,6 @@ var authorRemove = 0;
 };
 
 Library.prototype.getRandomBook = function () {
-  // Purpose: Return a random book object from your books array 
-  // Return: book object if you find a book, null if there are no books
   if(this.bookShelf.length === 0) {
     return null;
   }
@@ -97,10 +91,6 @@ Library.prototype.getRandomBook = function () {
 };
 
 Library.prototype.getBookByTitle = function (title) {
-//   Purpose: Return all books that completely or partially matches the string title
-//   passed into the function 
-//   Return: array of book objects if you find books with matching titles, empty array if
-//   no books are found 
 if(this.validInput(title)) {
   var matchTitleSearch = [];
     for (var i = 0; i < this.bookShelf.length; i++) {
@@ -115,8 +105,6 @@ if(this.validInput(title)) {
 
 
 Library.prototype.getBooksByAuthor = function (authorName) {
-  // Purpose: Finds all books where the author’s name partially or completely match- es the authorName argument passed to the function.
-  // Return: array of books if you find books with match authors, empty array if no books match
 if(this.validInput(authorName)) {
   var matchAuthSearch = [];
     for (var i = 0; i < this.bookShelf.length; i++) {
@@ -130,8 +118,6 @@ if(this.validInput(authorName)) {
 };
 
 Library.prototype.getAuthors = function (authorName) {
-//   Purpose: Find the distinct authors’ names from all books in your library 
-//   Return: array of strings the names of all distinct authors, empty array if no books exist or if no authors exist 
 var indivAuthors = [];
 // var allAuthors = this.getBooksByAuthor(authorName);
 var allAuthors = [];
@@ -153,8 +139,6 @@ var allAuthors = [];
 };
 
 Library.prototype.getRandomAuthorName = function () {
-//  Purpose: Retrieves a random author name from your books collection 
-//  Return: string author name, null if no books exist
 if (this.bookShelf.length === 0) {
   return null;
 };
