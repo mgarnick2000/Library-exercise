@@ -229,10 +229,15 @@ with full or partial search capability.
 var searchResults = [];
 if (args) {
 var searchAnyArg = this.getBooksByAuthor(args).concat(this.getBookByTitle(args), this.getBooksByYear(args));
-  if(searchAnyArg.length > 0) {
-    for (var i = 0; i < searchAnyArg.length; i++) {
-      searchResults.push(searchAnyArg[i])
-    }
+  if(searchAnyArg.length > 1) {
+    searchResults = searchAnyArg.filter(function(value, index, self) {
+      return self.indexOf(value) === index
+  //   for (var i = 0; i < searchAnyArg.length; i++) {
+  //     searchResults.push(searchAnyArg[i])
+  //   }
+  // }
+  // return searchResults;
+    })
   }
   return searchResults;
 }
