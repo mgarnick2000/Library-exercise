@@ -4,6 +4,11 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="fonts/glyphicons-halflings-regular.eot">
+    <link rel="stylesheet" href="fonts/glyphicons-halflings-regular.svg">
+    <link rel="stylesheet" href="fonts/glyphicons-halflings-regular.woff2">
+    <link rel="stylesheet" href="fonts/glyphicons-halflings-regular.ttf">
+    <link rel="stylesheet" href="fonts/glyphicons-halflings-regular.woff">
     <title>Library exercise</title>
   </head>
   <body>
@@ -46,13 +51,163 @@
           <button class="btn btn-default btn-md show-rand-auth-btn" type="rand-book">Random Author</button>
         </div>
       </div>
-      <div class="row">
-        <div class="col-md-1 library-margin">col-md-1</div>
-        <div class="col-md-3 lib-title">col-md-3</div>
-        <div class="col-md-3 lib-author">col-md-3</div>
-        <div class="col-md-1 lib-page">col-md-1</div>
-        <div class="col-md-2 lib-pub-date">col-md-2</div>
-        <div class="col-md-2 lib-rating">col-md-2</div>
+      <div class="row table-library">
+        <div class="col-md-1 library-margin"></div>
+        <div class="col-md-3 text-left lib-title">Title</div>
+        <div class="col-md-3 text-left lib-author">Author</div>
+        <div class="col-md-1 text-left lib-page">Pages</div>
+        <div class="col-md-2 text-left lib-pub-date">Publication Date</div>
+        <div class="col-md-2 text-left lib-rating">Ratings</div>
+      </div>
+      <div class="row library-contents">
+        <div class="col-md-1 library-margin"></div>
+        <div class="col-md-3 text-left lib-title-content">
+          <p>Promise of Blood</p>
+        </div>
+        <div class="col-md-3 text-left lib-author-content">
+          <p>Brian McClellan</p>
+        </div>
+        <div class="col-md-1 text-left lib-page-content">
+          <p>545</p>
+        </div>
+        <div class="col-md-2 text-left lib-pubdate-content">
+          <p>2013</p>
+        </div>
+        <div class="col-md-2 text-left lib-rating-content">
+          <button type="button" class="btn btn-default center-block rating-stars">
+            <span class="glyphicon glyphicon-star checked" aria-hidden="true"></span>
+            <span class="glyphicon glyphicon-star checked" aria-hidden="true"></span>
+            <span class="glyphicon glyphicon-star checked" aria-hidden="true"></span>
+            <span class="glyphicon glyphicon-star checked" aria-hidden="true"></span>
+            <span class="glyphicon glyphicon-star checked" aria-hidden="true"></span>
+          </button>
+        </div>
+      </div>
+        <div class="row library-contents">
+          <div class="col-md-1 library-margin"></div>
+          <div class="col-md-3 text-left lib-title-content">
+            <p>The Blade Itself</p>
+          </div>
+          <div class="col-md-3 text-left lib-author-content">
+            <p>Joe Abercombie</p>
+          </div>
+          <div class="col-md-1 text-left lib-page-content">
+            <p>560</p>
+          </div>
+          <div class="col-md-2 text-left lib-pubdate-content">
+            <p>2015</p>
+          </div>
+          <div class="col-md-2 text-left lib-rating-content">
+            <button type="button" class="btn btn-default center-block rating-stars">
+              <span class="glyphicon glyphicon-star checked" aria-hidden="true"></span>
+              <span class="glyphicon glyphicon-star checked" aria-hidden="true"></span>
+              <span class="glyphicon glyphicon-star checked" aria-hidden="true"></span>
+              <span class="glyphicon glyphicon-star checked" aria-hidden="true"></span>
+              <span class="glyphicon glyphicon-star checked" aria-hidden="true"></span>
+            </button>
+          </div>
+        </div>
+        <div class="row library-contents">
+          <div class="col-md-1 library-margin"></div>
+          <div class="col-md-3 text-left lib-title-content">
+            <p>The Black Company</p>
+          </div>
+          <div class="col-md-3 text-left lib-author-content">
+            <p>Glen Cook</p>
+          </div>
+          <div class="col-md-1 text-left lib-page-content">
+            <p>319</p>
+          </div>
+          <div class="col-md-2 text-left lib-pubdate-content">
+            <p>1984</p>
+          </div>
+          <div class="col-md-2 text-left lib-rating-content">
+            <button type="button" class="btn btn-default center-block rating-stars">
+              <span class="glyphicon glyphicon-star checked" aria-hidden="true"></span>
+              <span class="glyphicon glyphicon-star checked" aria-hidden="true"></span>
+              <span class="glyphicon glyphicon-star checked" aria-hidden="true"></span>
+              <span class="glyphicon glyphicon-star checked" aria-hidden="true"></span>
+              <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+            </button>
+          </div>
+        </div>
+        <div class="row library-contents">
+          <div class="col-md-1 library-margin"></div>
+          <div class="col-md-3 text-left lib-title-content">
+            <p>A Game of Thrones</p>
+          </div>
+          <div class="col-md-3 text-left lib-author-content">
+            <p>George R.R Martin</p>
+          </div>
+          <div class="col-md-1 text-left lib-page-content">
+            <p>694</p>
+          </div>
+          <div class="col-md-2 text-left lib-pubdate-content">
+            <p>1996</p>
+          </div>
+          <div class="col-md-2 text-left lib-rating-content">
+            <button type="button" class="btn btn-default center-block rating-stars">
+              <span class="glyphicon glyphicon-star checked" aria-hidden="true"></span>
+              <span class="glyphicon glyphicon-star checked" aria-hidden="true"></span>
+              <span class="glyphicon glyphicon-star checked" aria-hidden="true"></span>
+              <span class="glyphicon glyphicon-star checked" aria-hidden="true"></span>
+              <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+            </button>
+          </div>
+        </div>
+        <div class="row library-contents">
+          <div class="col-md-1 library-margin"></div>
+          <div class="col-md-3 text-left lib-title-content">
+            <p>The Way of Kings</p>
+          </div>
+          <div class="col-md-3 text-left lib-author-content">
+            <p>Brandon Sanderson</p>
+          </div>
+          <div class="col-md-1 text-left lib-page-content">
+            <p>1007</p>
+          </div>
+          <div class="col-md-2 text-left lib-pubdate-content">
+            <p>2010</p>
+          </div>
+          <div class="col-md-2 text-left lib-rating-content">
+            <button type="button" class="btn btn-default center-block rating-stars">
+              <span class="glyphicon glyphicon-star checked" aria-hidden="true"></span>
+              <span class="glyphicon glyphicon-star checked" aria-hidden="true"></span>
+              <span class="glyphicon glyphicon-star checked" aria-hidden="true"></span>
+              <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+              <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+            </button>
+          </div>
+        </div>
+        <div class="row library-contents">
+          <div class="col-md-1 library-margin"></div>
+          <div class="col-md-3 text-left lib-title-content">
+            <p>Shogun</p>
+          </div>
+          <div class="col-md-3 text-left lib-author-content">
+            <p>James Clavell</p>
+          </div>
+          <div class="col-md-1 text-left lib-page-content">
+            <p>1152</p>
+          </div>
+          <div class="col-md-2 text-left lib-pubdate-content">
+            <p>1975</p>
+          </div>
+          <div class="col-md-2 text-left lib-rating-content">
+            <button type="button" class="btn btn-default center-block rating-stars">
+              <span class="glyphicon glyphicon-star checked" aria-hidden="true"></span>
+              <span class="glyphicon glyphicon-star checked" aria-hidden="true"></span>
+              <span class="glyphicon glyphicon-star checked" aria-hidden="true"></span>
+              <span class="glyphicon glyphicon-star checked" aria-hidden="true"></span>
+              <span class="glyphicon glyphicon-star checked" aria-hidden="true"></span>
+            </button>
+          </div>
+        </div>
+        <footer class="row text-center foot-page">
+          <div class="col-md-2"></div>
+          <div class="col-md-8">Accessibility Copyright Information Privacy Policy</div>
+          <div class="col-md-2"></div>
+        </footer>
       </div>
   <script src="js/jQuery.js"></script>
   <script src="js/bootstrap.js"></script>
