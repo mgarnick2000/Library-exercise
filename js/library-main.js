@@ -27,60 +27,60 @@ var Library;
 
 Library.prototype.addBook = function(book) {
 if(book) {
-  for (var i = 0; i < this.bookShelf.length; i++) {
-    var currentBooks = this.bookShelf[i];
-    if (book === currentBooks) {
-      console.log("this book already exists.");
-      return false;
-      }
-    }
-    this.bookShelf.push(book);
-    this.storage();
-    return true;
+for (var i = 0; i < this.bookShelf.length; i++) {
+  var currentBooks = this.bookShelf[i];
+  if (book === currentBooks) {
+    console.log("this book already exists.");
+    return false;
   }
-  return false;
+}
+  this.bookShelf.push(book);
+  this.storage();
+  return true;
+}
+return false;
 }
 
 Library.prototype.addBooks = function (books) {
 var addNewBooks = 0;
-  for (var i = 0; i < books.length; i++) {
-    if (this.addBook(books[i]) && Array.isArray(books)) {
-      this.addBook(books[i]);
-      addNewBooks++;
-    }
+for (var i = 0; i < books.length; i++) {
+  if (this.addBook(books[i]) && Array.isArray(books)) {
+    this.addBook(books[i]);
+    addNewBooks++;
   }
-  this.storage();
-  return addNewBooks;
+}
+this.storage();
+return addNewBooks;
 };
 
 Library.prototype.removeBookByTitle = function (title) {
-  for (var i = 0; i < this.bookShelf.length; i++) {
-    if(title.toLowerCase().trim() === this.bookShelf[i].title.toLowerCase().trim()) {
-      this.bookShelf.splice(i,1);
-      this.storage();
-      return true;
-    }
+for (var i = 0; i < this.bookShelf.length; i++) {
+  if(title.toLowerCase().trim() === this.bookShelf[i].title.toLowerCase().trim()) {
+  this.bookShelf.splice(i,1);
+  this.storage();
+  return true;
   }
-  console.log("No books match the title.");
-  return false
+}
+console.log("No books match the title.");
+return false
 };
 
 
 Library.prototype.removeBookByAuthor = function (authorName) {
 var authorRemove = 0;
-  for (var i = 0; i < this.bookShelf.length; i++) {
-    if (authorName.toLowerCase().trim() === this.bookShelf[i].author.toLowerCase().trim()) {
-      this.bookShelf.splice(i,1);
-      i--;
-      authorRemove++;
-    }
+for (var i = 0; i < this.bookShelf.length; i++) {
+  if (authorName.toLowerCase().trim() === this.bookShelf[i].author.toLowerCase().trim()) {
+    this.bookShelf.splice(i,1);
+    i--;
+    authorRemove++;
   }
-  if (authorRemove > 0) {
-    this.storage();
-    return true;
-  } else {
-    console.log("No books match that Author's name.");
-    return false;
+}
+if (authorRemove > 0) {
+  this.storage();
+  return true;
+} else {
+  console.log("No books match that Author's name.");
+  return false;
   }
 };
 
@@ -93,29 +93,29 @@ Library.prototype.getRandomBook = function () {
 
 Library.prototype.getBookByTitle = function (title) {
 if(title) {
-  var matchTitleSearch = [];
-    for (var i = 0; i < this.bookShelf.length; i++) {
-      if (this.bookShelf[i].title.toLowerCase().indexOf(title.toLowerCase().trim()) > -1) {
-        matchTitleSearch.push(this.bookShelf[i]);
-      }
+var matchTitleSearch = [];
+  for (var i = 0; i < this.bookShelf.length; i++) {
+    if (this.bookShelf[i].title.toLowerCase().indexOf(title.toLowerCase().trim()) > -1) {
+      matchTitleSearch.push(this.bookShelf[i]);
     }
-    return matchTitleSearch;
   }
-  return false;
+  return matchTitleSearch;
+}
+return false;
 };
 
 
 Library.prototype.getBooksByAuthor = function (authorName) {
 if(authorName) {
-  var matchAuthSearch = [];
-    for (var i = 0; i < this.bookShelf.length; i++) {
-      if (this.bookShelf[i].author.toLowerCase().indexOf(authorName.toLowerCase().trim()) > -1) {
-        matchAuthSearch.push(this.bookShelf[i]);
-      }
+var matchAuthSearch = [];
+  for (var i = 0; i < this.bookShelf.length; i++) {
+    if (this.bookShelf[i].author.toLowerCase().indexOf(authorName.toLowerCase().trim()) > -1) {
+      matchAuthSearch.push(this.bookShelf[i]);
     }
-    return matchAuthSearch;
   }
-  return false;
+  return matchAuthSearch;
+}
+return false;
 };
 
 Library.prototype.getAuthors = function (authorName) {
@@ -130,13 +130,13 @@ var allAuthors = [];
 //       }
 //     }
 //   }
-  for (var i = 0; i < this.bookShelf.length; i++) {
-      allAuthors.push(this.bookShelf[i].author);
-    }
-      indivAuthors = allAuthors.filter(function(value, index, self) {
-        return self.indexOf(value) === index
-      });
-  return indivAuthors;
+for (var i = 0; i < this.bookShelf.length; i++) {
+  allAuthors.push(this.bookShelf[i].author);
+}
+  indivAuthors = allAuthors.filter(function(value, index, self) {
+    return self.indexOf(value) === index
+  });
+return indivAuthors;
 };
 
 Library.prototype.getRandomAuthorName = function () {
@@ -179,14 +179,14 @@ Library.prototype.getBooksByYear = function (year) {
 
   var pubYear = [];
   if(year) {
-    for (var i = 0; i < this.bookShelf.length; i++) {
-      if (this.bookShelf[i].publishDate.toString().indexOf(year) > -1) {
-        pubYear.push(this.bookShelf[i]);
-      }
+  for (var i = 0; i < this.bookShelf.length; i++) {
+    if (this.bookShelf[i].publishDate.toString().indexOf(year) > -1) {
+      pubYear.push(this.bookShelf[i]);
     }
+  }
     return pubYear;
   }
-  return false;
+return false;
 };
 
 Library.prototype.removeAllBooksInBookShelf = function () {
@@ -196,8 +196,8 @@ Library.prototype.removeAllBooksInBookShelf = function () {
   and was causing duplicates. i had to remove books by author to remove duplicates.
   this function expedites this process. it is long on purpose to discourage use.
   */
-  this.bookShelf = [];
-  return true;
+this.bookShelf = [];
+return true;
 };
 
 // Library.prototype.search = function (authorName, pubDate) {
@@ -226,17 +226,17 @@ Library.prototype.search = function (args) {
 This allows users to search for any book by the year, author, and title
 with full or partial search capability.
 */
-  var searchResults = [];
-  if (args) {
-  var searchAnyArg = this.getBooksByAuthor(args).concat(this.getBookByTitle(args), this.getBooksByYear(args));
-    if(searchAnyArg.length > 0) {
-      for (var i = 0; i < searchAnyArg.length; i++) {
-        searchResults.push(searchAnyArg[i])
-      }
+var searchResults = [];
+if (args) {
+var searchAnyArg = this.getBooksByAuthor(args).concat(this.getBookByTitle(args), this.getBooksByYear(args));
+  if(searchAnyArg.length > 0) {
+    for (var i = 0; i < searchAnyArg.length; i++) {
+      searchResults.push(searchAnyArg[i])
     }
-    return searchResults;
   }
-  return false;
+  return searchResults;
+}
+return false;
 };
 
 Library.prototype.searchPageNumber = function (pages, range) {
