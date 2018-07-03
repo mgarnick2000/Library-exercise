@@ -5,6 +5,13 @@ body {
 
 .login-user-box {
   border: 1px solid black;
+  background-image: url("../assets/black-dreamstimeback.png");
+  height: 30px;
+}
+
+.login-info {
+  color: #ffffff;
+  font-size: 12px;
 }
 .lib-header {
   border: 1px solid black;
