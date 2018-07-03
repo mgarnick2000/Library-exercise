@@ -7,7 +7,7 @@ body {
   margin-bottom: 5px;
 }
 .login-user-box {
-  border: 1px solid black;
+  /* border: 1px solid black; */
   /* background-image: url("../assets/black-dreamstimeback.png"); */
   height: 30px;
   margin-bottom: 10px;
@@ -52,12 +52,22 @@ body {
 .lib-header {
   border: 1px solid black;
 }
+.library-image-back {
+  /* border: 1px solid black; */
+  background-image: url("../assets/library-back-image.jpg");
+  height: 600px;
+}
+
 .img-back {
-  border: 1px solid black;
+  color: #ffffff;
+  font-family: Times,Garamond, sans-serif;
+  font-size: 34px;
+  margin-top: 200px;
+  margin-right: 100px;
 }
 
 .img-margin {
-  border: 1px solid black;
+  /* border: 1px solid black; */
 }
 .show-rand-btn {
   border: 1px solid black;
