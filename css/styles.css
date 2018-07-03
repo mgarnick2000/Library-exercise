@@ -1,0 +1,61 @@
+
+body {
+    box-sizing: border-box;
+}
+
+.login-user-box {
+  border: 1px solid black;
+}
+.lib-header {
+  border: 1px solid black;
+}
+.rem-books {
+  border: 1px solid black;
+}
+.lib-banner {
+  border: 1px solid black;
+}
+
+.add-books {
+  border: 1px solid black;
+}
+.lib-header {
+  border: 1px solid black;
+}
+.img-back {
+  border: 1px solid black;
+}
+
+.img-margin {
+  border: 1px solid black;
+}
+.show-rand-btn {
+  border: 1px solid black;
+}
+.search-func {
+  border: 1px solid black;
+}
+.show-auth-rand-book {
+  border: 1px solid black;
+}
+
+.library-margin {
+  border: 1px solid black;
+}
+.lib-title {
+  border: 1px solid black;
+}
+
+.lib-author {
+  border: 1px solid black;
+}
+.lib-page {
+  border: 1px solid black;
+}
+
+.lib-pub-date {
+  border: 1px solid black;
+}
+.lib-rating {
+  border: 1px solid black;
+}
