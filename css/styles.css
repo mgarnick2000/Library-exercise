@@ -20,7 +20,7 @@ body {
 
 .banner {
   background-image: url("../assets/blue-hexagon-pattern.jpg");
-  height: 250px;
+  height: 200px;
   margin-bottom: 5px;
 }
 .lib-header {
@@ -55,6 +55,7 @@ body {
 .library-image-back {
   /* border: 1px solid black; */
   background-image: url("../assets/library-back-image.jpg");
+  background-size: cover;
   height: 600px;
 }
 
@@ -63,20 +64,53 @@ body {
   font-family: Times,Garamond, sans-serif;
   font-size: 34px;
   margin-top: 200px;
-  margin-right: 100px;
 }
 
 .img-margin {
   /* border: 1px solid black; */
 }
-.show-rand-btn {
-  border: 1px solid black;
+
+.rand-search-show-back {
+  /* background-image: url("../assets/grey-color-background.jpg"); */
+  background-color: #F7F7F7;
+  height: 70px;
+  margin-top: 2px;
+  margin-bottom: 5px;
+}
+.show-rand-book-btn {
+  border: 1px solid #F0EAEA;
+  /* margin-left: 12px; */
+  float: left;
+  margin-top: 12px;
+  margin left: 5px;
+  /* margin-right: 5px; */
+}
+.show-rand-auth-btn {
+  border: 1px solid #F0EAEA;
+  /* margin-left: 12px; */
+  float: right;
+  margin-top: 12px;
+  /* margin left: 5px; */
+  margin-right: 5px;
 }
 .search-func {
-  border: 1px solid black;
+  /* border: 1px solid black; */
 }
 .show-auth-rand-book {
-  border: 1px solid black;
+  /* border: 1px solid black; */
+}
+
+#exampleInputSearch {
+  height: 35px;
+  width: 260px;
+  border-radius: 10px;
+  margin-top: 12px;
+  border: 1px solid #F0EAEA;
+}
+
+.search-btn {
+  margin-top: 10px;
+
 }
 
 .library-margin {

@@ -27,10 +27,24 @@
         <div class="col-md-11 text-right img-back">Welcome to the library, where literary dreams come true; and where imaginations grow.</div>
         <div class="col-md-1 img-margin"></div>
       </div>
-      <div class="row">
-        <div class="col-md-4 show-rand-btn">col-md-4</div>
-        <div class="col-md-4 search-func">col-md-4</div>
-        <div class="col-md-4 show-auth-rand-book">col-md-4</div>
+      <div class="row rand-search-show-back">
+        <div class="col-md-4">
+          <button class="btn btn-default btn-md show-rand-book-btn" type="show-books">Show All Books</button>
+          <button class="btn btn-default btn-md show-rand-book-btn" type="rand-book">Random Book</button>
+        </div>
+        <div class="col-md-4 search-func">
+          <form class="form-inline">
+            <div class="form-group">
+              <label class="sr-only" for="exampleInputSearch">Search feature</label>
+              <input type="title-author" class="form-control" id="exampleInputSearch" placeholder="Search Title or Author">
+            </div>
+            <button class="btn btn-default btn-md search-btn" type="search-books">Search</button>
+          </form>
+        </div>
+        <div class="col-md-4 show-auth-rand-book">
+          <button class="btn btn-default btn-md show-rand-auth-btn" type="show-books">Show All Authors</button>
+          <button class="btn btn-default btn-md show-rand-auth-btn" type="rand-book">Random Author</button>
+        </div>
       </div>
       <div class="row">
         <div class="col-md-1 library-margin">col-md-1</div>
