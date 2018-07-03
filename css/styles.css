@@ -2,29 +2,52 @@
 body {
     box-sizing: border-box;
 }
-
+.login-row {
+  background-image: url("../assets/black-dreamstimeback.png");
+  margin-bottom: 5px;
+}
 .login-user-box {
   border: 1px solid black;
-  background-image: url("../assets/black-dreamstimeback.png");
+  /* background-image: url("../assets/black-dreamstimeback.png"); */
   height: 30px;
+  margin-bottom: 10px;
 }
 
 .login-info {
   color: #ffffff;
   font-size: 12px;
 }
+
+.banner {
+  background-image: url("../assets/blue-hexagon-pattern.jpg");
+  height: 250px;
+  margin-bottom: 5px;
+}
 .lib-header {
-  border: 1px solid black;
+  /* border: 1px solid black; */
+  /* background-image: url("../assets/blue-hexagon-pattern.jpg"); */
 }
 .rem-books {
-  border: 1px solid black;
+  /* border: 1px solid black; */
+  font-family: Times, Garamond, sans-serif;
+  margin-top: 110px;
+  /* background-image: url("../assets/blue-hexagon-pattern.jpg"); */
 }
 .lib-banner {
-  border: 1px solid black;
+  /* border: 1px solid black; */
+  color: #ffffff;
+  font-family: Times,Garamond, sans-serif;
+  font-size: 60px;
+  margin-top: 80px;
+
+  /* background-image: url("../assets/blue-hexagon-pattern.jpg"); */
 }
 
 .add-books {
-  border: 1px solid black;
+  font-family: Times, Garamond, sans-serif;
+  margin-top: 110px;
+  /* border: 1px solid black; */
+  /* background-image: url("../assets/blue-hexagon-pattern.jpg"); */
 }
 .lib-header {
   border: 1px solid black;

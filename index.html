@@ -8,16 +8,20 @@
   </head>
   <body>
     <div class="container-fluid">
-      <div class="row">
+      <div class="row login-row">
         <div class="col-md-8 login-user-box"></div>
         <div class="col-md-4 login-user-box login-info">Login</div>
       </div>
-      <div class="row">
-        <div class="col-md-1 lib-header">col-md-1</div>
-        <div class="col-md-2 rem-books">col-md-2</div>
-        <div class="col-md-6 lib-banner">col-md-6</div>
-        <div class="col-md-2 add-books">col-md-2</div>
-        <div class="col-md-1 lib-header">col-md-1</div>
+      <div class="row banner">
+        <div class="col-md-1 lib-header"></div>
+        <div class="col-md-2 rem-books">
+          <button class="btn btn-default btn-lg" type="remove-books"> - Remove Books</button>
+        </div>
+        <div class="col-md-6 text-center center-block lib-banner">The Library</div>
+        <div class="col-md-2 add-books">
+          <button class="btn btn-default btn-lg" type="add-more-books"> + Add Books</button>
+        </div>
+        <div class="col-md-1 lib-header"></div>
       </div>
       <div class="row">
         <div class="col-md-11 img-back">col-md-11</div>
@@ -36,6 +40,8 @@
         <div class="col-md-2 lib-pub-date">col-md-2</div>
         <div class="col-md-2 lib-rating">col-md-2</div>
       </div>
+  <script src="js/jQuery.js"></script>
+  <script src="js/bootstrap.js"></script>
   <script src="js/library-main.js"></script>
   </body>
 </html>
