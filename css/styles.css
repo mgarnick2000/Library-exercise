@@ -62,7 +62,7 @@ body {
   color: green;
 }
 .lib-header {
-  border: 1px solid black;
+  /* border: 1px solid black; */
 }
 .library-image-back {
   /* border: 1px solid black; */
@@ -129,7 +129,7 @@ body {
 
 .table-library {
   /* background-image: url("../assets/grey-library-contents-background.jpeg"); */
-  background-color: #F9F9F9;
+  /* background-color: #F9F9F9; */
   /* margin: 20px 0px; */
   padding-bottom: 10px;
 
@@ -138,6 +138,12 @@ body {
 .library-margin {
   /* border: 1px solid black; */
 }
+
+.img-cover-header {
+  font-weight: bold;
+}
+
+
 .lib-title {
   /* border: 1px solid black; */
   font-weight: bold;
@@ -164,9 +170,16 @@ body {
 .library-contents {
   /* background-image: url("../assets/grey-library-contents-background.jpeg"); */
   background-color: #F9F9F9;
+  border: 1px solid lightgray;
 }
+
+.img-cover-thumbnail {
+  /* border: 1px solid #F0EAEA; */
+  /* width: 12.4999% */
+}
+
 .lib-title-content {
-  border: 1px solid #F0EAEA;
+  /* border: 1px solid #F0EAEA; */
   height: 50px;
 }
 
@@ -176,7 +189,7 @@ body {
 
 
 .lib-author-content {
-  border: 1px solid #F0EAEA;
+  /* border: 1px solid #F0EAEA; */
   height: 50px;
 }
 
@@ -185,7 +198,7 @@ body {
 }
 
 .lib-page-content {
-  border: 1px solid #F0EAEA;
+  /* border: 1px solid #F0EAEA; */
   height: 50px;
 }
 
@@ -193,7 +206,7 @@ body {
   margin-top: 15px;
 }
 .lib-pubdate-content {
-  border: 1px solid #F0EAEA;
+  /* border: 1px solid #F0EAEA; */
   height: 50px;
 }
 
@@ -201,13 +214,13 @@ body {
   margin-top: 15px;
 }
 .lib-rating-content {
-  border: 1px solid #F0EAEA;
+  /* border: 1px solid #F0EAEA; */
   height: 50px;
   width: 12.4999%;
 }
 
 .rating-stars {
-  margin-top: 10px;
+  margin-top: -10px;
   border: none;
   background-color: #F9F9F9;
 }
@@ -215,6 +228,15 @@ body {
 .checked {
   color: gold;
 }
+
+
+.delete-top-right {
+  margin-left: 100px;
+  margin-top: 2px;
+  opacity: 0.25;
+}
+
+
 .foot-page {
   color: #939393;
   height: 20px;
