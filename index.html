@@ -20,6 +20,7 @@
       <div class="row banner">
         <div class="col-md-1 lib-header"></div>
         <div class="col-md-2 rem-books">
+          <!-- remove books modal  -->
           <button class="btn btn-default btn-lg" type="remove-books" data-toggle="modal" data-target="#remBkModal"> - Remove Books</button>
           <div id="remBkModal" class="modal fade" role="dialog">
             <div class="modal-dialog">
@@ -30,15 +31,26 @@
                   <h4 class="modal-title">Remove Books</h4>
                 </div>
                 <div class="modal-body">
-                  <p>Some text in the modal.</p>
+                  <form>
+                    <div class="form-group">
+                      <label for="rem-bk-title" class="control-label">Remove By Title</label>
+                      <input type="text" class="form-control" id="rem-bk-title">
+                    </div>
+                    <div class="form-group">
+                      <label for="rem-bk-author" class="control-label">Remove By Author</label>
+                      <input type="text" class="form-control" id="rem-bk-author">
+                    </div>
+                  </form>
+                  <!-- <p>Some text in the modal.</p> -->
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Remove Books</button>
                 </div>
               </div>
             </div>
           </div>
         </div>
+        <!-- end remove books Modal -->
         <div class="col-md-6 text-center center-block lib-banner">The Library</div>
         <div class="col-md-2 add-books">
           <!-- Add Book Modal -->
