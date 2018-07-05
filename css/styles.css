@@ -23,9 +23,9 @@ body {
 
 
 .banner {
-  background-image: url("../assets/Library-catalogues.jpg");
+  background-image: url("../assets/library-back-image.jpg");
   background-size: cover;
-  height: 200px;
+  height: 400px;
   /* margin-bottom: 1px; */
 }
 .lib-header {
@@ -48,6 +48,11 @@ body {
   /* background-image: url("../assets/blue-hexagon-pattern.jpg"); */
 }
 
+.lib-quote {
+  font-size: 24px;
+  margin-top: 20px;
+}
+
 .add-books {
   font-family: Times, Garamond, sans-serif;
   margin-top: 90px;
@@ -67,18 +72,16 @@ body {
 }
 .library-image-back {
   /* border: 1px solid black; */
-  background-image: url("../assets/library-back-image.jpg");
+  /* background-image: url("../assets/library-back-image.jpg");
   background-size: cover;
-  height: 400px;
+  height: 400px; */
 }
 
 .img-back {
   color: #ffffff;
   font-family: Times,Garamond, sans-serif;
   font-size: 34px;
-  margin-top: 100px;
-  margin-left: 500px;
-  width: 500px;
+  /* margin-top: 200px; */
 }
 
 .img-margin {
@@ -174,7 +177,6 @@ body {
 
 .delete-btn {
   font-weight: bold;
-  margin-left: 50px;
 }
 
 .library-contents {
