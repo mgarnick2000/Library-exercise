@@ -53,6 +53,14 @@ body {
   /* border: 1px solid black; */
   /* background-image: url("../assets/blue-hexagon-pattern.jpg"); */
 }
+
+.choose-file-btn {
+  border-radius: 4px;
+}
+.cart-queue-num {
+  margin-top: 10px;
+  color: green;
+}
 .lib-header {
   border: 1px solid black;
 }
