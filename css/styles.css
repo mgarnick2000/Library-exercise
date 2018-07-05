@@ -6,7 +6,7 @@ body {
 
 .login-row {
   background-image: url("../assets/black-dreamstimeback.png");
-  margin-bottom: 1px;
+  /* margin-bottom: 1px; */
 }
 .login-user-box {
   /* border: 1px solid black; */
@@ -25,7 +25,7 @@ body {
   background-image: url("../assets/Library-catalogues.jpg");
   background-size: cover;
   height: 200px;
-  margin-bottom: 1px;
+  /* margin-bottom: 1px; */
 }
 .lib-header {
   /* border: 1px solid black; */
@@ -94,6 +94,7 @@ body {
 .show-rand-book-btn {
   border: 1px solid #F0EAEA;
   /* margin-left: 12px; */
+  font-family: Times, Garamond, sans-serif;
   float: left;
   margin-top: 12px;
   margin left: 5px;
@@ -103,15 +104,18 @@ body {
   border: 1px solid #F0EAEA;
   /* margin-left: 12px; */
   float: right;
+  font-family: Times, Garamond, sans-serif;
   margin-top: 12px;
   /* margin left: 5px; */
   margin-right: 5px;
 }
 .search-func {
   /* border: 1px solid black; */
+  font-family: Times, Garamond, sans-serif;
 }
 .show-auth-rand-book {
   /* border: 1px solid black; */
+  font-family: Times, Garamond, sans-serif;
 }
 
 #exampleInputSearch {
@@ -167,6 +171,11 @@ body {
   font-weight: bold;
 }
 
+.delete-btn {
+  font-weight: bold;
+  margin-left: 50px;
+}
+
 .library-contents {
   /* background-image: url("../assets/grey-library-contents-background.jpeg"); */
   background-color: #F9F9F9;
@@ -217,10 +226,11 @@ body {
   /* border: 1px solid #F0EAEA; */
   height: 50px;
   width: 12.4999%;
+  margin-top: 10px;
 }
 
 .rating-stars {
-  margin-top: -10px;
+  margin-top: 10px;
   border: none;
   background-color: #F9F9F9;
 }
@@ -229,10 +239,14 @@ body {
   color: gold;
 }
 
-
+.delete-lib-item {
+  /* border: 1px solid lightgray; */
+  width: 50px;
+  margin-top: 25px;
+}
 .delete-top-right {
-  margin-left: 100px;
-  margin-top: 2px;
+  /* margin-left: 100px;
+  margin-top: 2px; */
   opacity: 0.25;
 }
 
