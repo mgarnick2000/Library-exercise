@@ -148,6 +148,7 @@
               </div>
             </div>
           </div>
+          <!-- Show Random Book Modal -->
           <button class="btn btn-default btn-md show-rand-book-btn" type="rand-book" data-toggle="modal" data-target="#randBkModal">Random Book</button>
           <div id="randBkModal" class="modal fade" role="dialog">
             <div class="modal-dialog">
@@ -155,10 +156,26 @@
               <div class="modal-content">
                 <div class="modal-header">
                   <button type="button" class="close" data-dismiss="modal">&times;</button>
-                  <h4 class="modal-title">Random Book</h4>
+                  <h4 class="modal-title">Sho&#773;gun by James Clavell</h4>
                 </div>
                 <div class="modal-body">
-                  <p>Some text in the modal.</p>
+                  <div class="row book-cover-details">
+                  <div class="col-md-6 book-cover-img">
+                    <img class="img-responsive" src="assets/shogun-cover.jpg">
+                  </div>
+                  <div class="col-md-6 rand-book-details">
+                    <p class="synopsis-details">Synopsis</p>
+                    <p>1152 pages</p>
+                    <p>Publication date: January 01, 1975</p>
+                    <p>
+                      <span class="glyphicon glyphicon-star checked" aria-hidden="true"></span>
+                      <span class="glyphicon glyphicon-star checked" aria-hidden="true"></span>
+                      <span class="glyphicon glyphicon-star checked" aria-hidden="true"></span>
+                      <span class="glyphicon glyphicon-star checked" aria-hidden="true"></span>
+                      <span class="glyphicon glyphicon-star checked" aria-hidden="true"></span>
+                    </p>
+                  </div>
+                  </div>
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -167,6 +184,7 @@
             </div>
           </div>
         </div>
+        <!-- random book modal ends -->
         <div class="col-md-4 search-func">
           <form class="form-inline">
             <div class="form-group">
@@ -356,7 +374,7 @@
         <div class="row library-contents">
           <div class="col-md-1 library-margin"></div>
           <div class="col-md-3 text-left lib-title-content">
-            <p>Shogun</p>
+            <p>Sho&#773;gun</p>
           </div>
           <div class="col-md-3 text-left lib-author-content">
             <p>James Clavell</p>
