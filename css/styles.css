@@ -17,21 +17,19 @@ body {
 
 .login-info {
   color: #ffffff;
+  font-family: Times, Garamond, sans-serif;
   font-size: 14px;
   margin-top: 5px;
 }
 
-
+/* Banner  */
 .banner {
   background-image: url("../assets/library-back-image.jpg");
   background-size: cover;
   height: 400px;
   /* margin-bottom: 1px; */
 }
-.lib-header {
-  /* border: 1px solid black; */
-  /* background-image: url("../assets/blue-hexagon-pattern.jpg"); */
-}
+
 .rem-books {
   /* border: 1px solid black; */
   font-family: Times, Garamond, sans-serif;
@@ -57,9 +55,9 @@ body {
   font-family: Times, Garamond, sans-serif;
   margin-top: 90px;
   /* border: 1px solid black; */
-  /* background-image: url("../assets/blue-hexagon-pattern.jpg"); */
 }
 
+/* Add Books Modal */
 .choose-file-btn {
   border-radius: 4px;
 }
@@ -67,16 +65,8 @@ body {
   margin-top: 10px;
   color: green;
 }
-.lib-header {
-  /* border: 1px solid black; */
-}
-.library-image-back {
-  /* border: 1px solid black; */
-  /* background-image: url("../assets/library-back-image.jpg");
-  background-size: cover;
-  height: 400px; */
-}
 
+/* margin between table library and rand-search-show-back */
 .img-back {
   color: #ffffff;
   font-family: Times,Garamond, sans-serif;
@@ -84,10 +74,7 @@ body {
   /* margin-top: 200px; */
 }
 
-.img-margin {
-  /* border: 1px solid black; */
-}
-
+/* random books, random authors, all books, all authors, and search */
 .rand-search-show-back {
   /* background-image: url("../assets/grey-color-background.jpg"); */
   background-color: #F7F7F7;
@@ -135,6 +122,8 @@ body {
 
 }
 
+/* Library section */
+
 .table-library {
   /* background-image: url("../assets/grey-library-contents-background.jpeg"); */
   /* background-color: #F9F9F9; */
@@ -147,6 +136,7 @@ body {
   /* border: 1px solid black; */
 }
 
+/* Library header */
 .img-cover-header {
   font-weight: bold;
 }
@@ -179,15 +169,11 @@ body {
   font-weight: bold;
 }
 
+/* Library details */
 .library-contents {
   /* background-image: url("../assets/grey-library-contents-background.jpeg"); */
   background-color: #F9F9F9;
   border: 1px solid lightgray;
-}
-
-.img-cover-thumbnail {
-  /* border: 1px solid #F0EAEA; */
-  /* width: 12.4999% */
 }
 
 .lib-title-content {
@@ -228,14 +214,14 @@ body {
 .lib-rating-content {
   /* border: 1px solid #F0EAEA; */
   height: 50px;
-  width: 12.4999%;
+  width: 120px;
   margin-top: 10px;
 }
 
 .rating-stars {
   margin-top: 10px;
   border: none;
-  background-color: #F9F9F9;
+  /* background-color: #F9F9F9; */
 }
 
 .checked {
