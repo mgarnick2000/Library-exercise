@@ -40,9 +40,6 @@ body {
 }
 
 
-.grow { transition: all .2s ease-in-out; }
-.grow:hover { transform: scale(1.1); }
-
 .rem-books {
   /* border: 1px solid black; */
   font-family: Times, Garamond, sans-serif;

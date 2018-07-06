@@ -30,8 +30,8 @@
       </div>
       <!-- Library Banner with Add and Remove buttons along with their Modals. -->
       <div class="row banner">
-        <div class="col-md-1 lib-margin"></div>
-        <div class="col-xs-12 col-md-2 pull-left grow rem-books">
+        <div class="col-xs-1 col-md-1 lib-margin"></div>
+        <div class="col-xs-2 col-md-2 pull-left rem-books">
           <!-- remove books modal  -->
           <button class="btn btn-default btn-lg" type="remove-books" data-toggle="modal" data-target="#remBkModal"> - Remove Books</button>
           <div id="remBkModal" class="modal fade" role="dialog">
@@ -63,10 +63,10 @@
           </div>
         </div>
         <!-- end remove books Modal -->
-        <div class="col-xs-12 col-md-6 text-center lib-banner">The Library
+        <div class="col-xs-6 col-md-6 text-center lib-banner">The Library
           <p class="text-center lib-quote">Welcome to the Library, where literary dreams come true; and where imaginations grow.</p>
         </div>
-        <div class="col-xs-12 col-md-2 pull-right grow add-books">
+        <div class="col-xs-2 col-md-2 pull-right add-books">
           <!-- Add Book Modal -->
           <button class="btn btn-default btn-lg" type="add-more-books" data-toggle="modal" data-target="#addBkModal"> + Add Books</button>
           <div id="addBkModal" class="modal fade" role="dialog">
@@ -106,11 +106,11 @@
                         </div>
                       </div>
                       <div class="row form-group pages-pubDate">
-                        <div class="col-md-6 page-length">
+                        <div class="col-xs-2 col-md-6 page-length">
                           <label for="book-pages" class="control-label">Pages</label>
                           <input type="text" class="form-control" id="book-pages">
                         </div>
-                        <div class="col-md-6 pubDate-modal">
+                        <div class="col-xs-6 col-md-6 pubDate-modal">
                           <label for="book-pubDate" class="control-label">Publication Date</label>
                           <input type="text" class="form-control" id="book-pubDate">
                         </div>
@@ -128,15 +128,15 @@
                 </div>
                 <div class="modal-footer">
                   <div class="row form-group add-bk-lib">
-                    <div class="col-md-3 queue-book">
+                    <div class="col-xs-3 col-md-3 queue-book">
                       <button type="button" class="btn btn-default" data-dismiss="modal">Queue Book To Add</button>
                       <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
                     </div>
-                    <div class="col-md-1"></div>
-                    <div class="col-md-4 add-bk-cart">
+                    <div class="col-xs-1 col-md-1"></div>
+                    <div class="col-xs-4 col-md-4 add-bk-cart">
                       <p class="cart-queue-num">1 book(s) ready to add!  <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span></p>
                     </div>
-                    <div class="col-md-3 complete-add-bk">
+                    <div class="col-xs-3 col-md-3 complete-add-bk">
                       <button type="button" class="btn btn-default" data-dismiss="modal">Add Books To Library</button>
                     </div>
                   </div>
@@ -146,11 +146,11 @@
           </div>
         </div>
         <!-- Add Book Modal Ends -->
-        <div class="col-md-1 lib-margin"></div>
+        <div class="col-xs-1 col-md-1 lib-margin"></div>
       </div>
       <!--Get RandomBooks and Authors, Search lable and input, Show all Books and Authors.  -->
       <div class="row rand-search-show-back">
-        <div class="col-xs-12 col-md-4">
+        <div class="col-xs-4 col-md-4">
           <!--Show all books modal  -->
           <button class="btn btn-default btn-md pull-left show-rand-book-btn" type="show-books" data-toggle="modal" data-target="#allBkModal">Show All Books</button>
           <div id="allBkModal" class="modal fade" role="dialog">
@@ -200,10 +200,10 @@
                 </div>
                 <div class="modal-body">
                   <div class="row book-cover-details">
-                  <div class="col-md-6 book-cover-img">
+                  <div class="col-xs-6 col-md-6 book-cover-img">
                     <img class="img-responsive" src="assets/shogun-cover.jpg">
                   </div>
-                  <div class="col-md-6 rand-book-details">
+                  <div class="col-xs-6 col-md-6 rand-book-details">
                     <p class="synopsis-details">Synopsis</p>
                     <p>1152 pages</p>
                     <p>Publication date: January 01, 1975</p>
@@ -226,7 +226,7 @@
         </div>
         <!-- random book modal ends -->
         <!-- search input and label begins here  -->
-        <div class="col-xs-12 col-md-4 search-func">
+        <div class="col-xs-4 col-md-4 search-func">
           <form class="form-inline">
             <div class="form-group">
               <label class="sr-only" for="exampleInputSearch">Search feature</label>
@@ -235,7 +235,7 @@
             <button class="btn btn-default btn-md search-btn" type="search-books">Search</button>
           </form>
         </div>
-        <div class="col-xs-12 col-md-4 show-auth-rand-book">
+        <div class="col-xs-4 col-xs-12 col-md-4 show-auth-rand-book">
           <!-- All Authors modal -->
           <button class="btn btn-default btn-md pull-right show-rand-auth-btn" type="show-books" data-toggle="modal" data-target="#allAuthModal">Show All Authors</button>
           <div id="allAuthModal" class="modal fade" role="dialog">
