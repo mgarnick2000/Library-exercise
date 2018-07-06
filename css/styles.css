@@ -92,8 +92,8 @@ body {
   font-family: Times, Garamond, sans-serif;
   /* float: left; */
   margin-top: 12px;
-  margin left: 5px;
-  /* margin-right: 5px; */
+  /* margin left: 5px; */
+  margin-right: 5px;
 }
 .show-rand-auth-btn {
   border: 1px solid #F0EAEA;
