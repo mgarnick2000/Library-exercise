@@ -34,18 +34,28 @@ body {
   margin-top: 20px;
 }
 
+@keyframes example {
+    from {margin-top: -200px;}
+    to {margin-top: 30px;}
+}
+
+
+
 .rem-books {
   /* border: 1px solid black; */
   font-family: Times, Garamond, sans-serif;
   margin-top: 90px;
   /* background-image: url("../assets/blue-hexagon-pattern.jpg"); */
 }
+
 .lib-banner {
   /* border: 1px solid black; */
   color: #ffffff;
   font-family: Times,Garamond, sans-serif;
   font-size: 60px;
   margin-top: 30px;
+  animation-name: example;
+  animation-duration: 4s;
 
   /* background-image: url("../assets/blue-hexagon-pattern.jpg"); */
 }
@@ -53,6 +63,7 @@ body {
 .lib-quote {
   font-size: 24px;
   margin-top: 20px;
+
 }
 
 .add-books {
