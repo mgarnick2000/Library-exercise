@@ -40,11 +40,14 @@ body {
 }
 
 
+.grow { transition: all .2s ease-in-out; }
+.grow:hover { transform: scale(1.1); }
 
 .rem-books {
   /* border: 1px solid black; */
   font-family: Times, Garamond, sans-serif;
   margin-top: 90px;
+
   /* background-image: url("../assets/blue-hexagon-pattern.jpg"); */
 }
 
@@ -55,7 +58,7 @@ body {
   font-size: 60px;
   margin-top: 30px;
   animation-name: example;
-  animation-duration: 4s;
+  animation-duration: 2s;
 
   /* background-image: url("../assets/blue-hexagon-pattern.jpg"); */
 }
