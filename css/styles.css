@@ -26,7 +26,7 @@ body {
 .banner {
   background-image: url("../assets/library-back-image.jpg");
   background-size: cover;
-  height: 400px;
+  height: 500px;
   /* margin-bottom: 1px; */
 }
 
@@ -43,7 +43,8 @@ body {
 .rem-books {
   /* border: 1px solid black; */
   font-family: Times, Garamond, sans-serif;
-  margin-top: 90px;
+  margin-top: 100px;
+  /* margin-left: 10px; */
 
   /* background-image: url("../assets/blue-hexagon-pattern.jpg"); */
 }
@@ -53,9 +54,9 @@ body {
   color: #ffffff;
   font-family: Times,Garamond, sans-serif;
   font-size: 60px;
-  margin-top: 30px;
+  margin-top: 10px;
   animation-name: example;
-  animation-duration: 2s;
+  animation-duration: 1s;
 
   /* background-image: url("../assets/blue-hexagon-pattern.jpg"); */
 }
@@ -68,7 +69,7 @@ body {
 
 .add-books {
   font-family: Times, Garamond, sans-serif;
-  margin-top: 90px;
+  margin-top: 100px;
   /* border: 1px solid black; */
 }
 
@@ -93,9 +94,9 @@ body {
 .rand-search-show-back {
   /* background-image: url("../assets/grey-color-background.jpg"); */
   background-color: #F7F7F7;
-  height: 70px;
+  /* height: 70px; */
   margin-top: 2px;
-  margin-bottom: 5px;
+  margin-bottom: 15px;
 }
 .show-rand-book-btn {
   border: 1px solid #F0EAEA;
