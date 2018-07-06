@@ -2,12 +2,513 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="fonts/glyphicons-halflings-regular.eot">
+    <link rel="stylesheet" href="fonts/glyphicons-halflings-regular.svg">
+    <link rel="stylesheet" href="fonts/glyphicons-halflings-regular.woff2">
+    <link rel="stylesheet" href="fonts/glyphicons-halflings-regular.ttf">
+    <link rel="stylesheet" href="fonts/glyphicons-halflings-regular.woff">
     <title>Library exercise</title>
   </head>
   <body>
-    <h1>Library Excercise</h1>
-      <p>"Welcome to Mark's library. I hope you find the books you are looking for."</p>
-
-    <script src="js/library-main.js"></script>
+    <div class="container-fluid">
+      <!-- Username and login row  -->
+      <div class="row login-row">
+        <div class="col-xs-12 col-md-6 login-user-box"></div>
+        <div class="col-xs-12 col-md-6  login-user-box login-info">
+          <form class="form-inline">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Username">
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Password">
+            </div>
+            <button type="button" class="btn btn-default btn-md">Login</button>
+          </form>
+        </div>
+      </div>
+      <!-- Library Banner with Add and Remove buttons along with their Modals. -->
+      <div class="row banner">
+        <div class="col-md-1 lib-margin"></div>
+        <div class="col-xs-12 col-md-2 pull-left grow rem-books">
+          <!-- remove books modal  -->
+          <button class="btn btn-default btn-lg" type="remove-books" data-toggle="modal" data-target="#remBkModal"> - Remove Books</button>
+          <div id="remBkModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+              <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">Remove Books</h4>
+                </div>
+                <div class="modal-body">
+                  <form>
+                    <div class="form-group">
+                      <label for="rem-bk-title" class="control-label">Remove By Title</label>
+                      <input type="text" class="form-control" id="rem-bk-title">
+                    </div>
+                    <div class="form-group">
+                      <label for="rem-bk-author" class="control-label">Remove By Author</label>
+                      <input type="text" class="form-control" id="rem-bk-author">
+                    </div>
+                  </form>
+                  <!-- <p>Some text in the modal.</p> -->
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Remove Books</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- end remove books Modal -->
+        <div class="col-xs-12 col-md-6 text-center lib-banner">The Library
+          <p class="text-center lib-quote">Welcome to the Library, where literary dreams come true; and where imaginations grow.</p>
+        </div>
+        <div class="col-xs-12 col-md-2 pull-right grow add-books">
+          <!-- Add Book Modal -->
+          <button class="btn btn-default btn-lg" type="add-more-books" data-toggle="modal" data-target="#addBkModal"> + Add Books</button>
+          <div id="addBkModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+              <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">Add Books</h4>
+                </div>
+                <div class="modal-body">
+                  <!-- <p>Some text in the modal.</p> -->
+                  <form>
+                    <div class="form-group">
+                      <label for="book-title" class="control-label">Title<sup>*</sup></label>
+                      <input type="text" class="form-control" id="book-title">
+                    </div>
+                    <div class="form-group">
+                      <div class="row form-group author-rating">
+                        <div class="col-md-9 book-auth-input-label">
+                          <label for="book-author" class="control-label">Author<sup>*</sup></label>
+                          <input type="text" class="form-control" id="book-author">
+                        </div>
+                        <div class="col-md-3 star-rating-input-lable">
+                          <label for="star-rating" class="control-label">Star Rating</label>
+                          <!-- <input type="text" class="form-control" id="star-rating"> -->
+                          <div class="input-group-btn">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Choose Rating<span class="caret"></span></button>
+                            <ul class="dropdown-menu">
+                              <li><a href="javascript:void(0)"><span class="glyphicon glyphicon-star" aria-hidden="true">1 Star</span></a></li>
+                              <li><a href="javascript:void(0)"><span class="glyphicon glyphicon-star" aria-hidden="true">2 Star</span></a></li>
+                              <li><a href="javascript:void(0)"><span class="glyphicon glyphicon-star" aria-hidden="true">3 Star</span></a></li>
+                              <li><a href="javascript:void(0)"><span class="glyphicon glyphicon-star" aria-hidden="true">4 Star</span></a></li>
+                              <li><a href="javascript:void(0)"><span class="glyphicon glyphicon-star" aria-hidden="true">5 Star</span></a></li>
+                            </ul>
+                          </div><!-- /btn-group -->
+                        </div>
+                      </div>
+                      <div class="row form-group pages-pubDate">
+                        <div class="col-md-6 page-length">
+                          <label for="book-pages" class="control-label">Pages</label>
+                          <input type="text" class="form-control" id="book-pages">
+                        </div>
+                        <div class="col-md-6 pubDate-modal">
+                          <label for="book-pubDate" class="control-label">Publication Date</label>
+                          <input type="text" class="form-control" id="book-pubDate">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="synopsis" class="control-label">Synopsis</label>
+                        <input type="text" class="form-control" id="synopsis">
+                      </div>
+                      <div class="form-group">
+                        <label for="choose-file" class="control-lable">Book Cover</label>
+                        <p><button class="choose-file-btn">Choose File</button> No File Chosen</p>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <div class="row form-group add-bk-lib">
+                    <div class="col-md-3 queue-book">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Queue Book To Add</button>
+                      <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+                    </div>
+                    <div class="col-md-1"></div>
+                    <div class="col-md-4 add-bk-cart">
+                      <p class="cart-queue-num">1 book(s) ready to add!  <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span></p>
+                    </div>
+                    <div class="col-md-3 complete-add-bk">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Add Books To Library</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Add Book Modal Ends -->
+        <div class="col-md-1 lib-margin"></div>
+      </div>
+      <!--Get RandomBooks and Authors, Search lable and input, Show all Books and Authors.  -->
+      <div class="row rand-search-show-back">
+        <div class="col-xs-12 col-md-4">
+          <!--Show all books modal  -->
+          <button class="btn btn-default btn-md pull-left show-rand-book-btn" type="show-books" data-toggle="modal" data-target="#allBkModal">Show All Books</button>
+          <div id="allBkModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+              <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">All Books</h4>
+                </div>
+                <div class="modal-body">
+                  <ul>
+                    <li>A Game of Thrones</li>
+                    <li>A Brief History of Time</li>
+                    <li>Assassin's Apprentice</li>
+                    <li>Genghis Khan and the Making of the Modern World</li>
+                    <li>Life 3.0: Being Human in the Age of Artificial Intelligence</li>
+                    <li>Mistborn: The Final Empire</li>
+                    <li>Pale Blue Dot: A Vision of the Human Future in Space</li>
+                    <li>Possession</li>
+                    <li>Promise of Blood</li>
+                    <li>Sapiens: A Brief History of Humankind</li>
+                    <li>Shogun</li>
+                    <li>The Black Company</li>
+                    <li>The Blade Itself</li>
+                    <li>The Culture Code: The Secrets of Highly Successful Groups</li>
+                    <li>The Lies of Locke Lamora</li>
+                    <li>The Way of Kings</li>
+                    <li>Words of Radiance</li>
+                  </ul>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Show Random Book Modal -->
+          <button class="btn btn-default btn-md pull-left show-rand-book-btn" type="rand-book" data-toggle="modal" data-target="#randBkModal">Random Book</button>
+          <div id="randBkModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+              <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">Sho&#773;gun by James Clavell</h4>
+                </div>
+                <div class="modal-body">
+                  <div class="row book-cover-details">
+                  <div class="col-md-6 book-cover-img">
+                    <img class="img-responsive" src="assets/shogun-cover.jpg">
+                  </div>
+                  <div class="col-md-6 rand-book-details">
+                    <p class="synopsis-details">Synopsis</p>
+                    <p>1152 pages</p>
+                    <p>Publication date: January 01, 1975</p>
+                    <p>
+                      <span class="glyphicon glyphicon-star checked" aria-hidden="true"></span>
+                      <span class="glyphicon glyphicon-star checked" aria-hidden="true"></span>
+                      <span class="glyphicon glyphicon-star checked" aria-hidden="true"></span>
+                      <span class="glyphicon glyphicon-star checked" aria-hidden="true"></span>
+                      <span class="glyphicon glyphicon-star checked" aria-hidden="true"></span>
+                    </p>
+                  </div>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- random book modal ends -->
+        <!-- search input and label begins here  -->
+        <div class="col-xs-12 col-md-4 search-func">
+          <form class="form-inline">
+            <div class="form-group">
+              <label class="sr-only" for="exampleInputSearch">Search feature</label>
+              <input type="title-author" class="form-control" id="exampleInputSearch" placeholder="Search Title or Author">
+            </div>
+            <button class="btn btn-default btn-md search-btn" type="search-books">Search</button>
+          </form>
+        </div>
+        <div class="col-xs-12 col-md-4 show-auth-rand-book">
+          <!-- All Authors modal -->
+          <button class="btn btn-default btn-md pull-right show-rand-auth-btn" type="show-books" data-toggle="modal" data-target="#allAuthModal">Show All Authors</button>
+          <div id="allAuthModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+              <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">All Authors</h4>
+                </div>
+                <div class="modal-body">
+                  <!-- <p>Some text in the modal.</p> -->
+                  <ul>
+                    <li>A.S Byatt</li>
+                    <li>Brandon Sanderson</li>
+                    <li>Brian McClellan</li>
+                    <li>Carl Sagan</li>
+                    <li>Glen Cook</li>
+                    <li>Daniel Coyle</li>
+                    <li>George R.R Martin</li>
+                    <li>Jack Weatherford</li>
+                    <li>James Clavell</li>
+                    <li>Joe Abercombie</li>
+                    <li>Max Tegmark</li>
+                    <li>Robin Hobb</li>
+                    <li>Scott Lynch</li>
+                    <li>Stephen Hawking</li>
+                    <li>Yuval Noah Harari</li>
+                  </ul>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- all author modal ends -->
+          <!-- random authors modal -->
+          <button class="btn btn-default btn-md pull-right show-rand-auth-btn" type="rand-book" data-toggle="modal" data-target="#randAuthModal">Random Author</button>
+          <div id="randAuthModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+              <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">Random Authors</h4>
+                </div>
+                <div class="modal-body">
+                  <ul>
+                    <li>Brian McClellan</li>
+                  </ul>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Library heading -->
+      <div class="row table-library">
+        <div class="col-md-1 library-margin"></div>
+        <div class="col-md-1 img-cover-header">Cover</div>
+        <div class="col-md-2 text-left lib-title">Title</div>
+        <div class="col-md-2 text-left lib-author">Author</div>
+        <div class="col-md-1 text-left lib-page">Pages</div>
+        <div class="col-md-2 text-left lib-pub-date">Publication Date</div>
+        <div class="col-md-1 text-left lib-rating">Ratings</div>
+        <div class="col-md-1 text left delete-btn">Delete</div>
+      </div>
+      <!--Library contents or bookshelf  -->
+      <div class="row library-contents">
+        <div class="col-md-1 library-margin"></div>
+        <div class="col-md-1 center-block">
+          <img class="img-responsive" src="assets/Promise_of_Blood-cover.jpg" alt="book cover">
+        </div>
+        <div class="col-md-2 text-left lib-title-content">
+          <p>Promise of Blood</p>
+        </div>
+        <div class="col-md-2 text-left lib-author-content">
+          <p>Brian McClellan</p>
+        </div>
+        <div class="col-md-1 text-left lib-page-content">
+          <p>545</p>
+        </div>
+        <div class="col-md-2 text-left lib-pubdate-content">
+          <p>2013</p>
+        </div>
+        <div class="col-md-1 text-left lib-rating-content">
+          <button type="button" class="btn btn-default rating-stars">
+            <span class="glyphicon glyphicon-star checked" aria-hidden="true"></span>
+            <span class="glyphicon glyphicon-star checked" aria-hidden="true"></span>
+            <span class="glyphicon glyphicon-star checked" aria-hidden="true"></span>
+            <span class="glyphicon glyphicon-star checked" aria-hidden="true"></span>
+            <span class="glyphicon glyphicon-star checked" aria-hidden="true"></span>
+          </button>
+        </div>
+        <div class="col-md-1 delete-lib-item">
+          <button type="button" class="btn btn-default btn-xs delete-top-right">
+            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+          </button>
+        </div>
+      </div>
+        <div class="row library-contents">
+          <div class="col-md-1 library-margin"></div>
+          <div class="col-md-1 center-block">
+            <img class="img-responsive" src="assets/The-blade-itself-cover.jpg" alt="book cover">
+          </div>
+          <div class="col-md-2 text-left lib-title-content">
+            <p>The Blade Itself</p>
+          </div>
+          <div class="col-md-2 text-left lib-author-content">
+            <p>Joe Abercombie</p>
+          </div>
+          <div class="col-md-1 text-left lib-page-content">
+            <p>560</p>
+          </div>
+          <div class="col-md-2 text-left lib-pubdate-content">
+            <p>2015</p>
+          </div>
+          <div class="col-md-1 text-left lib-rating-content">
+            <button type="button" class="btn btn-default rating-stars">
+              <span class="glyphicon glyphicon-star checked" aria-hidden="true"></span>
+              <span class="glyphicon glyphicon-star checked" aria-hidden="true"></span>
+              <span class="glyphicon glyphicon-star checked" aria-hidden="true"></span>
+              <span class="glyphicon glyphicon-star checked" aria-hidden="true"></span>
+              <span class="glyphicon glyphicon-star checked" aria-hidden="true"></span>
+            </button>
+          </div>
+          <div class="col-md-1 delete-lib-item">
+            <button type="button" class="btn btn-default btn-xs delete-top-right">
+              <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+            </button>
+          </div>
+        </div>
+        <div class="row library-contents">
+          <div class="col-md-1 library-margin"></div>
+          <div class="col-md-1 center-block">
+            <img class="img-responsive" src="assets/the-black-company-cover.jpg" alt="book cover">
+          </div>
+          <div class="col-md-2 text-left lib-title-content">
+            <p>The Black Company</p>
+          </div>
+          <div class="col-md-2 text-left lib-author-content">
+            <p>Glen Cook</p>
+          </div>
+          <div class="col-md-1 text-left lib-page-content">
+            <p>319</p>
+          </div>
+          <div class="col-md-2 text-left lib-pubdate-content">
+            <p>1984</p>
+          </div>
+          <div class="col-md-1 text-left lib-rating-content">
+            <button type="button" class="btn btn-default rating-stars">
+              <span class="glyphicon glyphicon-star checked" aria-hidden="true"></span>
+              <span class="glyphicon glyphicon-star checked" aria-hidden="true"></span>
+              <span class="glyphicon glyphicon-star checked" aria-hidden="true"></span>
+              <span class="glyphicon glyphicon-star checked" aria-hidden="true"></span>
+              <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+            </button>
+          </div>
+          <div class="col-md-1 delete-lib-item">
+            <button type="button" class="btn btn-default btn-xs delete-top-right">
+              <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+            </button>
+          </div>
+        </div>
+        <div class="row library-contents">
+          <div class="col-md-1 library-margin"></div>
+          <div class="col-md-1 center-block">
+            <img class="img-responsive" src="assets/game-of-thrones-cover.jpeg" alt="book cover">
+          </div>
+          <div class="col-md-2 text-left lib-title-content">
+            <p>A Game of Thrones</p>
+          </div>
+          <div class="col-md-2 text-left lib-author-content">
+            <p>George R.R Martin</p>
+          </div>
+          <div class="col-md-1 text-left lib-page-content">
+            <p>694</p>
+          </div>
+          <div class="col-md-2 text-left lib-pubdate-content">
+            <p>1996</p>
+          </div>
+          <div class="col-md-1 text-left lib-rating-content">
+            <button type="button" class="btn btn-default rating-stars">
+              <span class="glyphicon glyphicon-star checked" aria-hidden="true"></span>
+              <span class="glyphicon glyphicon-star checked" aria-hidden="true"></span>
+              <span class="glyphicon glyphicon-star checked" aria-hidden="true"></span>
+              <span class="glyphicon glyphicon-star checked" aria-hidden="true"></span>
+              <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+            </button>
+          </div>
+          <div class="col-md-1 delete-lib-item">
+            <button type="button" class="btn btn-default btn-xs delete-top-right">
+              <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+            </button>
+          </div>
+        </div>
+        <div class="row library-contents">
+          <div class="col-md-1 library-margin"></div>
+          <div class="col-md-1 center-block">
+            <img class=" img-responsive" src="assets/the-way-of-kings_cover.jpg" alt="book cover">
+          </div>
+          <div class="col-md-2 text-left lib-title-content">
+            <p>The Way of Kings</p>
+          </div>
+          <div class="col-md-2 text-left lib-author-content">
+            <p>Brandon Sanderson</p>
+          </div>
+          <div class="col-md-1 text-left lib-page-content">
+            <p>1007</p>
+          </div>
+          <div class="col-md-2 text-left lib-pubdate-content">
+            <p>2010</p>
+          </div>
+          <div class="col-md-1 text-left lib-rating-content">
+            <button type="button" class="btn btn-default rating-stars">
+              <span class="glyphicon glyphicon-star checked" aria-hidden="true"></span>
+              <span class="glyphicon glyphicon-star checked" aria-hidden="true"></span>
+              <span class="glyphicon glyphicon-star checked" aria-hidden="true"></span>
+              <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+              <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+            </button>
+          </div>
+          <div class="col-md-1 delete-lib-item">
+            <button type="button" class="btn btn-default btn-xs delete-top-right">
+              <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+            </button>
+          </div>
+        </div>
+        <div class="row library-contents">
+          <div class="col-md-1 library-margin"></div>
+          <div class="col-md-1 center-block">
+            <img class="img-responsive" src="assets/shogun-cover.jpg" alt="book cover">
+          </div>
+          <div class="col-md-2 text-left lib-title-content">
+            <p>Sho&#773;gun</p>
+          </div>
+          <div class="col-md-2 text-left lib-author-content">
+            <p>James Clavell</p>
+          </div>
+          <div class="col-md-1 text-left lib-page-content">
+            <p>1152</p>
+          </div>
+          <div class="col-md-2 text-left lib-pubdate-content">
+            <p>1975</p>
+          </div>
+          <div class="col-md-1 text-left lib-rating-content">
+            <button type="button" class="btn btn-default rating-stars">
+              <span class="glyphicon glyphicon-star checked" aria-hidden="true"></span>
+              <span class="glyphicon glyphicon-star checked" aria-hidden="true"></span>
+              <span class="glyphicon glyphicon-star checked" aria-hidden="true"></span>
+              <span class="glyphicon glyphicon-star checked" aria-hidden="true"></span>
+              <span class="glyphicon glyphicon-star checked" aria-hidden="true"></span>
+            </button>
+          </div>
+          <div class="col-md-1 delete-lib-item">
+            <button type="button" class="btn btn-default btn-xs delete-top-right">
+              <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+            </button>
+          </div>
+        </div>
+        <!-- footer  -->
+        <footer class="row text-center foot-page">
+          <div class="col-md-2"></div>
+          <div class="col-md-8">Accessibility Copyright Information Privacy Policy</div>
+          <div class="col-md-2"></div>
+        </footer>
+      </div>
+  <script src="js/jQuery.js"></script>
+  <script src="js/bootstrap.js"></script>
+  <script src="js/library-main.js"></script>
   </body>
 </html>

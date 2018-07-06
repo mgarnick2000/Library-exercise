@@ -1,0 +1,265 @@
+
+body {
+    box-sizing: border-box;
+}
+
+
+.login-row {
+  background-image: url("../assets/black-dreamstimeback.png");
+  /* margin-bottom: 1px; */
+}
+.login-user-box {
+  /* border: 1px solid black; */
+  /* background-image: url("../assets/black-dreamstimeback.png"); */
+  height: 30px;
+  margin-bottom: 10px;
+}
+
+.login-info {
+  color: #ffffff;
+  font-family: Times, Garamond, sans-serif;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+/* Banner  */
+.banner {
+  background-image: url("../assets/library-back-image.jpg");
+  background-size: cover;
+  height: 400px;
+  /* margin-bottom: 1px; */
+}
+
+.lib-margin {
+  margin-top: 20px;
+}
+
+@keyframes example {
+    from {margin-top: -200px;}
+    to {margin-top: 30px;}
+}
+
+
+.grow { transition: all .2s ease-in-out; }
+.grow:hover { transform: scale(1.1); }
+
+.rem-books {
+  /* border: 1px solid black; */
+  font-family: Times, Garamond, sans-serif;
+  margin-top: 90px;
+
+  /* background-image: url("../assets/blue-hexagon-pattern.jpg"); */
+}
+
+.lib-banner {
+  /* border: 1px solid black; */
+  color: #ffffff;
+  font-family: Times,Garamond, sans-serif;
+  font-size: 60px;
+  margin-top: 30px;
+  animation-name: example;
+  animation-duration: 2s;
+
+  /* background-image: url("../assets/blue-hexagon-pattern.jpg"); */
+}
+
+.lib-quote {
+  font-size: 24px;
+  margin-top: 20px;
+
+}
+
+.add-books {
+  font-family: Times, Garamond, sans-serif;
+  margin-top: 90px;
+  /* border: 1px solid black; */
+}
+
+/* Add Books Modal */
+.choose-file-btn {
+  border-radius: 4px;
+}
+.cart-queue-num {
+  margin-top: 10px;
+  color: green;
+}
+
+/* margin between table library and rand-search-show-back */
+.img-back {
+  color: #ffffff;
+  font-family: Times,Garamond, sans-serif;
+  font-size: 34px;
+  /* margin-top: 200px; */
+}
+
+/* random books, random authors, all books, all authors, and search */
+.rand-search-show-back {
+  /* background-image: url("../assets/grey-color-background.jpg"); */
+  background-color: #F7F7F7;
+  height: 70px;
+  margin-top: 2px;
+  margin-bottom: 5px;
+}
+.show-rand-book-btn {
+  border: 1px solid #F0EAEA;
+  /* margin-left: 12px; */
+  font-family: Times, Garamond, sans-serif;
+  /* float: left; */
+  margin-top: 12px;
+  /* margin left: 5px; */
+  margin-right: 5px;
+}
+.show-rand-auth-btn {
+  border: 1px solid #F0EAEA;
+  /* margin-left: 12px; */
+  /* float: right; */
+  font-family: Times, Garamond, sans-serif;
+  margin-top: 12px;
+  /* margin left: 5px; */
+  margin-right: 5px;
+}
+.search-func {
+  /* border: 1px solid black; */
+  font-family: Times, Garamond, sans-serif;
+}
+.show-auth-rand-book {
+  /* border: 1px solid black; */
+  font-family: Times, Garamond, sans-serif;
+}
+
+#exampleInputSearch {
+  height: 35px;
+  width: 260px;
+  border-radius: 10px;
+  margin-top: 12px;
+  border: 1px solid #F0EAEA;
+}
+
+.search-btn {
+  margin-top: 10px;
+
+}
+
+/* Library section */
+
+.table-library {
+  /* background-image: url("../assets/grey-library-contents-background.jpeg"); */
+  /* background-color: #F9F9F9; */
+  /* margin: 20px 0px; */
+  padding-bottom: 10px;
+
+}
+
+.library-margin {
+  /* border: 1px solid black; */
+}
+
+/* Library header */
+.img-cover-header {
+  font-weight: bold;
+}
+
+
+.lib-title {
+  /* border: 1px solid black; */
+  font-weight: bold;
+}
+
+.lib-author {
+  /* border: 1px solid black; */
+  font-weight: bold;
+}
+.lib-page {
+  /* border: 1px solid black; */
+  font-weight: bold;
+}
+
+.lib-pub-date {
+  /* border: 1px solid black; */
+  font-weight: bold;
+}
+.lib-rating {
+  /* border: 1px solid black; */
+  font-weight: bold;
+}
+
+.delete-btn {
+  font-weight: bold;
+}
+
+/* Library details */
+.library-contents {
+  /* background-image: url("../assets/grey-library-contents-background.jpeg"); */
+  background-color: #F9F9F9;
+  border: 1px solid lightgray;
+}
+
+.lib-title-content {
+  /* border: 1px solid #F0EAEA; */
+  height: 50px;
+}
+
+.lib-title-content p {
+  margin-top: 15px;
+}
+
+
+.lib-author-content {
+  /* border: 1px solid #F0EAEA; */
+  height: 50px;
+}
+
+.lib-author-content p {
+  margin-top: 15px;
+}
+
+.lib-page-content {
+  /* border: 1px solid #F0EAEA; */
+  height: 50px;
+}
+
+.lib-page-content p {
+  margin-top: 15px;
+}
+.lib-pubdate-content {
+  /* border: 1px solid #F0EAEA; */
+  height: 50px;
+}
+
+.lib-pubdate-content p {
+  margin-top: 15px;
+}
+.lib-rating-content {
+  /* border: 1px solid #F0EAEA; */
+  height: 50px;
+  width: 120px;
+  margin-top: 10px;
+}
+
+.rating-stars {
+  margin-top: 10px;
+  border: none;
+  /* background-color: #F9F9F9; */
+}
+
+.checked {
+  color: gold;
+}
+
+.delete-lib-item {
+  /* border: 1px solid lightgray; */
+  width: 50px;
+  margin-top: 25px;
+}
+.delete-top-right {
+  /* margin-left: 100px;
+  margin-top: 2px; */
+  opacity: 0.25;
+}
+
+
+.foot-page {
+  color: #939393;
+  height: 20px;
+  margin-top: 10px;
+}
