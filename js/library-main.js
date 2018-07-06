@@ -284,27 +284,27 @@ Library.prototype.pull = function () {
 
 // Local Storage End
 
-document.addEventListener('DOMContentLoaded', function() {
-  window.gLibrary = new Library ("gLibrary");
-  // gLibrary.addBook(gBookOne)
-  // gLibrary.addBook(gBookTwo)
-  // gLibrary.addBook(gBookThree)
-  // gLibrary.addBook(gBookFour)
-  // gLibrary.addBook(gBookFive)
-  // gLibrary.addBook(gBookSix)
-  // gLibrary.addBook(gBookSeven)
-  // gLibrary.addBook(gBookEight)
-  // gLibrary.addBook(gBookNine)
-  // gLibrary.addBook(gBookTen)
-  // gLibrary.addBook(gBookEleven)
-  // gLibrary.addBook(gBookTwelve)
-  // gLibrary.addBook(gBookThirteen)
-  // gLibrary.addBook(gBookFourteen)
-  if(localStorage.length > 0) {
-    console.log("Successfully pulled from Local Storage.");
-    window.gLibrary.pull();
-  }
-});
+// document.addEventListener('DOMContentLoaded', function() {
+//   window.gLibrary = new Library ('gLibrary');
+//   // gLibrary.addBook(gBookOne)
+//   // gLibrary.addBook(gBookTwo)
+//   // gLibrary.addBook(gBookThree)
+//   // gLibrary.addBook(gBookFour)
+//   // gLibrary.addBook(gBookFive)
+//   // gLibrary.addBook(gBookSix)
+//   // gLibrary.addBook(gBookSeven)
+//   // gLibrary.addBook(gBookEight)
+//   // gLibrary.addBook(gBookNine)
+//   // gLibrary.addBook(gBookTen)
+//   // gLibrary.addBook(gBookEleven)
+//   // gLibrary.addBook(gBookTwelve)
+//   // gLibrary.addBook(gBookThirteen)
+//   // gLibrary.addBook(gBookFourteen)
+//   if(localStorage.length > 0) {
+//     console.log("Successfully pulled from Local Storage.");
+//     window.gLibrary.pull();
+//   }
+// });
 
 var gBookOne = new Book ("Promise of Blood", "Brian McClellan", 545, new Date(2013, 03, 16));
 var gBookTwo = new Book ("The Blade Itself", "Joe Abercombie", 560, new Date(2015, 08, 08));
