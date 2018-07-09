@@ -14,7 +14,9 @@ addBooksUI.prototype.init = function() {
 addBooksUI.prototype._bindEvents = function() {
   $('#add-books-btn').on('click', $.proxy(this._handleModalOpen, this));
   $('#queue-bk-btn').on('click', $.proxy(this._queueBooks, this));
-  $('.cart-queue-num').on('click', $.proxy(this._queueBooks, this))
+  $('.cart-queue-num').on('click', $.proxy(this._queueBooks, this));
+  $('.complete-add-bk').on('click', $.proxy(this._addBooksToLib, this));
+  $('.bk-add-success').on('click', $.proxy(this._addBooksToLib, this));
 }
 
 addBooksUI.prototype._queueBooks = function() {
@@ -48,6 +50,11 @@ addBooksUI.prototype._queueBooks = function() {
 
 
 addBooksUI.prototype._addBooksToLib = function() {
+  this.addBooks(this._tempBookShelf);
+  $('.lib-num').text(this.numberBooksInQueue + ' ');
+  this.numberBooksInQueue++;
+  $('#addBookForm')[0].reset();
+  this.numberBooksInQueue = 0;
 
 }
 
