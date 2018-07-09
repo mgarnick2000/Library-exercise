@@ -1,5 +1,6 @@
-var ShowAuthorsUI  = function(){
+var ShowAuthorsUI  = function(container){
   Library.call(this);
+  this.$container = container
 };
 
 ShowAuthorsUI.prototype = Object.create(Library.prototype);
@@ -11,15 +12,15 @@ ShowAuthorsUI.prototype.init = function () {
 };
 
 ShowAuthorsUI.prototype._bindEvents = function () {
-  $('.show-authors').on('click', $.proxy(this._handlesShowAuthors, this));
+  $('#show-authors').on('click', $.proxy(this._handlesShowAuthors, this));
   return false;
 };
 
 ShowAuthorsUI.prototype._handlesShowAuthors = function () {
   var authors = this.getAuthors();
   if (authors.length) {
-    $('#allAuthModal').modal('show');
-    $('#allAuthModal .modal-body').html(this._createULOfAuthors(authors));
+    this.$container.modal('show');
+    this.$container.find('.modal-body').html(this._createULOfAuthors(authors));
   } else {
     alert("Nothing in Library")
   }
@@ -37,6 +38,6 @@ ShowAuthorsUI.prototype._createULOfAuthors = function (authors) {
 };
 
 $(function(){
-  window.gShowAuthUI  = new ShowAuthorsUI();
+  window.gShowAuthUI  = new ShowAuthorsUI($('#allAuthModal'));
   window.gShowAuthUI.init();
 });
