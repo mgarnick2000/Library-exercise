@@ -9,7 +9,6 @@ var Library;
    }
 
    instance = this;
-   this.bookShelf = []; //Holding array
    this._Libkey = key;
  }
 })();
@@ -27,14 +26,14 @@ var Library;
 
 Library.prototype.addBook = function(book) {
 if(book) {
-for (var i = 0; i < this.bookShelf.length; i++) {
-  var currentBooks = this.bookShelf[i];
+for (var i = 0; i < window.bookShelf.length; i++) {
+  var currentBooks = window.bookShelf[i];
   if (book === currentBooks) {
     console.log("this book already exists.");
     return false;
   }
 }
-  this.bookShelf.push(book);
+  window.bookShelf.push(book);
   this.storage();
   return true;
 }
@@ -54,9 +53,9 @@ return addNewBooks;
 };
 
 Library.prototype.removeBookByTitle = function (title) {
-for (var i = 0; i < this.bookShelf.length; i++) {
-  if(title.toLowerCase().trim() === this.bookShelf[i].title.toLowerCase().trim()) {
-  this.bookShelf.splice(i,1);
+for (var i = 0; i < window.bookShelf.length; i++) {
+  if(title.toLowerCase().trim() === window.bookShelf[i].title.toLowerCase().trim()) {
+  window.bookShelf.splice(i,1);
   this.storage();
   return true;
   }
@@ -68,9 +67,9 @@ return false
 
 Library.prototype.removeBookByAuthor = function (authorName) {
 var authorRemove = 0;
-for (var i = 0; i < this.bookShelf.length; i++) {
-  if (authorName.toLowerCase().trim() === this.bookShelf[i].author.toLowerCase().trim()) {
-    this.bookShelf.splice(i,1);
+for (var i = 0; i < window.bookShelf.length; i++) {
+  if (authorName.toLowerCase().trim() === window.bookShelf[i].author.toLowerCase().trim()) {
+    window.bookShelf.splice(i,1);
     i--;
     authorRemove++;
   }
@@ -85,18 +84,18 @@ if (authorRemove > 0) {
 };
 
 Library.prototype.getRandomBook = function () {
-  if(this.bookShelf.length === 0) {
+  if(window.bookShelf.length === 0) {
     return null;
   }
-  return this.bookShelf[Math.floor(Math.random() * this.bookShelf.length)];
+  return window.bookShelf[Math.floor(Math.random() * window.bookShelf.length)];
 };
 
 Library.prototype.getBookByTitle = function (title) {
 if(title) {
 var matchTitleSearch = [];
-  for (var i = 0; i < this.bookShelf.length; i++) {
-    if (this.bookShelf[i].title.toLowerCase().indexOf(title.toLowerCase().trim()) > -1) {
-      matchTitleSearch.push(this.bookShelf[i]);
+  for (var i = 0; i < window.bookShelf.length; i++) {
+    if (window.bookShelf[i].title.toLowerCase().indexOf(title.toLowerCase().trim()) > -1) {
+      matchTitleSearch.push(window.bookShelf[i]);
     }
   }
   return matchTitleSearch;
@@ -108,9 +107,9 @@ return false;
 Library.prototype.getBooksByAuthor = function (authorName) {
 if(authorName) {
 var matchAuthSearch = [];
-  for (var i = 0; i < this.bookShelf.length; i++) {
-    if (this.bookShelf[i].author.toLowerCase().indexOf(authorName.toLowerCase().trim()) > -1) {
-      matchAuthSearch.push(this.bookShelf[i]);
+  for (var i = 0; i < window.bookShelf.length; i++) {
+    if (window.bookShelf[i].author.toLowerCase().indexOf(authorName.toLowerCase().trim()) > -1) {
+      matchAuthSearch.push(window.bookShelf[i]);
     }
   }
   return matchAuthSearch;
@@ -130,8 +129,8 @@ var allAuthors = [];
 //       }
 //     }
 //   }
-for (var i = 0; i < this.bookShelf.length; i++) {
-  allAuthors.push(this.bookShelf[i].author);
+for (var i = 0; i < window.bookShelf.length; i++) {
+  allAuthors.push(window.bookShelf[i].author);
 }
   indivAuthors = allAuthors.filter(function(value, index, self) {
     return self.indexOf(value) === index
@@ -140,7 +139,7 @@ return indivAuthors;
 };
 
 Library.prototype.getRandomAuthorName = function () {
-if (this.bookShelf.length === 0) {
+if (window.bookShelf.length === 0) {
   return null;
 };
  return this.getRandomBook().author;
@@ -179,9 +178,9 @@ Library.prototype.getBooksByYear = function (year) {
 
   var pubYear = [];
   if(year) {
-  for (var i = 0; i < this.bookShelf.length; i++) {
-    if (this.bookShelf[i].publishDate.toString().indexOf(year) > -1) {
-      pubYear.push(this.bookShelf[i]);
+  for (var i = 0; i < window.bookShelf.length; i++) {
+    if (window.bookShelf[i].publishDate.toString().indexOf(year) > -1) {
+      pubYear.push(window.bookShelf[i]);
     }
   }
     return pubYear;
@@ -196,7 +195,7 @@ Library.prototype.removeAllBooksInBookShelf = function () {
   and was causing duplicates. i had to remove books by author to remove duplicates.
   this function expedites this process. it is long on purpose to discourage use.
   */
-this.bookShelf = [];
+window.bookShelf = [];
 return true;
 };
 
@@ -251,26 +250,18 @@ Library.prototype.searchPageNumber = function (pages, range) {
   */
   var bookLengthGreater500 = [];
   var range = range || 100;
-  for (var i = 0; i < this.bookShelf.length; i++) {
-    var bookPagesSearch = this.bookShelf[i].numberOfPages;
+  for (var i = 0; i < window.bookShelf.length; i++) {
+    var bookPagesSearch = window.bookShelf[i].numberOfPages;
     if (bookPagesSearch >= pages - range && bookPagesSearch <= pages + range) {
-      bookLengthGreater500.push(this.bookShelf[i].author + ", " + this.bookShelf[i].title + ", " + this.bookShelf[i].numberOfPages);
+      bookLengthGreater500.push(window.bookShelf[i].author + ", " + window.bookShelf[i].title + ", " + window.bookShelf[i].numberOfPages);
     }
   }
   return bookLengthGreater500;
 };
 
-
-var Book = function(title, author, numberOfPages, publishDate) {
-  this.title = title;
-  this.author = author;
-  this.numberOfPages = numberOfPages;
-  this.publishDate = new Date(publishDate.toString()).getUTCFullYear();
-};
-
 // Local Storage
 Library.prototype.storage = function () {
-  var dataLib = JSON.stringify(this.bookShelf);
+  var dataLib = JSON.stringify(window.bookShelf);
   localStorage.setItem(this._Libkey, dataLib);
 };
 
@@ -278,14 +269,14 @@ Library.prototype.pull = function () {
   var translate = JSON.parse(localStorage.getItem(this._Libkey));
   var StorageLib = new Array ();
   for (i = 0; i < translate.length; i++) {
-    this.bookShelf[i] = new Book(translate[i].title, translate[i].author, translate[i].numberOfPages, translate[i].publishDate);
+    window.bookShelf[i] = new Book(translate[i].title, translate[i].author, translate[i].numberOfPages, translate[i].publishDate);
   }
 };
 
 // Local Storage End
 
 // document.addEventListener('DOMContentLoaded', function() {
-//   window.gLibrary = new Library ('gLibrary');
+  // window.gLibrary = new Library ('gLibrary');
 //   // gLibrary.addBook(gBookOne)
 //   // gLibrary.addBook(gBookTwo)
 //   // gLibrary.addBook(gBookThree)

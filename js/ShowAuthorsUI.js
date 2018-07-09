@@ -1,5 +1,4 @@
-var ShowAuthorsUI  = function(container){
-  this.$container = container;
+var ShowAuthorsUI  = function(){
   Library.call(this);
 };
 
