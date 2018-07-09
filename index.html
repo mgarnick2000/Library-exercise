@@ -79,7 +79,7 @@
                 </div>
                 <div class="modal-body">
                   <!-- <p>Some text in the modal.</p> -->
-                  <form>
+                  <form id="addBookForm">
                     <div class="form-group">
                       <label for="book-title" class="control-label">Title<sup>*</sup></label>
                       <input type="text" class="form-control" id="book-title">
@@ -96,11 +96,11 @@
                           <div class="input-group-btn">
                             <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Choose Rating<span class="caret"></span></button>
                             <ul class="dropdown-menu">
-                              <li><a href="javascript:void(0)"><span class="glyphicon glyphicon-star" aria-hidden="true">1 Star</span></a></li>
-                              <li><a href="javascript:void(0)"><span class="glyphicon glyphicon-star" aria-hidden="true">2 Star</span></a></li>
-                              <li><a href="javascript:void(0)"><span class="glyphicon glyphicon-star" aria-hidden="true">3 Star</span></a></li>
-                              <li><a href="javascript:void(0)"><span class="glyphicon glyphicon-star" aria-hidden="true">4 Star</span></a></li>
-                              <li><a href="javascript:void(0)"><span class="glyphicon glyphicon-star" aria-hidden="true">5 Star</span></a></li>
+                              <li id="rating-btn"><a href="javascript:void(0)"><span class="glyphicon glyphicon-star" aria-hidden="true">1 Star</span></a></li>
+                              <li id="rating-btn"><a href="javascript:void(0)"><span class="glyphicon glyphicon-star" aria-hidden="true">2 Star</span></a></li>
+                              <li id="rating-btn"><a href="javascript:void(0)"><span class="glyphicon glyphicon-star" aria-hidden="true">3 Star</span></a></li>
+                              <li id="rating-btn"><a href="javascript:void(0)"><span class="glyphicon glyphicon-star" aria-hidden="true">4 Star</span></a></li>
+                              <li id="rating-btn"><a href="javascript:void(0)"><span class="glyphicon glyphicon-star" aria-hidden="true">5 Star</span></a></li>
                             </ul>
                           </div><!-- /btn-group -->
                         </div>
@@ -121,7 +121,7 @@
                       </div>
                       <div class="form-group">
                         <label for="choose-file" class="control-lable">Book Cover</label>
-                        <p><button class="choose-file-btn">Choose File</button> No File Chosen</p>
+                        <p><button id="choose-file-btn">Choose File</button> No File Chosen</p>
                       </div>
                     </div>
                   </form>
@@ -129,7 +129,7 @@
                 <div class="modal-footer">
                   <div class="row form-group add-bk-lib">
                     <div class="col-xs-3 col-md-3 queue-book">
-                      <button type="button" class="btn btn-default" data-dismiss="modal">Queue Book To Add</button>
+                      <button id="queue-bk-btn" type="button" class="btn btn-default" data-dismiss="modal">Queue Book To Add</button>
                       <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
                     </div>
                     <div class="col-xs-1 col-md-1"></div>
