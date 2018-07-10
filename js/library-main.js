@@ -1,4 +1,4 @@
-// Singleton content
+  // Singleton content
 var Library;
 (function() {
  var instance;

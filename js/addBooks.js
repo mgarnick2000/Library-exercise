@@ -50,6 +50,8 @@ addBooksUI.prototype._queueBooks = function() {
   $('.cart-num').text(this.numberBooksInQueue + ' ');
   this._tempBookShelf.push(newBook);
   $('#addBookForm')[0].reset();
+  // this.numberBookInQueue = 0;
+  // $('.cart-num').text(this.numberBooksInQueue.length);
     return this._tempBookShelf
   }
 
@@ -65,6 +67,7 @@ addBooksUI.prototype._addBooksToLib = function() {
   $('.lib-num').text(this.numberBooksInQueue + ' ');
   $('#addBookForm')[0].reset();
   this.clearTempBookQueue()
+  $('.cart-num').text(this.numberBooksInQueue.length);
   // this.numberBooksInQueue = 0;
   // this._tempBookShelf = [
   // this.numberBooksInQueue++;
