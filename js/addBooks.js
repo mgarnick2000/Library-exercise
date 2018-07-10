@@ -29,8 +29,8 @@ addBooksUI.prototype._queueBooks = function() {
   var quePubDate = $('#book-pubDate').val();
   var queSynopsis = $('#synopsis').val();
   var queRatings = $('.stars').serializeArray();
-  // var queChooseFile = $('#choose-file-btn').val();
-  var newBook = new Book(queTitle, queAuthor, quePages, quePubDate, queSynopsis, queRatings);
+  var queChooseFile = $('#myFile').val();
+  var newBook = new Book(queTitle, queAuthor, quePages, quePubDate, queSynopsis, queRatings, queChooseFile);
   var badCount = 0;
   if(newBook.title === "" || newBook.author === "" || newBook.numberOfPages === "" || newBook.pubDate === "" || newBook.synopsis === "" || newBook.rating === "") {
     alert("Please enter the required information.")
