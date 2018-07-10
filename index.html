@@ -68,7 +68,7 @@
         </div>
         <div class="col-md-2 add-books">
           <!-- Add Book Modal -->
-          <button id="add-books-btn" class="btn btn-default btn-lg" type="add-more-books"> + Add Books</button>
+          <button id="add-books-btn" class="btn btn-default btn-lg" name="add-bk" type="add-more-books"> + Add Books</button>
           <div id="addBkModal" class="modal fade" role="dialog">
             <div class="modal-dialog">
               <!-- Modal content-->
@@ -82,13 +82,13 @@
                   <form id="addBookForm">
                     <div class="form-group">
                       <label for="book-title" class="control-label">Title<sup>*</sup></label>
-                      <input type="text" class="form-control" id="book-title">
+                      <input type="text" name="title" class="form-control" name="title" id="book-title">
                     </div>
                     <div class="form-group">
                       <div class="row form-group author-rating">
                         <div class="col-md-9 book-auth-input-label">
                           <label for="book-author" class="control-label">Author<sup>*</sup></label>
-                          <input type="text" class="form-control" id="book-author">
+                          <input type="text" class="form-control" name="author" id="book-author">
                         </div>
                         <div class="col-md-3 star-rating-input-lable">
                           <label for="star-rating" class="control-label">Star Rating</label>
@@ -108,20 +108,20 @@
                       <div class="row form-group pages-pubDate">
                         <div class="col-xs-2 col-md-6 page-length">
                           <label for="book-pages" class="control-label">Pages</label>
-                          <input type="text" class="form-control" id="book-pages">
+                          <input type="text" class="form-control" name="pages" id="book-pages">
                         </div>
                         <div class="col-xs-6 col-md-6 pubDate-modal">
                           <label for="book-pubDate" class="control-label">Publication Date</label>
-                          <input type="text" class="form-control" id="book-pubDate">
+                          <input type="text" class="form-control" name="pubDate" id="book-pubDate">
                         </div>
                       </div>
                       <div class="form-group">
                         <label for="synopsis" class="control-label">Synopsis</label>
-                        <input type="text" class="form-control" id="synopsis">
+                        <input type="text" class="form-control" name="summary" id="synopsis">
                       </div>
                       <div class="form-group">
                         <label for="choose-file" class="control-lable">Book Cover</label>
-                        <p><button id="choose-file-btn">Choose File</button> No File Chosen</p>
+                        <p><button name="choose-file" id="choose-file-btn">Choose File</button> No File Chosen</p>
                       </div>
                     </div>
                   </form>
@@ -129,7 +129,7 @@
                 <div class="modal-footer">
                   <div class="row form-group add-bk-lib">
                     <div class="col-xs-3 col-md-3 queue-book">
-                      <button id="queue-bk-btn" type="button" class="btn btn-default">Queue Book To Add</button>
+                      <button id="queue-bk-btn" name="queue" type="button" class="btn btn-default">Queue Book To Add</button>
                       <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
                     </div>
                     <div class="col-xs-1 col-md-1"></div>

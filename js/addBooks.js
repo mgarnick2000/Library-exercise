@@ -19,6 +19,7 @@ addBooksUI.prototype._bindEvents = function() {
   // $('.bk-add-success').on('click', $.proxy(this._addBooksToLib, this));
 }
 
+
 addBooksUI.prototype._queueBooks = function() {
 // If selecting input field by id, push the data to temporary _tempBookShelf
 // uptick the first letter in a string with i++
@@ -31,6 +32,10 @@ addBooksUI.prototype._queueBooks = function() {
   // var queChooseFile = $('#choose-file-btn').val();
   var newBook = new Book(queTitle, queAuthor, quePages, quePubDate, queSynopsis, queRatings);
   var badCount = 0;
+  if(newBook.title === "" || newBook.author === "" || newBook.numberOfPages === "" || newBook.pubDate === "" || newBook.synopsis === "" || newBook.rating === "") {
+    alert("Please enter the required information.")
+    return false;
+  }
   for(var i = 0; i < this._tempBookShelf.length; i++) {
     var currentTempBookShelf = this._tempBookShelf[i];
     if (queTitle === currentTempBookShelf.title) {
@@ -38,7 +43,7 @@ addBooksUI.prototype._queueBooks = function() {
       break;
     }
   }
-  if(badCount > 0){
+  if(badCount > 0) {
     return console.log('false');
   }
   this.numberBooksInQueue++;
@@ -48,12 +53,20 @@ addBooksUI.prototype._queueBooks = function() {
     return this._tempBookShelf
   }
 
+addBooksUI.prototype.clearTempBookQueue = function () {
+  this._tempBookShelf = [];
+  this.numberBooksInQueue = [];
+  return true;
+};
+
 
 addBooksUI.prototype._addBooksToLib = function() {
   this.addBooks(this._tempBookShelf);
   $('.lib-num').text(this.numberBooksInQueue + ' ');
-  // // $('#addBookForm')[0].reset();
+  $('#addBookForm')[0].reset();
+  this.clearTempBookQueue()
   // this.numberBooksInQueue = 0;
+  // this._tempBookShelf = [
   // this.numberBooksInQueue++;
 
 
