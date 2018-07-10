@@ -44,7 +44,7 @@ Library.prototype.addBooks = function (books) {
 var addNewBooks = 0;
 for (var i = 0; i < books.length; i++) {
   if (this.addBook(books[i]) && Array.isArray(books)) {
-    this.addBook(books[i]);
+    // this.addBook(books[i]);
     addNewBooks++;
   }
 }
