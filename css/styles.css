@@ -138,100 +138,40 @@ body {
 
 }
 
+
+.library-head {
+  /* border: 1px solid black; */
+  padding: 5px;
+}
+ .library-head th {
+   width: 500px;
+   /* border: 1px solid black; */
+   margin: 5px;
+   padding: 5px;
+   background-color: lightgray;
+ }
+
+.cover-img {
+  height: 100px;
+  width: 100px;
+  padding: 15px;
+  /* border: 1px solid black; */
+}
+
+
+
 /* Library section */
 
-.table-library {
-  /* background-image: url("../assets/grey-library-contents-background.jpeg"); */
-  /* background-color: #F9F9F9; */
-  /* margin: 20px 0px; */
-  padding-bottom: 10px;
-
-}
-
-.library-margin {
+.library-content {
+  width: 100px;
+  margin: 50px;
+  padding: 15px;
   /* border: 1px solid black; */
 }
 
-/* Library header */
-.img-cover-header {
-  font-weight: bold;
-}
-
-
-.lib-title {
+.library-content td {
   /* border: 1px solid black; */
-  font-weight: bold;
-}
-
-.lib-author {
-  /* border: 1px solid black; */
-  font-weight: bold;
-}
-.lib-page {
-  /* border: 1px solid black; */
-  font-weight: bold;
-}
-
-.lib-pub-date {
-  /* border: 1px solid black; */
-  font-weight: bold;
-}
-.lib-rating {
-  /* border: 1px solid black; */
-  font-weight: bold;
-}
-
-.delete-btn {
-  font-weight: bold;
-}
-
-/* Library details */
-.library-contents {
-  /* background-image: url("../assets/grey-library-contents-background.jpeg"); */
-  background-color: #F9F9F9;
-  border: 1px solid lightgray;
-}
-
-.lib-title-content {
-  /* border: 1px solid #F0EAEA; */
-  height: 50px;
-}
-
-.lib-title-content p {
-  margin-top: 15px;
-}
-
-
-.lib-author-content {
-  /* border: 1px solid #F0EAEA; */
-  height: 50px;
-}
-
-.lib-author-content p {
-  margin-top: 15px;
-}
-
-.lib-page-content {
-  /* border: 1px solid #F0EAEA; */
-  height: 50px;
-}
-
-.lib-page-content p {
-  margin-top: 15px;
-}
-.lib-pubdate-content {
-  /* border: 1px solid #F0EAEA; */
-  height: 50px;
-}
-
-.lib-pubdate-content p {
-  margin-top: 15px;
-}
-.lib-rating-content {
-  /* border: 1px solid #F0EAEA; */
-  height: 50px;
-  width: 120px;
-  margin-top: 10px;
+  padding: 5px;
 }
 
 .rating-stars {

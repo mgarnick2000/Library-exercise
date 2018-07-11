@@ -299,30 +299,49 @@
         </div>
       </div>
       <!-- Library heading -->
-      <div class="row table-library">
-        <div class="col-md-1 library-margin"></div>
-        <div class="col-md-1 img-cover-header">Cover</div>
-        <div class="col-md-2 text-left lib-title">Title</div>
-        <div class="col-md-2 text-left lib-author">Author</div>
-        <div class="col-md-1 text-left lib-page">Pages</div>
-        <div class="col-md-2 text-left lib-pub-date">Publication Date</div>
-        <div class="col-md-1 text-left lib-rating">Ratings</div>
-        <div class="col-md-1 text left delete-btn">Delete</div>
-      </div>
       <!--Library contents or bookshelf  -->
-      <div class=" library-contents">
+      <div class="library-contents">
         <table>
           <tr>
-            <th>Cover</th>
-            <th>Title</th>
-            <th>Author</th>
-            <th>Pages</th>
-            <th>Publish Date</th>
-            <th>Rating</th>
-            <th>Function</th>
+            <thead class="library-head">
+              <th>Cover</th>
+              <th>Title</th>
+              <th>Author</th>
+              <th>Pages</th>
+              <th>Publish Date</th>
+              <th>Rating</th>
+              <th>Delete</th>
+            </thead>
+          </tr>
+          <tr>
+            <tbody>
+              <tr>
+                <td>
+                  <img class="img-responsive cover-img" src="assets/Promise_of_Blood-cover.jpg" alt="book cover">
+                </td>
+                <td class="library-content">Promise of Blood</td>
+                <td class="library-content">Brian McClellan</td>
+                <td class="library-content">545</td>
+                <td class="library-content">February 16, 2013</td>
+                <td class="library-content">
+                  <button type="button" class="btn btn-default rating-stars">
+                    <span class="glyphicon glyphicon-star checked" aria-hidden="true"></span>
+                    <span class="glyphicon glyphicon-star checked" aria-hidden="true"></span>
+                    <span class="glyphicon glyphicon-star checked" aria-hidden="true"></span>
+                    <span class="glyphicon glyphicon-star checked" aria-hidden="true"></span>
+                    <span class="glyphicon glyphicon-star checked" aria-hidden="true"></span>
+                  </button>
+                </td>
+                <td class="library-content">
+                  <button type="button" class="btn btn-default btn-xs delete-top-right">
+                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
           </tr>
         </table>
-        <div class="col-md-1 library-margin"></div>
+        <!-- <div class="col-md-1 library-margin"></div>
         <div class="col-md-1 center-block">
           <img class="img-responsive" src="assets/Promise_of_Blood-cover.jpg" alt="book cover">
         </div>
@@ -351,7 +370,7 @@
           <button type="button" class="btn btn-default btn-xs delete-top-right">
             <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
           </button>
-        </div>
+        </div> -->
       </div>
         <!-- footer  -->
         <footer class="row text-center foot-page">
