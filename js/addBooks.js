@@ -2,7 +2,7 @@ var addBooksUI = function(container) {
   Library.call(this);
   this._tempBookShelf = new Array();
   this.numberBooksInQueue = 0;
-  this.$container = container;
+  this.$container = $('#addBkModal');
 };
 
 addBooksUI.prototype = Object.create(Library.prototype);
@@ -30,7 +30,7 @@ addBooksUI.prototype._queueBooks = function() {
   var queSynopsis = $('#synopsis').val();
   var queRatings = $('.stars').serializeArray();
   var queChooseFile = $('#myFile').val();
-  var newBook = new Book(queTitle, queAuthor, quePages, quePubDate, queSynopsis, queRatings, queChooseFile);
+  var newBook = new Book(queChooseFile, queTitle, queAuthor, quePages, quePubDate, queSynopsis, queRatings);
   var badCount = 0;
   if(newBook.title === "" || newBook.author === "" || newBook.numberOfPages === "" || newBook.pubDate === "") {
     alert("Please enter the required information.")
@@ -84,6 +84,6 @@ addBooksUI.prototype._handleModalOpen = function() {
 }
 
 $(function() {
-  window.gAddBooksUI = new addBooksUI($('#addBkModal'));
+  window.gAddBooksUI = new addBooksUI();
   window.gAddBooksUI.init();
 });

@@ -23,6 +23,15 @@ var Library;
 //   }
 //   return false;
 // };
+Library.prototype.handlerTrigger = function (sEvent, oData) {
+  var oData = oData || {}
+  if (sEvent) {
+    var event = new CustomEvent(sEvent, oData);
+    document.dispatchEvent(event);
+  }
+  // this.handlerTrigger('objUpdate', {detail: Library + "books were added"});
+}
+
 
 Library.prototype.addBook = function(book) {
 if(book) {
@@ -50,7 +59,7 @@ Library.prototype.checkDuplicates = function(book) {
       }
     }
     return true;
-  } 
+  }
 };
 
 Library.prototype.addBooks = function (books) {
@@ -60,6 +69,9 @@ for (var i = 0; i < books.length; i++) {
     // this.addBook(books[i]);
     addNewBooks++;
   }
+}
+if(addNewBooks > 0){
+  this.handlerTrigger('objUpdate', {detail: Library + "books were added"});
 }
 this.storage();
 return addNewBooks;
@@ -282,7 +294,7 @@ Library.prototype.pull = function () {
   var translate = JSON.parse(localStorage.getItem(this._Libkey));
   var StorageLib = new Array ();
   for (i = 0; i < translate.length; i++) {
-    window.bookShelf[i] = new Book(translate[i].title, translate[i].author, translate[i].numberOfPages, translate[i].publishDate);
+    window.bookShelf[i] = new Book(translate[i].chooseFile, translate[i].title, translate[i].author, translate[i].numberOfPages, translate[i].publishDate, translate[i].synopsis, translate[i].rating);
   }
 };
 
