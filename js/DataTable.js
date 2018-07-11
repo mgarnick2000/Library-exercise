@@ -55,6 +55,7 @@ DataTable.prototype._createRow = function (book) {
     var td = document.createElement('td');
     $(td).text(book[key]);
     tr.append(td);
+
   }
   // tr.append(document.createElement('td').append(deleteInput));
   return tr;
