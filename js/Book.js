@@ -5,5 +5,5 @@ var Book = function(title, author, numberOfPages, publishDate, synopsis, rating,
   this.publishDate = new Date(publishDate.toString()).getUTCFullYear();
   this.synopsis = synopsis;
   this.rating = rating;
-  this.chooseFile = chooseFile
+  this.chooseFile = chooseFile;
 };

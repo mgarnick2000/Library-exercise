@@ -32,10 +32,11 @@ addBooksUI.prototype._queueBooks = function() {
   var queChooseFile = $('#myFile').val();
   var newBook = new Book(queTitle, queAuthor, quePages, quePubDate, queSynopsis, queRatings, queChooseFile);
   var badCount = 0;
-  if(newBook.title === "" || newBook.author === "" || newBook.numberOfPages === "" || newBook.pubDate === "" || newBook.synopsis === "" || newBook.rating === "") {
+  if(newBook.title === "" || newBook.author === "" || newBook.numberOfPages === "" || newBook.pubDate === "") {
     alert("Please enter the required information.")
     return false;
   }
+  if(this.checkDuplicates(newBook)) {
   for(var i = 0; i < this._tempBookShelf.length; i++) {
     var currentTempBookShelf = this._tempBookShelf[i];
     if (queTitle === currentTempBookShelf.title) {
@@ -46,6 +47,9 @@ addBooksUI.prototype._queueBooks = function() {
   if(badCount > 0) {
     return console.log('false');
   }
+} else{
+  return console.log("this book already exists in the library");
+}
   this.numberBooksInQueue++;
   $('.cart-num').text(this.numberBooksInQueue + ' ');
   this._tempBookShelf.push(newBook);
@@ -62,17 +66,17 @@ addBooksUI.prototype.clearTempBookQueue = function () {
 };
 
 
-addBooksUI.prototype._addBooksToLib = function() {
+addBooksUI.prototype._addBooksToLib = function(book) {
+  if (this.checkDuplicates(book)) {
   this.addBooks(this._tempBookShelf);
   $('.lib-num').text(this.numberBooksInQueue + ' ');
   $('#addBookForm')[0].reset();
   this.clearTempBookQueue()
-  $('.cart-num').text(this.numberBooksInQueue.length);
+  $('.lib-num').text(this.numberBooksInQueue.length)
   // this.numberBooksInQueue = 0;
   // this._tempBookShelf = [
   // this.numberBooksInQueue++;
-
-
+  }
 }
 
 addBooksUI.prototype._handleModalOpen = function() {
