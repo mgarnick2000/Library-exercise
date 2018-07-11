@@ -18,16 +18,43 @@ DataTable.prototype._bindCustomListeners = function () {
   $(document).on('objUpdate', $.proxy(this._updateTable, this));
 };
 
+// <table class="tg">
+//   <thead>
+//   <tr>
+//     <th class="tg-us36">title</th>
+//     <th class="tg-us36">author</th>
+//     <th class="tg-yw4l">pages</th>
+//     <th class="tg-yw4l">date</th>
+//     <th class="tg-yw4l">cover</th>
+//     <th class="tg-yw4l">synop</th>
+//     <th class="tg-yw4l">edit</th>
+//   </tr>
+// </thead>
+DataTable.prototype._createHeader = function (head) {
+  var thead = document.createElement('thead');
+    $(thead).addClass("library-head")
+  var tr = document.createElement('tr');
+    thead.append(tr)
+
+    for(var key in head) {
+      var th = document.createElement('th');
+      $(th).text([key]);
+      tr.append(th);
+    }
+    return thead;
+};
 DataTable.prototype._updateTable = function (e) {
-  console.log('called :: _updateTable');
   var _self = this;
     var $tbody = this.$container.find('tbody');
     $tbody.empty();
-
+    if(window.bookShelf) {
+    this.$container.append(this._createHeader(window.bookShelf[0]))
     $.each(window.bookShelf, function(index, book){
       $tbody.append(_self._createRow(book));
     });
+  }
 };
+
 
 DataTable.prototype._createRow = function (book) {
   var tr = document.createElement('tr');
