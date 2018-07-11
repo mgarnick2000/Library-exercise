@@ -141,6 +141,7 @@ body {
 
 .library-head {
   /* border: 1px solid black; */
+  font-family: Times, Garamond, sans-serif;
   padding: 5px;
 }
  .library-head th {
@@ -152,16 +153,21 @@ body {
  }
 
 .cover-img {
-  height: 100px;
-  width: 100px;
+  height: 125px;
+  width: 125px;
   padding: 15px;
+  align-items: center;
   /* border: 1px solid black; */
 }
 
 
 
 /* Library section */
-
+.library-books {
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  font-family: Times, Garamond, sans-serif;
+}
 .library-content {
   width: 100px;
   margin: 50px;
