@@ -74,6 +74,7 @@ if(addNewBooks > 0){
   this.handlerTrigger('objUpdate', {detail: Library + "books were added"});
 }
 this.storage();
+alert("Your book was added!")
 return addNewBooks;
 };
 

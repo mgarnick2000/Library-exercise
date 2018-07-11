@@ -18,18 +18,6 @@ DataTable.prototype._bindCustomListeners = function () {
   $(document).on('objUpdate', $.proxy(this._updateTable, this));
 };
 
-// <table class="tg">
-//   <thead>
-//   <tr>
-//     <th class="tg-us36">title</th>
-//     <th class="tg-us36">author</th>
-//     <th class="tg-yw4l">pages</th>
-//     <th class="tg-yw4l">date</th>
-//     <th class="tg-yw4l">cover</th>
-//     <th class="tg-yw4l">synop</th>
-//     <th class="tg-yw4l">edit</th>
-//   </tr>
-// </thead>
 DataTable.prototype._createHeader = function (head) {
   var thead = document.createElement('thead');
     $(thead).addClass("library-head")
