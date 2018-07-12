@@ -32,7 +32,7 @@ addBooksUI.prototype._queueBooks = function() {
 
   var badCount = 0;
   var newBook = new Book(queInputs);
-  if(newBook.Title === "" || newBook.Author === "" || newBook.NumberOfPages === "" || newBook.PublishDate === "") {
+  if(newBook.Title === "" || newBook.Author === "" || newBook.Number_Of_Pages === "" || newBook.Publish_Date === "") {
     alert("Please enter the required information.")
     return false;
   }

@@ -28,6 +28,9 @@ DataTable.prototype._createHeader = function (head) {
       var th = document.createElement('th');
       $(th).text([key]);
       tr.append(th);
+      $(th).text(key.replace(/_/g, " "));
+      // $(th).html("Number&nbsp;Of&nbsp;Pages")
+
     }
     return thead;
 };

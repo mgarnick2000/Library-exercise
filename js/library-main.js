@@ -205,7 +205,7 @@ Library.prototype.getBooksByYear = function (year) {
   var pubYear = [];
   if(year) {
   for (var i = 0; i < window.bookShelf.length; i++) {
-    if (window.bookShelf[i].PublishDate.toString().indexOf(year) > -1) {
+    if (window.bookShelf[i].Publish_Date.toString().indexOf(year) > -1) {
       pubYear.push(window.bookShelf[i]);
     }
   }
@@ -277,9 +277,9 @@ Library.prototype.searchPageNumber = function (pages, range) {
   var bookLengthGreater500 = [];
   var range = range || 100;
   for (var i = 0; i < window.bookShelf.length; i++) {
-    var bookPagesSearch = window.bookShelf[i].NumberOfPages;
+    var bookPagesSearch = window.bookShelf[i].Number_Of_Pages;
     if (bookPagesSearch >= pages - range && bookPagesSearch <= pages + range) {
-      bookLengthGreater500.push(window.bookShelf[i].Author + ", " + window.bookShelf[i].Title + ", " + window.bookShelf[i].NumberOfPages);
+      bookLengthGreater500.push(window.bookShelf[i].Author + ", " + window.bookShelf[i].Title + ", " + window.bookShelf[i].Number_Of_Pages);
     }
   }
   return bookLengthGreater500;
