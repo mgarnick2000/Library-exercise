@@ -53,7 +53,7 @@ Library.prototype.checkDuplicates = function(book) {
   if (book) {
     for (var i = 0; i < window.bookShelf.length; i++) {
       var currentBookShelf = window.bookShelf[i];
-      if (book.title == currentBookShelf.title) {
+      if (book.Title == currentBookShelf.Title) {
         console.log("this book already exists.");
         return false;
       }
@@ -80,7 +80,7 @@ return addNewBooks;
 
 Library.prototype.removeBookByTitle = function (title) {
 for (var i = 0; i < window.bookShelf.length; i++) {
-  if(title.toLowerCase().trim() === window.bookShelf[i].title.toLowerCase().trim()) {
+  if(Title.toLowerCase().trim() === window.bookShelf[i].title.toLowerCase().trim()) {
   window.bookShelf.splice(i,1);
   this.storage();
   return true;
@@ -94,7 +94,7 @@ return false
 Library.prototype.removeBookByAuthor = function (authorName) {
 var authorRemove = 0;
 for (var i = 0; i < window.bookShelf.length; i++) {
-  if (authorName.toLowerCase().trim() === window.bookShelf[i].author.toLowerCase().trim()) {
+  if (authorName.toLowerCase().trim() === window.bookShelf[i].Author.toLowerCase().trim()) {
     window.bookShelf.splice(i,1);
     i--;
     authorRemove++;
@@ -120,7 +120,7 @@ Library.prototype.getBookByTitle = function (title) {
 if(title) {
 var matchTitleSearch = [];
   for (var i = 0; i < window.bookShelf.length; i++) {
-    if (window.bookShelf[i].title.toLowerCase().indexOf(title.toLowerCase().trim()) > -1) {
+    if (window.bookShelf[i].Title.toLowerCase().indexOf(title.toLowerCase().trim()) > -1) {
       matchTitleSearch.push(window.bookShelf[i]);
     }
   }
@@ -134,7 +134,7 @@ Library.prototype.getBooksByAuthor = function (authorName) {
 if(authorName) {
 var matchAuthSearch = [];
   for (var i = 0; i < window.bookShelf.length; i++) {
-    if (window.bookShelf[i].author.toLowerCase().indexOf(authorName.toLowerCase().trim()) > -1) {
+    if (window.bookShelf[i].Author.toLowerCase().indexOf(authorName.toLowerCase().trim()) > -1) {
       matchAuthSearch.push(window.bookShelf[i]);
     }
   }
@@ -156,7 +156,7 @@ var allAuthors = [];
 //     }
 //   }
 for (var i = 0; i < window.bookShelf.length; i++) {
-  allAuthors.push(window.bookShelf[i].author);
+  allAuthors.push(window.bookShelf[i].Author);
 }
   indivAuthors = allAuthors.filter(function(value, index, self) {
     return self.indexOf(value) === index
@@ -168,7 +168,7 @@ Library.prototype.getRandomAuthorName = function () {
 if (window.bookShelf.length === 0) {
   return null;
 };
- return this.getRandomBook().author;
+ return this.getRandomBook().Author;
 };
 
 // Library.prototype.getBooksByPubDate = function (title, year) {
@@ -205,7 +205,7 @@ Library.prototype.getBooksByYear = function (year) {
   var pubYear = [];
   if(year) {
   for (var i = 0; i < window.bookShelf.length; i++) {
-    if (window.bookShelf[i].publishDate.toString().indexOf(year) > -1) {
+    if (window.bookShelf[i].PublishDate.toString().indexOf(year) > -1) {
       pubYear.push(window.bookShelf[i]);
     }
   }
@@ -277,9 +277,9 @@ Library.prototype.searchPageNumber = function (pages, range) {
   var bookLengthGreater500 = [];
   var range = range || 100;
   for (var i = 0; i < window.bookShelf.length; i++) {
-    var bookPagesSearch = window.bookShelf[i].numberOfPages;
+    var bookPagesSearch = window.bookShelf[i].NumberOfPages;
     if (bookPagesSearch >= pages - range && bookPagesSearch <= pages + range) {
-      bookLengthGreater500.push(window.bookShelf[i].author + ", " + window.bookShelf[i].title + ", " + window.bookShelf[i].numberOfPages);
+      bookLengthGreater500.push(window.bookShelf[i].Author + ", " + window.bookShelf[i].Title + ", " + window.bookShelf[i].NumberOfPages);
     }
   }
   return bookLengthGreater500;

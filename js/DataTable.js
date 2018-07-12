@@ -53,6 +53,7 @@ DataTable.prototype._createRow = function (book) {
 
   for(var key in book){
     var td = document.createElement('td');
+    $(td).addClass('library-content')
     $(td).text(book[key]);
     tr.append(td);
 

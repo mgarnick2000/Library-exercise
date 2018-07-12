@@ -32,14 +32,14 @@ addBooksUI.prototype._queueBooks = function() {
 
   var badCount = 0;
   var newBook = new Book(queInputs);
-  if(newBook.title === "" || newBook.author === "" || newBook.numberOfPages === "" || newBook.publishDate === "") {
+  if(newBook.Title === "" || newBook.Author === "" || newBook.NumberOfPages === "" || newBook.PublishDate === "") {
     alert("Please enter the required information.")
     return false;
   }
   if(this.checkDuplicates(newBook)) {
   for(var i = 0; i < this._tempBookShelf.length; i++) {
     var currentTempBookShelf = this._tempBookShelf[i];
-    if (queInputs === currentTempBookShelf.title) {
+    if (queInputs === currentTempBookShelf.Title) {
       badCount++;
       break;
     }
