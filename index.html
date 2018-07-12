@@ -81,26 +81,26 @@
                   <!-- <p>Some text in the modal.</p> -->
                   <form id="addBookForm">
                     <div class="form-group">
-                      <label for="book-title" class="control-label">Title<sup>*</sup></label>
-                      <input type="text" name="title" class="form-control" name="title" id="book-title">
+                      <label for="book-title" name="title" class="control-label">Title<sup>*</sup></label>
+                      <input type="text" name="title" class="form-control" id="book-title">
                     </div>
                     <div class="form-group">
                       <div class="row form-group author-rating">
                         <div class="col-md-9 book-auth-input-label">
-                          <label for="book-author" class="control-label">Author<sup>*</sup></label>
-                          <input type="text" class="form-control" name="author" id="book-author">
+                          <label for="book-author" name="author" class="control-label">Author<sup>*</sup></label>
+                          <input type="text" name="author" class="form-control" id="book-author">
                         </div>
                         <div class="col-md-3 star-rating-input-lable">
-                          <label for="star-rating" class="control-label" name="star-rating-lbl">Star Rating</label>
+                          <label for="star-rating" name="rating" class="control-label">Star Rating</label>
                           <!-- <input type="text" class="form-control" id="star-rating"> -->
                           <div class="input-group-btn">
-                            <button type="button" class="btn btn-default dropdown-toggle" name="rating" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Choose Rating<span class="caret"></span></button>
+                            <button type="button" name="rating" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Choose Rating<span class="caret"></span></button>
                             <ul class="dropdown-menu">
-                              <li><input type="radio" class="stars" name="1-rating" value="1-Star"> 1-Star <span class="glyphicon glyphicon-star" aria-hidden="true"></span></li>
-                              <li><input type="radio" class="stars" name="2-rating" value="2-Star"> 2-Star <span class="glyphicon glyphicon-star" aria-hidden="true"></span></li>
-                              <li><input type="radio" class="stars" name="3-rating" value="3-Star"> 3-Star <span class="glyphicon glyphicon-star" aria-hidden="true"></span></li>
-                              <li><input type="radio" class="stars" name="4-rating" value="4-Star"> 4-Star <span class="glyphicon glyphicon-star" aria-hidden="true"></span></li>
-                              <li><input type="radio" class="stars" name="5-rating" value="5-Star"> 5-Star <span class="glyphicon glyphicon-star" aria-hidden="true"></span></li>
+                              <li><input type="radio" class="stars" name="rating"> 1-Star <span class="glyphicon glyphicon-star" aria-hidden="true"></span></li>
+                              <li><input type="radio" class="stars" name="rating"> 2-Star <span class="glyphicon glyphicon-star" aria-hidden="true"></span></li>
+                              <li><input type="radio" class="stars" name="rating"> 3-Star <span class="glyphicon glyphicon-star" aria-hidden="true"></span></li>
+                              <li><input type="radio" class="stars" name="rating"> 4-Star <span class="glyphicon glyphicon-star" aria-hidden="true"></span></li>
+                              <li><input type="radio" class="stars" name="rating"> 5-Star <span class="glyphicon glyphicon-star" aria-hidden="true"></span></li>
                             </ul>
                           </div><!-- /btn-group -->
                         </div>
@@ -108,20 +108,20 @@
                       <div class="row form-group pages-pubDate">
                         <div class="col-xs-2 col-md-6 page-length">
                           <label for="book-pages" class="control-label">Pages</label>
-                          <input type="text" class="form-control" name="numberOfPages" id="book-pages">
+                          <input type="text" name="numberOfPages" class="form-control" id="book-pages">
                         </div>
                         <div class="col-xs-6 col-md-6 pubDate-modal">
                           <label for="book-pubDate" class="control-label">Publication Date</label>
-                          <input type="text" class="form-control" name="publishDate" id="book-pubDate">
+                          <input type="text" name="publishDate" class="form-control" id="book-pubDate">
                         </div>
                       </div>
                       <div class="form-group">
                         <label for="synopsis" class="control-label">Synopsis</label>
-                        <input type="text" class="form-control" name="synopsis" id="synopsis">
+                        <input type="text" name="synopsis" class="form-control" id="synopsis">
                       </div>
                       <div class="form-group">
-                        <label for="choose-file" class="control-lable">Book Cover</label>
-                        <input type="file" id="myFile" name="chooseFile"></input>
+                        <label for="choose-file" name="chooseFile" class="control-lable">Book Cover</label>
+                        <input type="file" name="chooseFile" id="myFile"></input>
                         <output id="list"> </output>
                       </div>
                     </div>
@@ -130,7 +130,7 @@
                 <div class="modal-footer">
                   <div class="row form-group add-bk-lib">
                     <div class="col-xs-3 col-md-3 queue-book">
-                      <button id="queue-bk-btn" name="queue" type="button" class="btn btn-default">Queue Book To Add</button>
+                      <button id="queue-bk-btn" type="button" name="queue" class="btn btn-default">Queue Book To Add</button>
                       <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
                     </div>
                     <div class="col-xs-1 col-md-1"></div>
@@ -138,7 +138,7 @@
                       <p class="cart-queue-num"><span class="cart-num">0</span> book(s) ready to add!<span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span></p>
                     </div>
                     <div class="col-xs-3 col-md-3">
-                      <button type="button" class="btn btn-default complete-add-bk" data-dismiss="modal">Add Books To Library</button>
+                      <button type="button" name="add-bk-btn "class="btn btn-default complete-add-bk" data-dismiss="modal">Add Books To Library</button>
                       <p class="bk-add-success"><span class="lib-num">0</span> book(s) added to Library</p>
                     </div>
                   </div>

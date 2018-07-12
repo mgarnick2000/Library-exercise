@@ -295,7 +295,7 @@ Library.prototype.pull = function () {
   var translate = JSON.parse(localStorage.getItem(this._Libkey));
   var StorageLib = new Array ();
   for (i = 0; i < translate.length; i++) {
-    window.bookShelf[i] = new Book(translate[i].chooseFile, translate[i].title, translate[i].author, translate[i].numberOfPages, translate[i].publishDate, translate[i].synopsis, translate[i].rating);
+    window.bookShelf[i] = new Book(translate[i]);
   }
 };
 

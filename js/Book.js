@@ -1,9 +1,9 @@
-var Book = function(chooseFile, title, author, numberOfPages, publishDate, synopsis, rating) {
+var Book = function(oArgs) {
   this.chooseFile ="../assets/Library-catalogues.jpg";
-  this.title = title;
-  this.author = author;
-  this.numberOfPages = numberOfPages;
-  this.publishDate = new Date(publishDate.toString()).getUTCFullYear();
+  this.title = oArgs.title;
+  this.author = oArgs.author;
+  this.numberOfPages = oArgs.numberOfPages;
+  this.publishDate = new Date(String(oArgs.publishDate)).getUTCFullYear();
   this.synopsis = "this is a synopsis";
   this.rating = "5-Star";
 };

@@ -23,15 +23,15 @@ addBooksUI.prototype._bindEvents = function() {
 addBooksUI.prototype._queueBooks = function() {
 // If selecting input field by id, push the data to temporary _tempBookShelf
 // uptick the first letter in a string with i++
-  var queTitle = $('#book-title').val();
-  var queAuthor = $('#book-author').val();
-  var quePages = $('#book-pages').val();
-  var quePubDate = $('#book-pubDate').val();
-  var queSynopsis = $('#synopsis').val();
-  var queRatings = $('.stars').serializeArray();
-  var queChooseFile = $('#myFile').val();
-  var newBook = new Book(queChooseFile, queTitle, queAuthor, quePages, quePubDate, queSynopsis, queRatings);
+  var queInputs = $('#addBookForm').serializeArray();
+
+  var queBooksObj = new Object();
+  $.each(queInputs, function(index, ivp) {
+    queInputs[ivp.name] = ivp.value;
+  })
+
   var badCount = 0;
+  var newBook = new Book(queInputs);
   if(newBook.title === "" || newBook.author === "" || newBook.numberOfPages === "" || newBook.pubDate === "") {
     alert("Please enter the required information.")
     return false;
@@ -39,7 +39,7 @@ addBooksUI.prototype._queueBooks = function() {
   if(this.checkDuplicates(newBook)) {
   for(var i = 0; i < this._tempBookShelf.length; i++) {
     var currentTempBookShelf = this._tempBookShelf[i];
-    if (queTitle === currentTempBookShelf.title) {
+    if (queInputs === currentTempBookShelf.title) {
       badCount++;
       break;
     }
@@ -48,6 +48,7 @@ addBooksUI.prototype._queueBooks = function() {
     return console.log('false');
   }
 } else{
+  alert("this book already exists in the library");
   return console.log("this book already exists in the library");
 }
   this.numberBooksInQueue++;
