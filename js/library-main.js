@@ -1,17 +1,17 @@
   // Singleton content
-var Library;
-(function() {
- var instance;
-
- Library = function(key) {
-   if (instance) {
-     return instance;
-   }
-
-   instance = this;
-   this._Libkey = key;
- }
-})();
+// var Library;
+// (function() {
+//  var instance;
+//
+//  Library = function(key) {
+//    if (instance) {
+//      return instance;
+//    }
+//
+//    instance = this;
+//    this._Libkey = key;
+//  }
+// })();
 // var Library = function(key) {
 //   this.bookShelf = new Array ();
 //   this._Libkey = key;
@@ -23,6 +23,10 @@ var Library;
 //   }
 //   return false;
 // };
+var Library = function(key){
+  this._Libkey = key;
+};
+
 Library.prototype.handlerTrigger = function (sEvent, oData) {
   var oData = oData || {}
   if (sEvent) {
@@ -80,7 +84,7 @@ return addNewBooks;
 
 Library.prototype.removeBookByTitle = function (title) {
 for (var i = 0; i < window.bookShelf.length; i++) {
-  if(Title.toLowerCase().trim() === window.bookShelf[i].title.toLowerCase().trim()) {
+  if(title.toLowerCase().trim() === window.bookShelf[i].Title.toLowerCase().trim()) {
   window.bookShelf.splice(i,1);
   this.storage();
   return true;

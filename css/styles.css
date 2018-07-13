@@ -194,12 +194,18 @@ body {
   /* border: 1px solid lightgray; */
   width: 50px;
   margin-top: 25px;
+
 }
-.delete-top-right {
-  /* margin-left: 100px;
-  margin-top: 2px; */
+
+/* .fix-del-btn {
+  margin: 0px;
+  border: 1px solid
+} */
+/* .delete-top-right {
+   margin-left: 100px;
+
   opacity: 0.25;
-}
+} */
 
 
 .foot-page {
