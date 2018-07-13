@@ -55,7 +55,6 @@ DataTable.prototype._updateTable = function (e) {
     $tbody.empty();
     if(window.bookShelf) {
     this.$container.append(this._createHeader(window.bookShelf[0]))
-    console.log(window.bookShelf[0]);
     $.each(window.bookShelf, function(index, book){
       $tbody.append(_self._createRow(book));
       // $tbody.remove(_self._deleteBook(book))

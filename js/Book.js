@@ -1,5 +1,5 @@
 var Book = function(oArgs) {
-  this.Cover ="../assets/Library-catalogues.jpg";
+  this.Cover ="../assets/Library-catalogues.jpg"; 
   this.Title = oArgs.Title;
   this.Author = oArgs.Author;
   this.Number_Of_Pages = oArgs. Number_Of_Pages;

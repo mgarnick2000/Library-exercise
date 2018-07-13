@@ -121,16 +121,15 @@ Library.prototype.getRandomBook = function () {
 };
 
 Library.prototype.getBookByTitle = function (title) {
-if(title) {
-var matchTitleSearch = [];
-  for (var i = 0; i < window.bookShelf.length; i++) {
-    if (window.bookShelf[i].Title.toLowerCase().indexOf(title.toLowerCase().trim()) > -1) {
-      matchTitleSearch.push(window.bookShelf[i]);
+  var matchTitleSearch = [];
+  if(title) {
+    for (var i = 0; i < window.bookShelf.length; i++) {
+      if (window.bookShelf[i].Title.toLowerCase().indexOf(title.toLowerCase().trim()) > -1) {
+        matchTitleSearch.push(window.bookShelf[i]);
+      }
     }
   }
   return matchTitleSearch;
-}
-return false;
 };
 
 
@@ -166,6 +165,15 @@ for (var i = 0; i < window.bookShelf.length; i++) {
     return self.indexOf(value) === index
   });
 return indivAuthors;
+};
+
+Library.prototype.getTitles = function (authorName) {
+  var titles = [];
+  for (var i = 0; i < window.bookShelf.length; i++) {
+    titles.push(window.bookShelf[i].Title);
+  }
+
+  return titles;
 };
 
 Library.prototype.getRandomAuthorName = function () {
