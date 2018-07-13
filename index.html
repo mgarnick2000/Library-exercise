@@ -191,25 +191,25 @@
             </div>
           </div>
           <!-- Show Random Book Modal -->
-          <button class="btn btn-default btn-md pull-left show-rand-book-btn" type="rand-book" data-toggle="modal" data-target="#randBkModal">Random Book</button>
+          <button id="randBkBtn" class="btn btn-default btn-md pull-left show-rand-book-btn" type="rand-book" data-toggle="modal" data-target="#randBkModal">Random Book</button>
           <div id="randBkModal" class="modal fade" role="dialog">
             <div class="modal-dialog">
               <!-- Modal content-->
-              <div class="modal-content">
+              <div id='randBookmasterdiv' class="modal-content">
                 <div class="modal-header">
                   <button type="button" class="close" data-dismiss="modal">&times;</button>
                   <h4 class="modal-title">Sho&#773;gun by James Clavell</h4>
                 </div>
                 <div class="modal-body">
                   <div class="row book-cover-details">
-                  <div class="col-xs-6 col-md-6 book-cover-img">
-                    <img class="img-responsive" src="assets/shogun-cover.jpg">
+                  <div id='img-rand'class="col-xs-6 col-md-6 book-cover-img">
+                    <img id='cover-img' class="img-responsive" src="assets/shogun-cover.jpg">
                   </div>
-                  <div class="col-xs-6 col-md-6 rand-book-details">
-                    <p class="Synopsis-details">Synopsis</p>
-                    <p>1152 pages</p>
-                    <p>Publication date: January 01, 1975</p>
-                    <p>
+                  <div id='randBkDetails'class="col-xs-6 col-md-6 rand-book-details">
+                    <p id='randSynopsis'class="Synopsis-details">Synopsis</p>
+                    <p id='randBkPages'>1152 pages</p>
+                    <p id='randBkPubDate'>Publication date: January 01, 1975</p>
+                    <p id='randBkRating'>
                       <span class="glyphicon glyphicon-star checked" aria-hidden="true"></span>
                       <span class="glyphicon glyphicon-star checked" aria-hidden="true"></span>
                       <span class="glyphicon glyphicon-star checked" aria-hidden="true"></span>
@@ -386,5 +386,6 @@
   <script src="js/addBooks.js" charset="utf-8"></script>
   <script src="js/DataTable.js" charset="utf-8"></script>
   <script src="js/ShowAllBooks.js" charset="utf-8"></script>
+  <script src="js/RandomBook.js" charset="utf-8"></script>
   </body>
 </html>
