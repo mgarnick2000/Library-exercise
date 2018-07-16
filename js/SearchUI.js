@@ -22,14 +22,17 @@ SearchUI.prototype._handleSearch = function (args) {
   this.handlerTrigger('searchUpdate', searchResults)
   args.preventDefault()
 
-
-  // var searchTableHead = this._createHeader()
-  // var searchTableRow = this._createRow(searchResults);
-  // console.log(searchResults);
+  return;
 
   }
 
+SearchUI.prototype.openResults = function (args) {
 
+  var search = this.search(args)
+  $('#modal-title-search').html(search.Title)
+  $('#cover-bk-img').html(search.Cover);
+
+};
 
 $(function() {
   window.gSearchUI = new SearchUI();

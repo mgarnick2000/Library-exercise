@@ -30,10 +30,6 @@ DataTable.prototype._deleteBook = function (e) {
     return true;
 
   }
-
-
-
-
 };
 
 DataTable.prototype._createHeader = function (head) {
@@ -53,7 +49,6 @@ DataTable.prototype._createHeader = function (head) {
 };
 
 DataTable.prototype._searchTable = function (e) {
-  console.log(e.detail);
   this._updateTable(e.detail)
 };
 
@@ -74,7 +69,7 @@ DataTable.prototype._updateTable = function (e) {
 DataTable.prototype._createRow = function (book) {
   var tr = document.createElement('tr');
   $(tr).attr('tdata-id', book.Title);
-  var addTD = document.createElement('td');
+  // var addTD = document.createElement('td');
   // var delBtn = document.createElement('button');
   // $(delBtn).addClass('Library-content delete-top-right glyphicon glyphicon-remove')
   // $(addTD).append(delBtn);
@@ -84,7 +79,14 @@ DataTable.prototype._createRow = function (book) {
   for(var key in book){
     var td = document.createElement('td');
     $(td).addClass('library-content');
-    if(key === 'Delete') {
+    if (key.toLowerCase() === "cover") {
+      $(td).attr('id', 'cover-id');
+      $(td).attr("data-toggle", "modal");
+      $(td).attr("data-target", "#cover-id")
+      $(td).addClass('btn');
+      $(td).text(book[key]);
+      $(tr).append(td);
+    } else if(key === 'Delete') {
       var tdDel = document.createElement('td');
       var delBtn = document.createElement('button');
       $(delBtn).addClass('delete-lib-item delete-top-right glyphicon glyphicon-remove')
@@ -93,12 +95,12 @@ DataTable.prototype._createRow = function (book) {
       // console.log(book[key].substring(0, 30) + "...");
       $(td).text(book[key].substring(0, 30) + "...");
       $(tr).append(td);
-
     } else {
       $(td).text(book[key]);
       $(tr).append(td);
     }
   }
+
   // var tdDel = document.createElement('td');
   // var delBtn = document.createElement('button');
   // $(delBtn).addClass('Library-content delete-top-right glyphicon glyphicon-remove')

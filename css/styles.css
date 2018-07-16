@@ -169,15 +169,15 @@ body {
   font-family: Times, Garamond, sans-serif;
 }
 .library-content {
-  width: 100px;
+  width: 120px;
   margin: 50px;
-  padding: 15px;
+  padding: 5px;
   /* border: 1px solid black; */
 }
 
 .library-content td {
   /* border: 1px solid black; */
-  padding: 5px;
+  padding: 3px;
 }
 
 .rating-stars {
@@ -197,6 +197,9 @@ body {
 
 }
 
+#cover-id {
+  margin-left: 0px;
+}
 /* .fix-del-btn {
   margin: 0px;
   border: 1px solid
