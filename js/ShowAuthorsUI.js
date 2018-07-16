@@ -1,6 +1,6 @@
 var ShowAuthorsUI  = function(container){
   Library.call(this);
-  this.$container = container
+  this.$container = container;
 };
 
 ShowAuthorsUI.prototype = Object.create(Library.prototype);

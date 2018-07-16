@@ -14,6 +14,7 @@ DataTable.prototype.init = function() {
 DataTable.prototype._bindEvents = function () {
   this.$container.on('click', ".delete-top-right", $.proxy(this._deleteBook, this));
 
+
 };
 DataTable.prototype._bindCustomListeners = function () {
   $(document).on('objUpdate', $.proxy(this._updateTable, this));
@@ -50,6 +51,7 @@ DataTable.prototype._createHeader = function (head) {
     return thead;
 };
 DataTable.prototype._updateTable = function (e) {
+  console.log(e.data);
   var _self = this;
     var $tbody = this.$container.find('tbody');
     $tbody.empty();

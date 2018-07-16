@@ -269,6 +269,7 @@ var searchAnyArg = this.getBooksByAuthor(args).concat(this.getBookByTitle(args),
   if(searchAnyArg.length > 1) {
     searchResults = searchAnyArg.filter(function(value, index, self) {
       return self.indexOf(value) === index
+
   //   for (var i = 0; i < searchAnyArg.length; i++) {
   //     searchResults.push(searchAnyArg[i])
   //   }
@@ -276,6 +277,7 @@ var searchAnyArg = this.getBooksByAuthor(args).concat(this.getBookByTitle(args),
   // return searchResults;
     })
   }
+  this.handlerTrigger('objUpdate');
   return searchResults;
 }
 return false;
