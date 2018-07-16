@@ -15,13 +15,19 @@ SearchUI.prototype._bindEvents = function () {
 
 };
 SearchUI.prototype._handleSearch = function (args) {
-  var searchResults = this.search(args);
-  var searchResObj = {searchR: searchResults};
-  this.handlerTrigger('objUpdate', searchResults)
-  // console.log('searchResObj')
-  // searchResults.append(searchTable);
-  return searchResults;
-};
+  // args.preventDefault();
+  var searchInput = this.$container.find('#exampleInputSearch').val();
+  var searchResults = this.search(searchInput);
+  // args.preventDefault()
+  this.handlerTrigger('searchUpdate', searchResults)
+  args.preventDefault()
+
+
+  // var searchTableHead = this._createHeader()
+  // var searchTableRow = this._createRow(searchResults);
+  // console.log(searchResults);
+
+  }
 
 
 

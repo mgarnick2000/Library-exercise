@@ -7,7 +7,7 @@ DataTable.prototype = Object.create(Library.prototype);
 
 DataTable.prototype.init = function() {
   this.pull();
-  this._updateTable();
+  this._updateTable(window.bookShelf);
   this._bindEvents();
   this._bindCustomListeners();
 };
@@ -17,7 +17,8 @@ DataTable.prototype._bindEvents = function () {
 
 };
 DataTable.prototype._bindCustomListeners = function () {
-  $(document).on('objUpdate', $.proxy(this._updateTable, this));
+  $(document).on('objUpdate', $.proxy(this._updateTable, this, window.bookShelf));
+  $(document).on('searchUpdate', $.proxy(this._searchTable, this));
 };
 
 DataTable.prototype._deleteBook = function (e) {
@@ -50,14 +51,19 @@ DataTable.prototype._createHeader = function (head) {
     }
     return thead;
 };
+
+DataTable.prototype._searchTable = function (e) {
+  console.log(e.detail);
+  this._updateTable(e.detail)
+};
+
 DataTable.prototype._updateTable = function (e) {
-  console.log(e.data);
   var _self = this;
     var $tbody = this.$container.find('tbody');
     $tbody.empty();
-    if(window.bookShelf) {
-    this.$container.append(this._createHeader(window.bookShelf[0]))
-    $.each(window.bookShelf, function(index, book){
+    if(e) {
+    this.$container.find('#table-head').replaceWith(this._createHeader(e[0]))
+    $.each(e, function(index, book){
       $tbody.append(_self._createRow(book));
       // $tbody.remove(_self._deleteBook(book))
     });

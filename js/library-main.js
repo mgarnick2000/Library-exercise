@@ -30,7 +30,7 @@ var Library = function(key){
 Library.prototype.handlerTrigger = function (sEvent, oData) {
   var oData = oData || {}
   if (sEvent) {
-    var event = new CustomEvent(sEvent, oData);
+    var event = new CustomEvent(sEvent, {"detail": oData} );
     document.dispatchEvent(event);
   }
   // this.handlerTrigger('objUpdate', {detail: Library + "books were added"});
@@ -266,7 +266,7 @@ with full or partial search capability.
 var searchResults = [];
 if (args) {
 var searchAnyArg = this.getBooksByAuthor(args).concat(this.getBookByTitle(args), this.getBooksByYear(args));
-  if(searchAnyArg.length > 1) {
+  if(searchAnyArg.length) {
     searchResults = searchAnyArg.filter(function(value, index, self) {
       return self.indexOf(value) === index
 
@@ -277,7 +277,7 @@ var searchAnyArg = this.getBooksByAuthor(args).concat(this.getBookByTitle(args),
   // return searchResults;
     })
   }
-  this.handlerTrigger('objUpdate');
+  this.handlerTrigger('objUpdate', {searchR : searchResults});
   return searchResults;
 }
 return false;
