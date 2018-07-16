@@ -28,9 +28,9 @@ RandomBookUI.prototype._createRandBook = function () {
   $('#randSynopsis').html(books.Synopsis);
   $('#randBkPages').html(books.Number_Of_Pages);
 
-  $('#randBkPages').html(books.Number_Of_Pages);
+  $('#randBkPages').html(books.Number_Of_Pages + " pages");
   $('#randBkPubDate').html(books.Publish_Date);
-  $('#randBkPubDate').html(books.Publish_Date);
+  $('#randBkPubDate').html("Publication Date:" + " " + books.Publish_Date);
   // this.$container.find('#randBkRating')
   // this.$container.find('span').addClass('glyphicon glyphicon-star checked')
   // this.$container.find('#randBkRating').append('#randBkDetails')
