@@ -85,6 +85,11 @@ DataTable.prototype._createRow = function (book) {
       $(td).attr("data-toggle", "modal");
       $(td).attr("data-target", "#cover-id")
       $(td).addClass('btn');
+      $('#modal-title-search').html(book.Title)
+      $('#cover-bk-img').html(book.Cover);
+      $('#coverSynopsis').html(book.Synopsis);
+      $('#coverBkPages').html(book.Number_Of_Pages);
+      $('#coverBkPubDate').html(book.Publish_Date);
       $(td).text(book[key]);
       $(tr).append(td);
     } else if(key === 'Delete') {

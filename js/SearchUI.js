@@ -11,6 +11,7 @@ SearchUI.prototype.init = function () {
 };
 SearchUI.prototype._bindEvents = function () {
   $('#search-btn').on('click', $.proxy(this._handleSearch, this))
+  $('#cover-bk-img').on('click', $.proxy(this.openResults, this));
   return false;
 
 };
@@ -29,8 +30,9 @@ SearchUI.prototype._handleSearch = function (args) {
 SearchUI.prototype.openResults = function (args) {
 
   var search = this.search(args)
-  $('#modal-title-search').html(search.Title)
-  $('#cover-bk-img').html(search.Cover);
+  $('#modal-title-search').html(args.Title)
+  $('#cover-bk-img').html(args.Cover);
+  return;
 
 };
 
