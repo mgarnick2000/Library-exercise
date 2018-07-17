@@ -39,24 +39,20 @@
               <!-- Modal content-->
               <div class="modal-content">
                 <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <button type="button" id="openRemBkBtn" class="close" data-dismiss="modal">&times;</button>
                   <h4 class="modal-title">Remove Books</h4>
                 </div>
                 <div class="modal-body">
                   <form>
                     <div class="form-group">
-                      <label for="rem-bk-title" class="control-label">Remove By Title</label>
-                      <input type="text" class="form-control" id="rem-bk-title">
-                    </div>
-                    <div class="form-group">
-                      <label for="rem-bk-author" class="control-label">Remove By Author</label>
-                      <input type="text" class="form-control" id="rem-bk-author">
+                      <label for="rem-bks-author" class="control-label">Remove By Author</label>
+                      <input type="text" id="rem-bk-author"class="form-control">
                     </div>
                   </form>
                   <!-- <p>Some text in the modal.</p> -->
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-default" data-dismiss="modal">Remove Books</button>
+                  <button type="button" id="remBkBtn" class="btn btn-default" data-dismiss="modal">Remove Books</button>
                 </div>
               </div>
             </div>
@@ -424,5 +420,6 @@
   <script src="js/RandomBook.js" charset="utf-8"></script>
   <script src="js/RandAuthUI.js" charset="utf-8"></script>
   <script src="js/SearchUI.js" charset="utf-8"></script>
+  <script src="js/RemoveBooks.js" charset="utf-8"></script>
   </body>
 </html>

@@ -52,6 +52,7 @@ DataTable.prototype._searchTable = function (e) {
   this._updateTable(e.detail)
 };
 
+
 DataTable.prototype._updateTable = function (e) {
   var _self = this;
     var $tbody = this.$container.find('tbody');

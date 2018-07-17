@@ -106,6 +106,7 @@ for (var i = 0; i < window.bookShelf.length; i++) {
 }
 if (authorRemove > 0) {
   this.storage();
+  // this.handlerTrigger('objUpdate', {detail: removeInput});
   return true;
 } else {
   console.log("No books match that Author's name.");
