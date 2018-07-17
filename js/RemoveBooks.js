@@ -24,10 +24,12 @@ RemoveBooks.prototype._removeAuth = function () {
   this.handlerTrigger('objUpdate', removeInput);
   if(remAuthor) {
   alert("authors removed!")
+  this.$container.find('#remBkForm')[0].reset();
   // this.handlerTrigger('objUpdate', removeInput);
   } else {
   alert("the authors do not exist in the library");
   // this.handlerTrigger('objUpdate', removeInput);
+  this.$container.find('#remBkForm')[0].reset();
   return;
   }
 }
