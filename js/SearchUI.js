@@ -27,14 +27,14 @@ SearchUI.prototype._handleSearch = function (args) {
 
   }
 
-SearchUI.prototype.openResults = function (args) {
-
-  var search = this.search(args)
-  $('#modal-title-search').html(args.Title)
-  $('#cover-bk-img').html(args.Cover);
-  return;
-
-};
+// SearchUI.prototype.openResults = function (args) {
+//
+//   var search = this.search(args)
+//   $('#modal-title-search').html(args.Title)
+//   $('#cover-bk-img').html(args.Cover);
+//   return;
+//
+// };
 
 $(function() {
   window.gSearchUI = new SearchUI();

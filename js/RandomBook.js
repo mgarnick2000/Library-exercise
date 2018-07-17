@@ -41,6 +41,7 @@ RandomBookUI.prototype._createRandBook = function () {
 
 };
 
+
 $(function(){
   window.gRandBookUI  = new RandomBookUI();
   window.gRandBookUI.init();

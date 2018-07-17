@@ -13,6 +13,7 @@ DataTable.prototype.init = function() {
 };
 DataTable.prototype._bindEvents = function () {
   this.$container.on('click', ".delete-top-right", $.proxy(this._deleteBook, this));
+  this.$container.on('click', '#table-cover-id', $.proxy(this.tableBookInfo,this))
 
 
 };
@@ -81,15 +82,10 @@ DataTable.prototype._createRow = function (book) {
     var td = document.createElement('td');
     $(td).addClass('library-content');
     if (key.toLowerCase() === "cover") {
-      $(td).attr('id', 'cover-id');
+      $(td).attr('id', 'table-cover-id');
       $(td).attr("data-toggle", "modal");
       $(td).attr("data-target", "#cover-id")
       $(td).addClass('btn');
-      $('#modal-title-search').html(book.Title)
-      $('#cover-bk-img').html(book.Cover);
-      $('#coverSynopsis').html(book.Synopsis);
-      $('#coverBkPages').html(book.Number_Of_Pages);
-      $('#coverBkPubDate').html(book.Publish_Date);
       $(td).text(book[key]);
       $(tr).append(td);
     } else if(key === 'Delete') {
@@ -114,6 +110,22 @@ DataTable.prototype._createRow = function (book) {
   // tr.append(document.createElement('td').append(deleteInput));
 
   return tr;
+};
+DataTable.prototype.tableBookInfo = function (e) {
+  var title = $(e.currentTarget).closest('tr').attr('tdata-id');
+  var newBook = this.getBookByTitle(title);
+
+  $('#modal-title-search').html(newBook[0].Title + " written by " + newBook[0].Author)
+  $('#cover-bk-img').html(newBook[0].Cover);
+  $('#cover-bk-img').html(newBook[0].Cover);
+  // $('#randBkDetails');
+  $('#coverSynopsis').html(newBook[0].Synopsis);
+  $('#coverBkPages').html(newBook[0].Number_Of_Pages);
+
+  $('#coverBkPages').html(newBook[0].Number_Of_Pages + " pages");
+  $('#coverBkPubDate').html(newBook[0].Publish_Date);
+  $('#coverBkPubDate').html("Publication Date:" + " " + newBook[0].Publish_Date);
+
 };
 
 $(function() {
