@@ -80,6 +80,7 @@ DataTable.prototype._createRow = function (book) {
 
   for(var key in book){
     var td = document.createElement('td');
+    $(td).attr('contenteditable', "true");
     $(td).addClass('library-content');
     if (key.toLowerCase() === "cover") {
       $(td).attr('id', 'table-cover-id');
