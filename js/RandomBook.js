@@ -22,8 +22,8 @@ RandomBookUI.prototype._createRandBook = function () {
 
   var books = this.getRandomBook();
   $('.modal-title-rand').html(books.Title + " written by " + books.Author)
-  $('#cover-img').html(books.Cover);
-  $('#img-rand').html(books.Cover);
+  $('#cover-img').attr('src', books.Cover);
+  $('#coverImgPrev').attr('src', books.Cover);
   // $('#randBkDetails');
   $('#randSynopsis').html(books.Synopsis);
   $('#randBkPages').html(books.Number_Of_Pages);
