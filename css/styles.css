@@ -138,100 +138,46 @@ body {
 
 }
 
+
+.library-head {
+  /* border: 1px solid black; */
+  font-family: Times, Garamond, sans-serif;
+  padding: 5px;
+}
+ .library-head th {
+   width: 500px;
+   /* border: 1px solid black; */
+   margin: 5px;
+   padding: 10px;
+   background-color: lightgray;
+ }
+
+.cover-img {
+  height: 125px;
+  width: 125px;
+  padding: 15px;
+  align-items: center;
+  /* border: 1px solid black; */
+}
+
+
+
 /* Library section */
-
-.table-library {
-  /* background-image: url("../assets/grey-library-contents-background.jpeg"); */
-  /* background-color: #F9F9F9; */
-  /* margin: 20px 0px; */
-  padding-bottom: 10px;
-
+.library-books {
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  font-family: Times, Garamond, sans-serif;
 }
-
-.library-margin {
-  /* border: 1px solid black; */
-}
-
-/* Library header */
-.img-cover-header {
-  font-weight: bold;
-}
-
-
-.lib-title {
-  /* border: 1px solid black; */
-  font-weight: bold;
-}
-
-.lib-author {
-  /* border: 1px solid black; */
-  font-weight: bold;
-}
-.lib-page {
-  /* border: 1px solid black; */
-  font-weight: bold;
-}
-
-.lib-pub-date {
-  /* border: 1px solid black; */
-  font-weight: bold;
-}
-.lib-rating {
-  /* border: 1px solid black; */
-  font-weight: bold;
-}
-
-.delete-btn {
-  font-weight: bold;
-}
-
-/* Library details */
-.library-contents {
-  /* background-image: url("../assets/grey-library-contents-background.jpeg"); */
-  background-color: #F9F9F9;
-  border: 1px solid lightgray;
-}
-
-.lib-title-content {
-  /* border: 1px solid #F0EAEA; */
-  height: 50px;
-}
-
-.lib-title-content p {
-  margin-top: 15px;
-}
-
-
-.lib-author-content {
-  /* border: 1px solid #F0EAEA; */
-  height: 50px;
-}
-
-.lib-author-content p {
-  margin-top: 15px;
-}
-
-.lib-page-content {
-  /* border: 1px solid #F0EAEA; */
-  height: 50px;
-}
-
-.lib-page-content p {
-  margin-top: 15px;
-}
-.lib-pubdate-content {
-  /* border: 1px solid #F0EAEA; */
-  height: 50px;
-}
-
-.lib-pubdate-content p {
-  margin-top: 15px;
-}
-.lib-rating-content {
-  /* border: 1px solid #F0EAEA; */
-  height: 50px;
+.library-content {
   width: 120px;
-  margin-top: 10px;
+  margin: 50px;
+  padding: 5px;
+  /* border: 1px solid black; */
+}
+
+.library-content td {
+  /* border: 1px solid black; */
+  padding: 3px;
 }
 
 .rating-stars {
@@ -248,12 +194,21 @@ body {
   /* border: 1px solid lightgray; */
   width: 50px;
   margin-top: 25px;
+
 }
-.delete-top-right {
-  /* margin-left: 100px;
-  margin-top: 2px; */
+
+#cover-id {
+  margin-left: 0px;
+}
+/* .fix-del-btn {
+  margin: 0px;
+  border: 1px solid
+} */
+/* .delete-top-right {
+   margin-left: 100px;
+
   opacity: 0.25;
-}
+} */
 
 
 .foot-page {
