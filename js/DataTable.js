@@ -87,7 +87,8 @@ DataTable.prototype._createRow = function (book) {
       $(td).attr("data-toggle", "modal");
       $(td).attr("data-target", "#cover-id")
       $(td).addClass('btn');
-      $(td).text(book[key]);
+      $(td).html("<img class='img-thumbnail' src='" + book[key] + "' alt='book cover'>")
+      // $(td).text(book[key]);
       $(tr).append(td);
     } else if(key === 'Delete') {
       var tdDel = document.createElement('td');
@@ -117,8 +118,8 @@ DataTable.prototype.tableBookInfo = function (e) {
   var newBook = this.getBookByTitle(title);
 
   $('#modal-title-search').html(newBook[0].Title + " written by " + newBook[0].Author)
-  $('#cover-bk-img').html(newBook[0].Cover);
-  $('#cover-bk-img').html(newBook[0].Cover);
+  // $('#cover-bk-img').html(newBook[0].Cover);
+  $('#cover-bk-img').attr('src', newBook[0].Cover);
   // $('#randBkDetails');
   $('#coverSynopsis').html(newBook[0].Synopsis);
   $('#coverBkPages').html(newBook[0].Number_Of_Pages);

@@ -17,6 +17,7 @@ addBooksUI.prototype._bindEvents = function() {
   // $('.cart-queue-num').on('click', $.proxy(this._queueBooks, this));
   $('.complete-add-bk').on('click', $.proxy(this._addBooksToLib, this));
   // $('.bk-add-success').on('click', $.proxy(this._addBooksToLib, this));
+  $('#myFile').on('change', $.proxy(this.addImage, this));
 }
 
 
@@ -29,6 +30,7 @@ addBooksUI.prototype._queueBooks = function() {
   $.each(queInputs, function(index, ivp) {
     queInputs[ivp.name] = ivp.value;
   })
+  queInputs['Cover'] = $('#coverImgPrev').attr('src');
 
   var badCount = 0;
   var newBook = new Book(queInputs);
@@ -79,6 +81,20 @@ addBooksUI.prototype._addBooksToLib = function(book) {
   // this.numberBooksInQueue++;
   }
 }
+
+addBooksUI.prototype.addImage = function () {
+  var preview = document.querySelector('#coverImgPrev');
+  var file    = document.querySelector('input[type=file]').files[0];
+  var reader  = new FileReader();
+
+  reader.addEventListener("load", function () {
+    preview.src = reader.result;
+  }, false);
+
+  if (file) {
+    reader.readAsDataURL(file);
+  }
+};
 
 addBooksUI.prototype._handleModalOpen = function() {
   this.$container.modal('show');
