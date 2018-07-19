@@ -96,9 +96,14 @@ addBooksUI.prototype.addImage = function () {
   }
 };
 
+
+
 addBooksUI.prototype._handleModalOpen = function() {
   this.$container.modal('show');
 }
+
+
+
 
 $(function() {
   window.gAddBooksUI = new addBooksUI();
