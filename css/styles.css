@@ -186,9 +186,9 @@ body {
   /* background-color: #F9F9F9; */
 }
 
-.checked {
+/* .checked {
   color: gold;
-}
+} */
 
 .delete-lib-item {
   /* border: 1px solid lightgray; */
@@ -210,6 +210,12 @@ body {
   opacity: 0.25;
 } */
 
+.star-rating-val {
+  line-height:32px;
+  font-size:1.25em;
+}
+
+.star-rating-val .glyphicon-star{color: gold;}
 
 .foot-page {
   color: #939393;
