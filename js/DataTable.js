@@ -7,6 +7,7 @@ DataTable.prototype = Object.create(Library.prototype);
 
 DataTable.prototype.init = function() {
   this.pull();
+  this._dbTable();
   this._updateTable(window.bookShelf);
   this._bindEvents();
   this._bindCustomListeners();
@@ -51,6 +52,20 @@ DataTable.prototype._createHeader = function (head) {
 
 DataTable.prototype._searchTable = function (e) {
   this._updateTable(e.detail)
+};
+
+DataTable.prototype._dbTable = function () {
+  console.log("in db-table");
+  $.ajax({
+    url: window.libraryURL,
+    dataType: 'json',
+    method: 'GET',
+    success: (data) => {
+      console.log(data);
+      window.bookShelf = data;
+      this._updateTable(data);
+    }
+  })
 };
 
 
