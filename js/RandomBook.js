@@ -5,7 +5,7 @@ var RandomBookUI = function(container) {
 RandomBookUI.prototype = Object.create(Library.prototype);
 
 RandomBookUI.prototype.init = function() {
-  this.pull();
+  // this.pull();
   this._bindEvents();
 }
 

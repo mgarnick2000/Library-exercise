@@ -6,7 +6,7 @@ var SearchUI = function(container) {
 SearchUI.prototype = Object.create(Library.prototype)
 
 SearchUI.prototype.init = function () {
-  this.pull();
+  // this.pull();
   this._bindEvents();
 };
 SearchUI.prototype._bindEvents = function () {

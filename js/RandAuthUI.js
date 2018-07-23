@@ -5,7 +5,7 @@ var RandAuthUI = function(container) {
 RandAuthUI.prototype = Object.create(Library.prototype);
 
 RandAuthUI.prototype.init = function () {
-  this.pull();
+  // this.pull();
   this._bindEvents();
 
 };

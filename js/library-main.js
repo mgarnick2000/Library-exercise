@@ -299,20 +299,20 @@ Library.prototype.searchPageNumber = function (pages, range) {
   }
   return bookLengthGreater500;
 };
-
+  
 // Local Storage
-Library.prototype.storage = function () {
-  var dataLib = JSON.stringify(window.bookShelf);
-  localStorage.setItem(this._Libkey, dataLib);
-};
-
-Library.prototype.pull = function () {
-  var translate = JSON.parse(localStorage.getItem(this._Libkey));
-  var StorageLib = new Array ();
-  for (i = 0; i < translate.length; i++) {
-    window.bookShelf[i] = new Book(translate[i]);
-  }
-};
+// Library.prototype.storage = function () {
+//   var dataLib = JSON.stringify(window.bookShelf);
+//   localStorage.setItem(this._Libkey, dataLib);
+// };
+//
+// Library.prototype.pull = function () {
+//   var translate = JSON.parse(localStorage.getItem(this._Libkey));
+//   var StorageLib = new Array ();
+//   for (i = 0; i < translate.length; i++) {
+//     window.bookShelf[i] = new Book(translate[i]);
+//   }
+// };
 
 // Local Storage End
 
