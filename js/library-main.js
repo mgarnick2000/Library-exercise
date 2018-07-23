@@ -108,6 +108,17 @@ alert("Your book was added!")
 return addNewBooks;
 };
 
+Library.prototype._dbDeleteId = function (id) {
+  $.ajax({
+    url: window.libraryURL + id,
+    dataType: 'json',
+    method: "DELETE",
+    success: (data) => {
+      this.handlerTrigger('objUpdate', window.bookShelf)
+    }
+  })
+};
+
 Library.prototype.removeBookByTitle = function (title) {
 for (var i = 0; i < window.bookShelf.length; i++) {
   if(title.toLowerCase().trim() === window.bookShelf[i].Title.toLowerCase().trim()) {
@@ -125,13 +136,14 @@ Library.prototype.removeBookByAuthor = function (authorName) {
 var authorRemove = 0;
 for (var i = 0; i < window.bookShelf.length; i++) {
   if (authorName.toLowerCase().trim() === window.bookShelf[i].Author.toLowerCase().trim()) {
+    this._dbDeleteId(window.bookShelf[i]._id)
     window.bookShelf.splice(i,1);
     i--;
     authorRemove++;
   }
 }
 if (authorRemove > 0) {
-  this.storage();
+  // this.storage();
   // this.handlerTrigger('objUpdate', {detail: removeInput});
   return true;
 } else {
