@@ -36,8 +36,9 @@ DataTable.prototype._deleteBook = function (e) {
 
 DataTable.prototype._createHeader = function (head) {
   var thead = document.createElement('thead');
-    $(thead).addClass("library-head")
+    $(thead).attr("id", "table-head")
   var tr = document.createElement('tr');
+    $(tr).attr("class", "library-head");
     thead.append(tr)
 
     for(var key in head) {
@@ -48,6 +49,7 @@ DataTable.prototype._createHeader = function (head) {
 
     }
     return thead;
+
 };
 
 DataTable.prototype._searchTable = function (e) {
@@ -55,7 +57,7 @@ DataTable.prototype._searchTable = function (e) {
 };
 
 DataTable.prototype._dbTable = function () {
-  console.log("in db-table");
+  // console.log("in db-table");
   $.ajax({
     url: window.libraryURL,
     dataType: 'json',

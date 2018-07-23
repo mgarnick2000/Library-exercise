@@ -299,7 +299,7 @@ Library.prototype.searchPageNumber = function (pages, range) {
   }
   return bookLengthGreater500;
 };
-  
+
 // Local Storage
 // Library.prototype.storage = function () {
 //   var dataLib = JSON.stringify(window.bookShelf);
