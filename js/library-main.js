@@ -119,11 +119,12 @@ Library.prototype._dbDeleteId = function (id) {
   })
 };
 
-Library.prototype.removeBookByTitle = function (title) {
+Library.prototype.removeBookByID = function (id) {
 for (var i = 0; i < window.bookShelf.length; i++) {
-  if(title.toLowerCase().trim() === window.bookShelf[i].Title.toLowerCase().trim()) {
+  if(id === window.bookShelf[i]._ID) {
+  this._dbDeleteId(window.bookShelf[i]._id)
   window.bookShelf.splice(i,1);
-  this.storage();
+  // this.storage();
   return true;
   }
 }

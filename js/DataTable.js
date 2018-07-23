@@ -27,7 +27,7 @@ DataTable.prototype._deleteBook = function (e) {
   var $btnClicked = $(e.currentTarget).closest('tr');
   $btnClicked.remove();
 
-  if(this.removeBookByTitle($btnClicked.attr('tdata-id'))) {
+  if(this.removeBookByID($btnClicked.attr('rem-id'))) {
     alert("Your book was removed");
     return true;
 
@@ -50,7 +50,7 @@ DataTable.prototype._createHeader = function (head) {
         tr.append(th);
         $(th).text(key.replace(/_/g, " "));
       }
-      
+
     }
     return thead;
 
@@ -94,6 +94,7 @@ DataTable.prototype._updateTable = function (e) {
 DataTable.prototype._createRow = function (book) {
   var tr = document.createElement('tr');
   $(tr).attr('tdata-id', book.Title);
+  $(tr).attr('rem-id', book._ID);
   // var addTD = document.createElement('td');
   // var delBtn = document.createElement('button');
   // $(delBtn).addClass('Library-content delete-top-right glyphicon glyphicon-remove')
