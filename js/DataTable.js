@@ -42,11 +42,15 @@ DataTable.prototype._createHeader = function (head) {
     thead.append(tr)
 
     for(var key in head) {
-      var th = document.createElement('th');
-      $(th).text([key]);
-      tr.append(th);
-      $(th).text(key.replace(/_/g, " "));
+      if(key === "_id" || key === "__v") {
 
+      } else {
+        var th = document.createElement('th');
+        $(th).text([key]);
+        tr.append(th);
+        $(th).text(key.replace(/_/g, " "));
+      }
+      
     }
     return thead;
 
@@ -69,6 +73,8 @@ DataTable.prototype._dbTable = function () {
     }
   })
 };
+
+
 
 
 DataTable.prototype._updateTable = function (e) {
@@ -99,7 +105,9 @@ DataTable.prototype._createRow = function (book) {
     var td = document.createElement('td');
     $(td).attr('contenteditable', "true");
     $(td).addClass('library-content');
-    if (key.toLowerCase() === "cover") {
+    if(key === "_id" || key === "__v") {
+      // do nothing
+    } else if (key.toLowerCase() === "cover") {
       $(td).attr('id', 'table-cover-id');
       $(td).attr("data-toggle", "modal");
       $(td).attr("data-target", "#cover-id")
