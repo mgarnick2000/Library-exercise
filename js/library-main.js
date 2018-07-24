@@ -35,7 +35,19 @@ Library.prototype.handlerTrigger = function (sEvent, oData) {
   }
   // this.handlerTrigger('objUpdate', {detail: Library + "books were added"});
 }
-
+Library.prototype._refreshTable = function () {
+  // console.log("in db-table");
+  $.ajax({
+    url: window.libraryURL,
+    dataType: 'json',
+    method: 'GET',
+    success: (data) => {
+      console.log(data);
+      window.bookShelf = data;
+      window._updateTable(data);
+    }
+  })
+};
 
 Library.prototype._dbPostBookShelf = function (book) {
   $.ajax({
@@ -45,7 +57,9 @@ Library.prototype._dbPostBookShelf = function (book) {
     data: book,
     success: (data) => {
       window.bookShelf = this._createBookObj(data)
+      this._refreshTable(book);
       this.handlerTrigger('objUpdate', window.bookShelf)
+
     }
   })
   return console.log("bookshelf updated!");
@@ -74,6 +88,7 @@ for (var i = 0; i < window.bookShelf.length; i++) {
 }
   this._dbPostBookShelf(book)
   window.bookShelf.push(book);
+  this._refreshTable(book);
 
   return true;
 }
