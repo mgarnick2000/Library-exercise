@@ -18,10 +18,11 @@ RandomBookUI.prototype._handleRandBook = function () {
     this.$container.find('modal-body').html(this._createRandBook());
     return false;
 };
-RandomBookUI.prototype._createRandBook = function () {
+RandomBookUI.prototype._createRandBook = function (_id) {
 
-  var books = this.getRandomBook();
-  $('.modal-title-rand').html(books.Title + " written by " + books.Author)
+  var books = this.getRandomBookByID(_id);
+  console.log(books);
+  $('.modal-title-rand').html(books.Title + " written by " + books.Author);
   $('#cover-img').attr('src', books.Cover);
   $('#coverImgPrev').attr('src', books.Cover);
   // $('#randBkDetails');

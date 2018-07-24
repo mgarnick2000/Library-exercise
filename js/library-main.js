@@ -172,7 +172,28 @@ Library.prototype.getRandomBook = function () {
   if(window.bookShelf.length === 0) {
     return null;
   }
+
   return window.bookShelf[Math.floor(Math.random() * window.bookShelf.length)];
+
+};
+
+Library.prototype.getRandomBookByID = function(_id) {
+  if(window.bookShelf.length === 0) {
+    return null;
+  }
+  this.getRandBkByID(_id)
+  return window.bookShelf[Math.floor(Math.random() * window.bookShelf.length)]
+}
+
+Library.prototype.getRandBkByID = function () {
+  $.ajax({
+    url: window.libraryURL,
+    dataType: 'json',
+    method: "GET",
+    success: (data) => {
+      console.log(data);
+    }
+  })
 };
 
 Library.prototype.getBookByTitle = function (title) {

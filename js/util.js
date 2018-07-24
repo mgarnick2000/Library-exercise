@@ -86,3 +86,25 @@ _createHeader = function (head) {
     return thead;
 
 };
+_createRandBook = function () {
+
+  var books = this.getRandomBook();
+  $('.modal-title-rand').html(books.Title + " written by " + books.Author)
+  $('#cover-img').attr('src', books.Cover);
+  $('#coverImgPrev').attr('src', books.Cover);
+  // $('#randBkDetails');
+  $('#randSynopsis').html(books.Synopsis);
+  $('#randBkPages').html(books.Number_Of_Pages);
+
+  $('#randBkPages').html(books.Number_Of_Pages + " pages");
+  $('#randBkPubDate').html(books.Publish_Date);
+  $('#randBkPubDate').html("Publication Date:" + " " + books.Publish_Date);
+  // this.$container.find('#randBkRating')
+  // this.$container.find('span').addClass('glyphicon glyphicon-star checked')
+  // this.$container.find('#randBkRating').append('#randBkDetails')
+  // this.$container.find('#randBkRating').attr('book-rating', books.Rating);
+
+  return books;
+
+
+};
