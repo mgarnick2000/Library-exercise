@@ -21,7 +21,6 @@ RandomBookUI.prototype._handleRandBook = function () {
 RandomBookUI.prototype._createRandBook = function (_id) {
 
   var books = this.getRandomBookByID(_id);
-  console.log(books);
   $('.modal-title-rand').html(books.Title + " written by " + books.Author);
   $('#cover-img').attr('src', books.Cover);
   $('#coverImgPrev').attr('src', books.Cover);

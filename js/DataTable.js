@@ -15,6 +15,7 @@ DataTable.prototype.init = function() {
 DataTable.prototype._bindEvents = function () {
   this.$container.on('click', ".delete-top-right", $.proxy(this._deleteBook, this));
   this.$container.on('click', '#table-cover-id', $.proxy(this.tableBookInfo,this))
+  this.$container.on('click', ".library-content", $.proxy(this.updateBookDetails, this))
 
 
 };
@@ -90,10 +91,37 @@ DataTable.prototype._updateTable = function (e) {
   }
 };
 
+DataTable.prototype.updateBookContent = function (id, update) {
+  $.ajax({
+    url: window.libraryURL + id,
+    data: update,
+    dataType: 'text',
+    method: 'PUT',
+    success: (data) => {
+      this._dbTable();
+      this.handlerTrigger('objUpdate', window.bookShelf);
+    }
+  })
+};
+
+DataTable.prototype.updateBookDetails = function (e) {
+  var $editTD = $(e.currentTarget).closest('tr').attr('data-id');
+  var editLibCont = $(e.currentTarget).text();
+
+  for (var i = 0; i < window.bookShelf.length; i++) {
+    if(window.bookShelf[i]._id === $editTD) {
+      var editObj = window.bookShelf[i]
+    }
+  }
+console.log(editObj);
+
+};
+
 
 DataTable.prototype._createRow = function (book) {
   var tr = document.createElement('tr');
   $(tr).attr("del-row", book._id);
+  $(tr).attr('data-id', book._id);
   $(tr).attr("tdata-id", book.Title);
   // $(tr).attr("trem-id", book._ID);
   // console.log(trem-id);
