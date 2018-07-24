@@ -1,5 +1,5 @@
 var Book = function(oArgs) {
-  this._ID = oArgs.ID;
+  this._id = oArgs._id;
   this.Cover = oArgs.Cover;
   this.Title = oArgs.Title;
   this.Author = oArgs.Author;
@@ -8,5 +8,5 @@ var Book = function(oArgs) {
   this.Synopsis = oArgs.Synopsis;
   this.Rating = oArgs.Rating;
   this.Delete = "delete";
-  this.__V = oArgs.V;
+  this.__V = oArgs.__V;
 };

@@ -119,11 +119,11 @@ Library.prototype._dbDeleteId = function (id) {
   })
 };
 
-Library.prototype.removeBookByID = function (id) {
+Library.prototype.removeBookByID = function (_id) {
 for (var i = 0; i < window.bookShelf.length; i++) {
-  if(id === window.bookShelf[i]._ID) {
+  if(_id === window.bookShelf[i]._id) {
   this._dbDeleteId(window.bookShelf[i]._id)
-  window.bookShelf.splice(i,1);
+  window.bookShelf.splice(i, 1);
   // this.storage();
   return true;
   }
@@ -170,6 +170,18 @@ Library.prototype.getBookByTitle = function (title) {
     }
   }
   return matchTitleSearch;
+};
+
+Library.prototype.getBookByID = function (id) {
+  var matchIDSearch = [];
+  if(id) {
+    for (var i = 0; i < window.bookShelf.length; i++) {
+      if (window.bookShelf[i]._id.indexOf(id) > -1) {
+        matchIDSearch.push(window.bookShelf[i]);
+      }
+    }
+  }
+  return matchIDSearch;
 };
 
 
