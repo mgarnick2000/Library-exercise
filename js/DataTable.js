@@ -107,20 +107,25 @@ DataTable.prototype.updateBookContent = function (_id, update) {
 
 DataTable.prototype.updateBookDetails = function (e) {
 var id = $(e.currentTarget).closest('tr').attr('data-id');
-console.log(id);
+// console.log(id); clicking this row identifies the id associated with the book object in the row.
 var editLibCont = $(e.currentTarget).attr('edit')
-console.log(editLibCont);
+// console.log(editLibCont); clicking on this td cell identifies the key of the cell that was selected, such a Author in the Book Object.
 var editedText = $(e.currentTarget).text();
-console.log(editedText);
+// console.log(editedText); clicking on this td cell identifies the text value of the td cell, such as Brian McClellan in the Book Object.
 var editObj;
   for (var i = 0; i < window.bookShelf.length; i++) {
     if(window.bookShelf[i]._id === id) {
+      // looping the bookshelf and searching the indexes for the _id. You will check the _id of bookShelf versus the id on the book object selected. This returns the book object of the id selected.
       var editObj = window.bookShelf[i]
+      // if the _id and id is the same, you set the editObj to the window.bookshelf[i]. This displays the entire book object of the td cell selected.
       for (key in editObj) {
-        // console.log(key);
+        // next, you loop through keys of the selected td cell in the the book object named editObj
         if(key === editLibCont) {
+          // if the key of the td cell selected matches the book object selected.
           window.bookShelf[i][editLibCont] = editedText;
+          // This overwrites the text of the selected td cell and pushes the changes to the book object. This takes the book._id and key of td selected and sets them equal to the edited text. 
           this.updateBookContent(editObj._id, editObj)
+          // this is the PUT request that takes the changes to the objects _id and book object and sends them to the database.
         }
       }
     }
