@@ -31,6 +31,7 @@ RandomBookUI.prototype._createRandBook = function (_id) {
   $('#randBkPages').html(books.Number_Of_Pages + " pages");
   $('#randBkPubDate').html(books.Publish_Date);
   $('#randBkPubDate').html("Publication Date:" + " " + books.Publish_Date);
+  $('#randBkRating').html(books.Rating);
   // this.$container.find('#randBkRating')
   // this.$container.find('span').addClass('glyphicon glyphicon-star checked')
   // this.$container.find('#randBkRating').append('#randBkDetails')

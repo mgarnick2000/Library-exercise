@@ -94,7 +94,7 @@ DataTable.prototype._updateTable = function (e) {
 DataTable.prototype.updateBookContent = function (_id, update) {
   $.ajax({
     url: window.libraryURL + _id,
-    data: update,
+    data: update, /* this will be the book object*/
     dataType: 'text',
     method: 'PUT',
     success: (data) => {
@@ -105,10 +105,13 @@ DataTable.prototype.updateBookContent = function (_id, update) {
   })
 };
 
-DataTable.prototype.updateBookDetails = function (e, update) {
+DataTable.prototype.updateBookDetails = function (e) {
 var id = $(e.currentTarget).closest('tr').attr('data-id');
+console.log(id);
 var editLibCont = $(e.currentTarget).attr('edit')
+console.log(editLibCont);
 var editedText = $(e.currentTarget).text();
+console.log(editedText);
 var editObj;
   for (var i = 0; i < window.bookShelf.length; i++) {
     if(window.bookShelf[i]._id === id) {
@@ -163,7 +166,7 @@ DataTable.prototype._createRow = function (book) {
       $(td).text(book[key].substring(0, 30) + "...");
       $(tr).append(td);
     } else {
-      $(td).attr('edit', key)
+      $(td).attr('edit', key) /* this is where i create a key for the title, author, number of pages, publication date, synopsis, and rating td values*/
       $(td).text(book[key]);
       $(tr).append(td);
     }
@@ -191,6 +194,7 @@ DataTable.prototype.tableBookInfo = function (e) {
   $('#coverBkPages').html(newBook[0].Number_Of_Pages + " pages");
   $('#coverBkPubDate').html(newBook[0].Publish_Date);
   $('#coverBkPubDate').html("Publication Date:" + " " + newBook[0].Publish_Date);
+  $('#coverBkRating').html(newBook[0].Rating);
 
 };
 
