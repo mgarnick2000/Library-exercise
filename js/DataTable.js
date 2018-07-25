@@ -15,7 +15,7 @@ DataTable.prototype.init = function() {
 DataTable.prototype._bindEvents = function () {
   this.$container.on('click', ".delete-top-right", $.proxy(this._deleteBook, this));
   this.$container.on('click', '#table-cover-id', $.proxy(this.tableBookInfo,this))
-  this.$container.on('click', ".library-content", $.proxy(this.updateBookDetails, this))
+  this.$container.on('blur',  ".library-content", $.proxy(this.updateBookDetails, this))
 
 
 };
@@ -91,30 +91,37 @@ DataTable.prototype._updateTable = function (e) {
   }
 };
 
-DataTable.prototype.updateBookContent = function (id, update) {
+DataTable.prototype.updateBookContent = function (_id, update) {
   $.ajax({
-    url: window.libraryURL + id,
+    url: window.libraryURL + _id,
     data: update,
     dataType: 'text',
     method: 'PUT',
     success: (data) => {
-      this._dbTable();
       this.handlerTrigger('objUpdate', window.bookShelf);
+      this._dbTable();
+
     }
   })
 };
 
-DataTable.prototype.updateBookDetails = function (e) {
-  var $editTD = $(e.currentTarget).closest('tr').attr('data-id');
-  var editLibCont = $(e.currentTarget).text();
-
+DataTable.prototype.updateBookDetails = function (e, update) {
+var id = $(e.currentTarget).closest('tr').attr('data-id');
+var editLibCont = $(e.currentTarget).attr('edit')
+var editedText = $(e.currentTarget).text();
+var editObj;
   for (var i = 0; i < window.bookShelf.length; i++) {
-    if(window.bookShelf[i]._id === $editTD) {
+    if(window.bookShelf[i]._id === id) {
       var editObj = window.bookShelf[i]
+      for (key in editObj) {
+        // console.log(key);
+        if(key === editLibCont) {
+          window.bookShelf[i][editLibCont] = editedText;
+          this.updateBookContent(editObj._id, editObj)
+        }
+      }
     }
   }
-console.log(editObj);
-
 };
 
 
@@ -156,6 +163,7 @@ DataTable.prototype._createRow = function (book) {
       $(td).text(book[key].substring(0, 30) + "...");
       $(tr).append(td);
     } else {
+      $(td).attr('edit', key)
       $(td).text(book[key]);
       $(tr).append(td);
     }
