@@ -168,7 +168,8 @@ DataTable.prototype._createRow = function (book) {
       $(tr).append(delBtn);
     } else if( key.toLowerCase() == 'synopsis') {
       // console.log(book[key].substring(0, 30) + "...");
-      $(td).text(book[key].substring(0, 30) + "...");
+      $(td).attr('edit', key)
+      $(td).text(book[key].substring(0, 200) + "...");
       $(tr).append(td);
     } else {
       $(td).attr('edit', key) /* this is where i create a key for the title, author, number of pages, publication date, synopsis, and rating td values*/
