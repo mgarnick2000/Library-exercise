@@ -210,12 +210,10 @@ body {
   opacity: 0.25;
 } */
 
-.star-rating-val {
-  line-height:32px;
-  font-size:1.25em;
-}
 
-.star-rating-val .glyphicon-star{color: gold;}
+
+
+
 
 .foot-page {
   color: #939393;

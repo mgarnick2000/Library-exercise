@@ -69,8 +69,8 @@ DataTable.prototype._dbTable = function () {
     method: 'GET',
     success: (data) => {
       console.log(data);
-      window.bookShelf = data;
-      this._updateTable(data);
+      window.bookShelf = this._createBookObj(data);
+      this._updateTable(window.bookShelf);
     }
   })
 };
@@ -123,7 +123,7 @@ var editObj;
         if(key === editLibCont) {
           // if the key of the td cell selected matches the book object selected.
           window.bookShelf[i][editLibCont] = editedText;
-          // This overwrites the text of the selected td cell and pushes the changes to the book object. This takes the book._id and key of td selected and sets them equal to the edited text. 
+          // This overwrites the text of the selected td cell and pushes the changes to the book object. This takes the book._id and key of td selected and sets them equal to the edited text.
           this.updateBookContent(editObj._id, editObj)
           // this is the PUT request that takes the changes to the objects _id and book object and sends them to the database.
         }
