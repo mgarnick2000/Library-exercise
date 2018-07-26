@@ -18,9 +18,11 @@ RandomBookUI.prototype._handleRandBook = function () {
     this.$container.find('modal-body').html(this._createRandBook());
     return false;
 };
-RandomBookUI.prototype._createRandBook = function (_id) {
+RandomBookUI.prototype._createRandBook = async function (_id) {
 
-  var books = this.getRandomBookByID(_id);
+  var randBook = this.getRandomBookByID(_id);
+  var books = await this.getRandBkByID(randBook._id)
+  books = new Book(books);
   $('.modal-title-rand').html(books.Title + " written by " + books.Author);
   $('#cover-img').attr('src', books.Cover);
   $('#coverImgPrev').attr('src', books.Cover);

@@ -181,19 +181,21 @@ Library.prototype.getRandomBookByID = function(_id) {
   if(window.bookShelf.length === 0) {
     return null;
   }
-  this.getRandBkByID(_id)
   return window.bookShelf[Math.floor(Math.random() * window.bookShelf.length)]
 }
 
-Library.prototype.getRandBkByID = function () {
-  $.ajax({
-    url: window.libraryURL,
+Library.prototype.getRandBkByID = function (_id) {
+  var request = $.ajax({
+    url: window.libraryURL + _id,
     dataType: 'json',
     method: "GET",
     success: (data) => {
-      console.log("GET: ID Random Book successful");
+      var book = new Book(data);
+      return book;
+      console.log(data);
     }
   })
+  return request;
 };
 
 Library.prototype.getBookByTitle = function (title) {
