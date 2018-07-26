@@ -42,7 +42,6 @@ Library.prototype._refreshTable = function () {
     dataType: 'json',
     method: 'GET',
     success: (data) => {
-      console.log(data);
       window.bookShelf = this._createBookObj(data);
       window._updateTable(window.bookShelf);
     }
@@ -56,7 +55,6 @@ Library.prototype._dbPostBookShelf = function (book) {
     method: "POST",
     data: book,
     success: (data) => {
-      console.log(data);
       // window.bookShelf = this._createBookObj(data)
       window.bookShelf.push(new Book(data));
       this._refreshTable(book);

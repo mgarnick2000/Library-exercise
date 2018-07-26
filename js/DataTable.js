@@ -168,7 +168,7 @@ DataTable.prototype._createRow = function (book) {
       $(tr).append(delBtn);
     } else if( key.toLowerCase() == 'synopsis') {
       $(td).attr('edit', key)
-      $(td).text(book[key].substring(0, 150) + "...");
+      $(td).text(book[key].substring(0, 100) + "...");
       $(tr).append(td);
     } else {
       $(td).attr('edit', key) /* this is where i create a key for the title, author, number of pages, publication date, synopsis, and rating td values. this allows developers to match the key to the value in the table data cell to the book object..*/
