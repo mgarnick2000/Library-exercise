@@ -11,7 +11,7 @@ SearchUI.prototype.init = function () {
 };
 SearchUI.prototype._bindEvents = function () {
   $('#search-btn').on('click', $.proxy(this._handleSearch, this))
-  $('#cover-bk-img').on('click', $.proxy(this.openResults, this));
+  // $('#cover-bk-img').on('click', $.proxy(this.openResults, this));
   $('#return-lib-btn').on('click', $.proxy(this.returnLibrary, this));
   return false;
 

@@ -191,6 +191,7 @@ Library.prototype.getRandBkByID = function () {
     dataType: 'json',
     method: "GET",
     success: (data) => {
+      console.log("GET: ID Random Book successful");
     }
   })
 };
