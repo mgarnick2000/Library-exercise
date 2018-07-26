@@ -110,6 +110,7 @@ var id = $(e.currentTarget).closest('tr').attr('data-id');
 // console.log(id); clicking this row identifies the id associated with the book object in the row.
 var editLibCont = $(e.currentTarget).attr('edit')
 // console.log(editLibCont); clicking on this td cell identifies the key of the cell that was selected, such a Author in the Book Object.
+// this allows developers to target the td cell. Without the attr on the td cell, it will not overwrite the changes to the cell.
 var editedText = $(e.currentTarget).text();
 // console.log(editedText); clicking on this td cell identifies the text value of the td cell, such as Brian McClellan in the Book Object.
 var editObj;
@@ -121,7 +122,7 @@ var editObj;
       for (key in editObj) {
         // next, you loop through keys of the selected td cell in the the book object named editObj
         if(key === editLibCont) {
-          // if the key of the td cell selected matches the book object selected.
+          // if the key of the td cell selected matches the book object selected. You can overwrite the text within the td cell.
           window.bookShelf[i][editLibCont] = editedText;
           // This overwrites the text of the selected td cell and pushes the changes to the book object. This takes the book._id and key of td selected and sets them equal to the edited text.
           this.updateBookContent(editObj._id, editObj)
@@ -166,12 +167,11 @@ DataTable.prototype._createRow = function (book) {
       $(delBtn).addClass('delete-lib-item delete-top-right glyphicon glyphicon-remove')
       $(tr).append(delBtn);
     } else if( key.toLowerCase() == 'synopsis') {
-      // console.log(book[key].substring(0, 30) + "...");
       $(td).attr('edit', key)
       $(td).text(book[key].substring(0, 150) + "...");
       $(tr).append(td);
     } else {
-      $(td).attr('edit', key) /* this is where i create a key for the title, author, number of pages, publication date, synopsis, and rating td values*/
+      $(td).attr('edit', key) /* this is where i create a key for the title, author, number of pages, publication date, synopsis, and rating td values. this allows developers to match the key to the value in the table data cell to the book object..*/
       $(td).text(book[key]);
       $(tr).append(td);
     }

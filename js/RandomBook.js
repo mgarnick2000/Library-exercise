@@ -20,9 +20,9 @@ RandomBookUI.prototype._handleRandBook = function () {
 };
 RandomBookUI.prototype._createRandBook = async function (_id) {
 
-  var randBook = this.getRandomBookByID(_id);
-  var books = await this.getRandBkByID(randBook._id)
-  books = new Book(books);
+  var randBook = this.getRandomBookByID(_id); /*this is the book object from the bookshelf*/
+  var books = await this.getRandBkByID(randBook._id) /*this is from the ajax get request */
+  books = new Book(books); /* this creates the book in a book object.*/
   $('.modal-title-rand').html(books.Title + " written by " + books.Author);
   $('#cover-img').attr('src', books.Cover);
   $('#coverImgPrev').attr('src', books.Cover);

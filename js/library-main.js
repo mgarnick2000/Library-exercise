@@ -43,8 +43,8 @@ Library.prototype._refreshTable = function () {
     method: 'GET',
     success: (data) => {
       console.log(data);
-      window.bookShelf = data;
-      window._updateTable(data);
+      window.bookShelf = this._createBookObj(data);
+      window._updateTable(window.bookShelf);
     }
   })
 };
@@ -56,7 +56,9 @@ Library.prototype._dbPostBookShelf = function (book) {
     method: "POST",
     data: book,
     success: (data) => {
-      window.bookShelf = this._createBookObj(data)
+      console.log(data);
+      // window.bookShelf = this._createBookObj(data)
+      window.bookShelf.push(new Book(data));
       this._refreshTable(book);
       this.handlerTrigger('objUpdate', window.bookShelf)
 
@@ -87,7 +89,7 @@ for (var i = 0; i < window.bookShelf.length; i++) {
   }
 }
   this._dbPostBookShelf(book)
-  window.bookShelf.push(book);
+  // window.bookShelf.push(book);
   this._refreshTable(book);
 
   return true;
