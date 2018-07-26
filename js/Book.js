@@ -8,5 +8,5 @@ var Book = function(oArgs) {
   this.Synopsis = oArgs.Synopsis;
   this.Rating = oArgs.Rating;
   this.Delete = "delete";
-  this.__V = oArgs.__V;
+  this.__v = oArgs.__v;
 };

@@ -156,10 +156,9 @@ DataTable.prototype._createRow = function (book) {
     } else if (key.toLowerCase() === "cover") {
       $(td).attr('id', 'table-cover-id');
       $(td).attr("data-toggle", "modal");
-      $(td).attr("data-target", "#cover-id")
+      $(td).attr("data-target", "#cover-id");
       $(td).addClass('btn');
       $(td).html("<img class='img-thumbnail' src='" + book[key] + "' alt='book cover'>")
-      // $(td).text(book[key]);
       $(tr).append(td);
     } else if(key === 'Delete') {
       var tdDel = document.createElement('td');
@@ -169,7 +168,7 @@ DataTable.prototype._createRow = function (book) {
     } else if( key.toLowerCase() == 'synopsis') {
       // console.log(book[key].substring(0, 30) + "...");
       $(td).attr('edit', key)
-      $(td).text(book[key].substring(0, 200) + "...");
+      $(td).text(book[key].substring(0, 150) + "...");
       $(tr).append(td);
     } else {
       $(td).attr('edit', key) /* this is where i create a key for the title, author, number of pages, publication date, synopsis, and rating td values*/
