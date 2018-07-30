@@ -57,6 +57,7 @@ addBooksUI.prototype._queueBooks = function() {
 }
   this.numberBooksInQueue++;
   $('.cart-num').text(this.numberBooksInQueue + ' ');
+  newBook.Publish_Date = newBook.Publish_Date.toString();
   this._tempBookShelf.push(newBook);
   $('#addBookForm')[0].reset();
   // this.numberBookInQueue = 0;

@@ -8,7 +8,7 @@ DataTable.prototype = Object.create(Library.prototype);
 DataTable.prototype.init = function() {
   // this.pull();
   this._dbTable();
-  this._updateTable(window.bookShelf);
+  this._updateTable();
   this._bindEvents();
   this._bindCustomListeners();
 };
@@ -20,7 +20,7 @@ DataTable.prototype._bindEvents = function () {
 
 };
 DataTable.prototype._bindCustomListeners = function () {
-  $(document).on('objUpdate', $.proxy(this._updateTable, this, window.bookShelf));
+  $(document).on('objUpdate', $.proxy(this._updateTable, this));
   $(document).on('searchUpdate', $.proxy(this._searchTable, this));
 };
 
@@ -63,6 +63,7 @@ DataTable.prototype._searchTable = function (e) {
 
 DataTable.prototype._dbTable = function () {
   // console.log("in db-table");
+  console.log('_dbTable');
   $.ajax({
     url: window.libraryURL,
     dataType: 'json',
@@ -70,7 +71,7 @@ DataTable.prototype._dbTable = function () {
     success: (data) => {
       console.log(data);
       window.bookShelf = this._createBookObj(data);
-      this._updateTable(window.bookShelf);
+      this._updateTable();
     }
   })
 };
@@ -78,13 +79,13 @@ DataTable.prototype._dbTable = function () {
 
 
 
-DataTable.prototype._updateTable = function (e) {
+DataTable.prototype._updateTable = function () {
   var _self = this;
-    var $tbody = this.$container.find('tbody');
-    $tbody.empty();
-    if(e) {
-    this.$container.find('#table-head').replaceWith(this._createHeader(e[0]))
-    $.each(e, function(index, book){
+  var $tbody = this.$container.find('tbody');
+  $tbody.empty();
+  if(window.bookShelf) {
+    this.$container.find('#table-head').replaceWith(this._createHeader(window.bookShelf[0]))
+    $.each(window.bookShelf, function(index, book){
       $tbody.append(_self._createRow(book));
       // $tbody.remove(_self._deleteBook(book))
     });

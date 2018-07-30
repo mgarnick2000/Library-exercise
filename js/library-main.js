@@ -58,7 +58,7 @@ Library.prototype._dbPostBookShelf = function (book) {
       // window.bookShelf = this._createBookObj(data)
       window.bookShelf.push(new Book(data));
       this._refreshTable(book);
-      this.handlerTrigger('objUpdate', window.bookShelf)
+      this.handlerTrigger('objUpdate')
 
     }
   })
@@ -77,23 +77,23 @@ Library.prototype._createBookObj = function (obj) {
   return objArray;
 };
 
-Library.prototype.addBook = function(book) {
-if(book) {
-for (var i = 0; i < window.bookShelf.length; i++) {
-  var currentBooks = window.bookShelf[i];
-  if (book === currentBooks) {
-    console.log("this book already exists.");
-    return false;
-  }
-}
-  this._dbPostBookShelf(book)
-  // window.bookShelf.push(book);
-  this._refreshTable(book);
-
-  return true;
-}
-return false;
-}
+// Library.prototype.addBook = function(book) {
+// if(book) {
+// for (var i = 0; i < window.bookShelf.length; i++) {
+//   var currentBooks = window.bookShelf[i];
+//   if (book === currentBooks) {
+//     console.log("this book already exists.");
+//     return false;
+//   }
+// }
+//   this._dbPostBookShelf(book)
+//   // window.bookShelf.push(book);
+//   this._refreshTable(book);
+//
+//   return true;
+// }
+// return false;
+// }
 
 Library.prototype.checkDuplicates = function(book) {
   if (book) {
@@ -109,18 +109,24 @@ Library.prototype.checkDuplicates = function(book) {
 };
 
 Library.prototype.addBooks = function (books) {
-var addNewBooks = 0;
-for (var i = 0; i < books.length; i++) {
-  if (this.addBook(books[i]) && Array.isArray(books)) {
-    // this.addBook(books[i]);
-    addNewBooks++;
-  }
-}
-if(addNewBooks > 0){
-  this.handlerTrigger('objUpdate', {detail: Library + "books were added"});
-}
-alert("Your book was added!")
-return addNewBooks;
+  var httpPost = $.ajax({
+    url: window.libraryURL,
+    dataType: 'json',
+    method: "POST",
+    data: {books: JSON.stringify(books)},
+    success: (res) => {
+      if(res.ops.length > 0){
+        window.bookShelf = window.bookShelf.concat(this._createBookObj(res.ops));
+        this.handlerTrigger('objUpdate', {detail: Library + "books were added"});
+      }
+      return res.ops;
+    },
+    failure: (res) => {
+      console.error(res.err + ' :: issue adding books');
+    }
+  })
+
+  return httpPost;
 };
 
 Library.prototype._dbDeleteId = function (id) {
@@ -129,7 +135,7 @@ Library.prototype._dbDeleteId = function (id) {
     dataType: 'json',
     method: "DELETE",
     success: (data) => {
-      this.handlerTrigger('objUpdate', window.bookShelf)
+      this.handlerTrigger('objUpdate')
     }
   })
 };
