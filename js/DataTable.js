@@ -100,7 +100,7 @@ DataTable.prototype.updateBookContent = function (_id, update) {
     method: 'PUT',
     success: (data) => {
       this.handlerTrigger('objUpdate', window.bookShelf);
-      this._dbTable();
+      // this._dbTable();
 
     }
   })
