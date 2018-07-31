@@ -355,7 +355,6 @@ return true;
 // };
 
 Library.prototype.search = function (args) {
-  console.log(args);
 /*
 This allows users to search for any book by the year, author, and title
 with full or partial search capability.
@@ -384,12 +383,8 @@ with full or partial search capability.
     method: "GET",
     success: (data) => {
       console.log(data);
-      // searchRequest = data.filter(function(value, index, self) {
-      //   return self.indexOf(value) === index
-        // window.bookShelf = this._createBookObj(data);
     }
   })
-  // this.handlerTrigger('searchUpdate', searchResults)
   return searchRequest;
 };
 
