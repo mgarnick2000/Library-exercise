@@ -174,14 +174,14 @@ if (authorRemove > 0) {
   }
 };
 
-Library.prototype.getRandomBook = function () {
-  if(window.bookShelf.length === 0) {
-    return null;
-  }
-
-  return window.bookShelf[Math.floor(Math.random() * window.bookShelf.length)];
-
-};
+// Library.prototype.getRandomBook = function () {
+//   if(window.bookShelf.length === 0) {
+//     return null;
+//   }
+//
+//   return window.bookShelf[Math.floor(Math.random() * window.bookShelf.length)];
+//
+// };
 
 Library.prototype.getRandomBookByID = function(_id) {
   if(window.bookShelf.length === 0) {
@@ -355,28 +355,42 @@ return true;
 // };
 
 Library.prototype.search = function (args) {
+  console.log(args);
 /*
 This allows users to search for any book by the year, author, and title
 with full or partial search capability.
 */
-var searchResults = [];
-if (args) {
-var searchAnyArg = this.getBooksByAuthor(args).concat(this.getBookByTitle(args), this.getBooksByYear(args));
-  if(searchAnyArg.length) {
-    searchResults = searchAnyArg.filter(function(value, index, self) {
-      return self.indexOf(value) === index
 
-  //   for (var i = 0; i < searchAnyArg.length; i++) {
-  //     searchResults.push(searchAnyArg[i])
-  //   }
-  // }
-  // return searchResults;
-    })
-  }
-  this.handlerTrigger('objUpdate', {searchR : searchResults});
-  return searchResults;
-}
-return false;
+
+// var searchResults = [];
+// if (args) {
+// var searchAnyArg = this.getBooksByAuthor(args).concat(this.getBookByTitle(args), this.getBooksByYear(args));
+//   if(searchAnyArg.length) {
+//     searchResults = searchAnyArg.filter(function(value, index, self) {
+//       return self.indexOf(value) === index
+//
+//   //   for (var i = 0; i < searchAnyArg.length; i++) {
+//   //     searchResults.push(searchAnyArg[i])
+//   //   }
+//   // }
+//   // return searchResults;
+//     })
+//   }
+  // this.handlerTrigger('objUpdate', {searchR : searchResults});
+  // console.log(searchResults);
+  var searchRequest = $.ajax({
+    url: window.libraryURL + '/search/' + args,
+    type: "json",
+    method: "GET",
+    success: (data) => {
+      console.log(data);
+      // searchRequest = data.filter(function(value, index, self) {
+      //   return self.indexOf(value) === index
+        // window.bookShelf = this._createBookObj(data);
+    }
+  })
+  // this.handlerTrigger('searchUpdate', searchResults)
+  return searchRequest;
 };
 
 Library.prototype.searchPageNumber = function (pages, range) {

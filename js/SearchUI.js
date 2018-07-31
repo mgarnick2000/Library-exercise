@@ -16,18 +16,19 @@ SearchUI.prototype._bindEvents = function () {
   return false;
 
 };
-SearchUI.prototype._handleSearch = function (args) {
+SearchUI.prototype._handleSearch = async function (args) {
   // args.preventDefault();
   var searchInput = this.$container.find('#exampleInputSearch').val();
-  var searchResults = this.search(searchInput);
+  var searchResults = await this.search(searchInput);
   // args.preventDefault()
   this.handlerTrigger('searchUpdate', searchResults)
-  args.preventDefault()
+  // args.preventDefault()
   $('#search-form')[0].reset()
   return;
 
   }
 SearchUI.prototype.returnLibrary = function () {
+  console.log('happened!');
   window.location.reload(true);
 };
 
