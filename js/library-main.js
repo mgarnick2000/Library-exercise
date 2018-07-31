@@ -117,7 +117,7 @@ Library.prototype.addBooks = function (books) {
     success: (res) => {
       if(res.ops.length > 0){
         window.bookShelf = window.bookShelf.concat(this._createBookObj(res.ops));
-        this.handlerTrigger('objUpdate', {detail: Library + "books were added"});
+        this.handlerTrigger('searchUpdate', window.bookShelf);
       }
       return res.ops;
     },
