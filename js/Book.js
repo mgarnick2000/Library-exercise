@@ -1,5 +1,7 @@
 var Book = function(oArgs) {
-  this._id = oArgs._id;
+  if (oArgs._id) {
+    this._id = oArgs._id;
+  };
   this.Cover = oArgs.Cover;
   this.Title = oArgs.Title;
   this.Author = oArgs.Author;
