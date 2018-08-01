@@ -129,20 +129,40 @@ body {
   height: 35px;
   width: 260px;
   border-radius: 10px;
-  margin-top: 12px;
+  margin-top: 3px;
   border: 1px solid #F0EAEA;
 }
 
 .search-btn {
-  margin-top: 10px;
+  margin-bottom: 2px;
 
 }
 .search-progress {
   margin-left: 100px;
 }
 
+.pagination {
+  margin-left: 20px;
+}
+
+.pagination a {
+  color: black;
+  padding: 1px;
+}
+
+
+
+/* Style the active/current link */
+/* .pagination a.active {
+    background-color: dodgerblue;
+    color: white;
+} */
+
+/* Add a grey background color on mouse-over */
+.pagination a:hover:not(.active) {background-color: #ddd;}
+
 .loader {
-    border: 16px solid #FFFFFF; /* Light grey */
+    border: 16px solid #ffffff; /* Light grey */
     border-top: 16px solid #3498db; /* Blue */
     border-radius: 50%;
     width: 120px;

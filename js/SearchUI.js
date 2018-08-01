@@ -25,7 +25,6 @@ SearchUI.prototype._searchLoadIcon = function() {
   $(div).addClass('loader search-progress')
   var searchLoad = $('#search-form').append(div);
 
-
 }
 
 SearchUI.prototype._handleSearch = async function (args) {
