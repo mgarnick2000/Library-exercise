@@ -29,18 +29,21 @@ SearchUI.prototype._searchLoadIcon = function() {
 }
 
 SearchUI.prototype._handleSearch = async function (args) {
-  // args.preventDefault();
   this._searchLoadIcon()
   var searchInput = this.$container.find('#exampleInputSearch').val();
+  if (searchInput.length > 0) {
   var searchResults = await this.search(searchInput);
   $('#load-btn').remove();
-
-  // args.preventDefault()
   this.handlerTrigger('searchUpdate', searchResults)
-  // args.preventDefault()
+  $('#search-form')[0].reset()
+  } else {
+  $('#load-btn').remove();
+  alert("please add content to search for books!")
+  // this.handlerTrigger('searchUpdate', searchResults)
   $('#search-form')[0].reset()
   return;
   }
+};
 
 
 
