@@ -47,7 +47,6 @@ SearchUI.prototype._handleSearch = async function (args) {
 
 
 
-
 SearchUI.prototype.returnLibrary = function () {
   console.log('happened!');
   window.location.reload(true);

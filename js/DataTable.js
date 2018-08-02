@@ -1,13 +1,17 @@
 var DataTable = function(container) {
   Library.call(this);
+  this.currentPage = 1;
+  this.totalPages;
+  this.numberResults = 5;
   this.$container = $('#data-table');
 };
 
 DataTable.prototype = Object.create(Library.prototype);
 
-DataTable.prototype.init = function() {
+DataTable.prototype.init = async function() {
   // this.pull();
-  this._dbTable();
+  await this._dbTable();
+  this.setNumPages();
   // this._updateTable();
   this._bindEvents();
   this._bindCustomListeners();
@@ -17,6 +21,9 @@ DataTable.prototype._bindEvents = function () {
   this.$container.on('click', '#table-cover-id', $.proxy(this.tableBookInfo,this))
   this.$container.on('blur',  ".library-content", $.proxy(this.updateBookDetails, this))
   $('#pageNum').on('click', $.proxy(this.paginateTable, this));
+  $('.pagination').on('click', $.proxy(this.selectedPage, this));
+  $('#next').on('click', $.proxy(this.incrementPage, this));
+  $('#prev').on('click', $.proxy(this.decrementPage, this));
 
 
 };
@@ -65,7 +72,8 @@ DataTable.prototype._searchTable = function (e) {
 
 DataTable.prototype._dbTable = function () {
   // console.log("in db-table");
-  $.ajax({
+
+    window.bookShelf = $.ajax({
     url: window.libraryURL,
     dataType: 'json',
     method: 'GET',
@@ -73,13 +81,57 @@ DataTable.prototype._dbTable = function () {
       console.log(data);
       window.bookShelf = this._createBookObj(data);
       this._updateTable(window.bookShelf);
+      return window.bookShelf;
     }
   })
+  return window.bookShelf;
 };
 
-DataTable.prototype.paginateTable = function () {
+DataTable.prototype.setNumPages = function () {
+  this.totalPages = Math.ceil(window.bookShelf.length / this.numberResults);
+  $('#pageNum').append(`<a href="javascript:void(0)" id="prev">&laquo;</a>`)
+
+  for(var i = 0; i < this.totalPages; i++) {
+    $('#pageNum').append(`<a href="javascript:void(0)" class="pagination">${i+1}</a>`)
+  }
+  $('#pageNum').append(`<a href="javascript:void(0)" id="next">&raquo;</a>`)
+
+  return;
+};
+
+DataTable.prototype.selectedPage = function (e) {
+  e.stopPropagation();
+  var selected = $(e.currentTarget).html();
+  this.paginateTable(selected, this.numberResults);
+  this.currentPage = selected;
+
+
+};
+
+DataTable.prototype.incrementPage = function(e) {
+  e.stopPropagation();
+  if(this.currentPage !== this.totalPages) {
+    // console.log(this.currentPage);
+    this.currentPage++;
+    this.paginateTable(this.currentPage, this.numberResults)
+  } else {
+    alert("You have reached the end of the library!");
+  }
+}
+
+DataTable.prototype.decrementPage = function (e) {
+  e.stopPropagation();
+  if (this.currentPage === 1) {
+    alert("You cannot move any further back!");
+  } else {
+    this.currentPage--;
+    this.paginateTable(this.currentPage, this.numberResults)
+  }
+};
+
+DataTable.prototype.paginateTable = function (page, numberPages) {
   var paginate = $.ajax ({
-    url: window.libraryURL + 'paginate/' + '1/' + '5/',
+    url: window.libraryURL + 'paginate/' + page + '/' + numberPages,
     dataType: 'json',
     method: 'GET',
     success: (data) => {

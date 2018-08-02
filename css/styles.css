@@ -141,14 +141,18 @@ body {
   margin-left: 100px;
 }
 
-.pagination {
+#pageNum {
+  margin-left: 20px;
+
+}
+
+a.pagination {
+  color: black;
+  padding: 1px;
   margin-left: 20px;
 }
 
-.pagination a {
-  color: black;
-  padding: 1px;
-}
+
 
 
 
