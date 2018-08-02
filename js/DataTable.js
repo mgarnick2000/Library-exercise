@@ -16,6 +16,7 @@ DataTable.prototype._bindEvents = function () {
   this.$container.on('click', ".delete-top-right", $.proxy(this._deleteBook, this));
   this.$container.on('click', '#table-cover-id', $.proxy(this.tableBookInfo,this))
   this.$container.on('blur',  ".library-content", $.proxy(this.updateBookDetails, this))
+  $('#pageNum').on('click', $.proxy(this.paginateTable, this));
 
 
 };
@@ -76,7 +77,19 @@ DataTable.prototype._dbTable = function () {
   })
 };
 
-
+DataTable.prototype.paginateTable = function () {
+  var paginate = $.ajax ({
+    url: window.libraryURL + 'paginate/' + '1/' + '5/',
+    dataType: 'json',
+    method: 'GET',
+    success: (data) => {
+      console.log(data);
+      window.bookShelf = this._createBookObj(data);
+      this._updateTable(window.bookShelf);
+    }
+  })
+  return paginate;
+};
 
 
 DataTable.prototype._updateTable = function (e) {
