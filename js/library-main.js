@@ -135,7 +135,7 @@ Library.prototype._dbDeleteId = function (id) {
     dataType: 'json',
     method: "DELETE",
     success: (data) => {
-      this.handlerTrigger('objUpdate')
+      this.handlerTrigger('objUpdate', {currentPage: window.currentPage, numberResults: window.numberResults})
     }
   })
 };

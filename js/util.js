@@ -2,6 +2,9 @@
 // resolve URL or path a global variable to grab global URL.
 var bookShelf = new Array();
 var libraryURL = 'http://127.0.0.1:3002/Library/'
+this.currentPage = 1;
+this.totalPages;
+this.numberResults = 5;
 
 _updateTable = function (e) {
   var _self = this;

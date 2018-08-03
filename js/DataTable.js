@@ -37,7 +37,11 @@ DataTable.prototype._deleteBook = function (e) {
   $btnClicked.remove();
 
   if(this.removeBookByID($btnClicked.attr("del-row"))) {
+
     alert("Your book was removed");
+    // this.setNumPages(e)
+    this.updatePaginateTble(e);
+
     return true;
 
   }
@@ -107,6 +111,19 @@ DataTable.prototype.selectedPage = function (e) {
 
 
 };
+
+DataTable.prototype.updatePaginateTble = function (e) {
+  var newTotalPages = Math.ceil(window.bookShelf.length / this.numberResults)
+  if (newTotalPages < this.totalPages) {
+    this.totalPages = Math.ceil(window.bookShelf.length / this.numberResults)
+    var tempArr = $('#pageNum').children();
+    tempArr[tempArr.length - 2].remove();
+    this.currentPage--;
+  }
+  this.paginateTable(e.detail.currentPage, e.detail.numberResults);
+
+};
+
 
 DataTable.prototype.incrementPage = function(e) {
   e.stopPropagation();
