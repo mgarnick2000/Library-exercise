@@ -170,6 +170,7 @@ DataTable.prototype.paginateTable = function (page, numberPages) {
     success: (data) => {
       console.log(data);
       var pageResults = this._createBookObj(data);
+      
       this._updateTable(pageResults);
       // this.setNumPages();
 
