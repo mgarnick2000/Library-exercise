@@ -43,7 +43,7 @@ Library.prototype._refreshTable = function () {
     method: 'GET',
     success: (data) => {
       window.bookShelf = this._createBookObj(data);
-      
+
       // window._updateTable(window.bookShelf);
       return true;
     }
@@ -117,10 +117,12 @@ Library.prototype.addBooks = function (books) {
     dataType: 'json',
     method: "POST",
     data: {books: JSON.stringify(books)},
-    success: (res) => {
+    success: async (res) => {
       if(res.ops.length > 0){
-        window.bookShelf = window.bookShelf.concat(this._createBookObj(res.ops));
-        this.handlerTrigger('searchUpdate', window.bookShelf);
+        // window.bookShelf = window.bookShelf.concat(this._createBookObj(res.ops));
+        await this._refreshTable()
+        this.handlerTrigger('objUpdate', {currentPage: window.currentPage, numberResults: window.numberResults});
+        alert("Your book or books were successfully added!")
       }
       return res.ops;
     },

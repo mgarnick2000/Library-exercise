@@ -71,10 +71,10 @@ addBooksUI.prototype.clearTempBookQueue = function () {
   return true;
 };
 
-
 addBooksUI.prototype._addBooksToLib = function(book) {
   if (this.checkDuplicates(book)) {
   this.addBooks(this._tempBookShelf);
+  // this.setNumPages();
   $('.lib-num').text(this.numberBooksInQueue + ' ');
   $('#addBookForm')[0].reset();
   this.clearTempBookQueue()

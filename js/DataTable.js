@@ -107,16 +107,11 @@ DataTable.prototype.setNumPages = function () {
   return;
 };
 
-DataTable.prototype.removeNumPages = function () {
-  $('#pageNum').remove();
-
-};
 
 
 DataTable.prototype.selectedPage = function (e) {
   e.stopPropagation();
   var selected = $(e.currentTarget).html();
-  console.log(selected);
   this.paginateTable(selected, window.numberResults);
   window.currentPage = selected;
 
@@ -133,15 +128,11 @@ DataTable.prototype.updatePaginateTble = function (e) {
       this.paginateTable(window.currentPage, e.detail.numberResults);
       return;
     }
-
-
-
-    // this.paginateTable(e.detail.currentPage, e.detail.numberResults);
-
+  } else {
+    this.setNumPages(e);
+    this.paginateTable(e.detail.currentPage, e.detail.numberResults);
   }
-  this.paginateTable(e.detail.currentPage, e.detail.numberResults);
-
-
+  
 };
 
 
