@@ -182,14 +182,14 @@ if (authorRemove > 0) {
   }
 };
 
-// Library.prototype.getRandomBook = function () {
-//   if(window.bookShelf.length === 0) {
-//     return null;
-//   }
-//
-//   return window.bookShelf[Math.floor(Math.random() * window.bookShelf.length)];
-//
-// };
+Library.prototype.getRandomBook = function () {
+  if(window.bookShelf.length === 0) {
+    return null;
+  }
+
+  return window.bookShelf[Math.floor(Math.random() * window.bookShelf.length)];
+
+};
 
 Library.prototype.getRandomBookByID = function(_id) {
   if(window.bookShelf.length === 0) {
