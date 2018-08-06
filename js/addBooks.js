@@ -53,6 +53,7 @@ addBooksUI.prototype._queueBooks = function() {
   }
 } else{
   alert("this book already exists in the library");
+  $('#addBookForm')[0].reset();
   return console.log("this book already exists in the library");
 }
   this.numberBooksInQueue++;

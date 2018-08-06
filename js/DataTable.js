@@ -136,6 +136,8 @@ DataTable.prototype.updatePaginateTble = function (e) {
       return;
   }
   this.setNumPages(e);
+  this.paginateTable(window.currentPage, e.detail.numberResults);
+
   };
 }
 

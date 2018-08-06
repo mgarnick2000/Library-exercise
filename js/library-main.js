@@ -117,10 +117,10 @@ Library.prototype.addBooks = function (books) {
     dataType: 'json',
     method: "POST",
     data: {books: JSON.stringify(books)},
-    success: async (res) => {
+    success: (res) => {
       if(res.ops.length > 0){
         // window.bookShelf = window.bookShelf.concat(this._createBookObj(res.ops));
-        await this._refreshTable()
+        this._refreshTable()
         this.handlerTrigger('objUpdate', {currentPage: window.currentPage, numberResults: window.numberResults});
         alert("Your book or books were successfully added!")
       }
@@ -130,7 +130,6 @@ Library.prototype.addBooks = function (books) {
       console.error(res.err + ' :: issue adding books');
     }
   })
-
   return httpPost;
 };
 
