@@ -37,15 +37,18 @@ Library.prototype.handlerTrigger = function (sEvent, oData) {
 }
 Library.prototype._refreshTable = function () {
   // console.log("in db-table");
-  $.ajax({
+  var refresh = $.ajax({
     url: window.libraryURL,
     dataType: 'json',
     method: 'GET',
     success: (data) => {
       window.bookShelf = this._createBookObj(data);
-      window._updateTable(window.bookShelf);
+      
+      // window._updateTable(window.bookShelf);
+      return true;
     }
   })
+  return refresh;
 };
 
 Library.prototype._dbPostBookShelf = function (book) {
@@ -57,7 +60,7 @@ Library.prototype._dbPostBookShelf = function (book) {
     success: (data) => {
       // window.bookShelf = this._createBookObj(data)
       window.bookShelf.push(new Book(data));
-      this._refreshTable(book);
+      // this._refreshTable(book);
       this.handlerTrigger('objUpdate')
 
     }
@@ -132,10 +135,13 @@ Library.prototype.addBooks = function (books) {
 Library.prototype._dbDeleteId = function (id) {
   $.ajax({
     url: window.libraryURL + id,
-    dataType: 'json',
+    dataType: 'text',
     method: "DELETE",
-    success: (data) => {
+    success: async (data) => {
+      console.log("this happened");
+      await this._refreshTable();
       this.handlerTrigger('objUpdate', {currentPage: window.currentPage, numberResults: window.numberResults})
+
     }
   })
 };

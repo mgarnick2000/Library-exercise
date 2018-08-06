@@ -1,8 +1,8 @@
 var DataTable = function(container) {
   Library.call(this);
-  this.currentPage = 1;
-  this.totalPages;
-  this.numberResults = 5;
+  // this.currentPage = 1;
+  // this.totalPages;
+  // this.numberResults = 5;
   this.$container = $('#data-table');
 };
 
@@ -11,24 +11,25 @@ DataTable.prototype = Object.create(Library.prototype);
 DataTable.prototype.init = async function() {
   // this.pull();
   await this._dbTable();
+  // this.paginateTable();
   this.setNumPages();
   // this._updateTable();
   this._bindEvents();
   this._bindCustomListeners();
 };
 DataTable.prototype._bindEvents = function () {
-  this.$container.on('click', ".delete-top-right", $.proxy(this._deleteBook, this));
+  this.$container.on('click', ".delete-top-right", $.proxy(this._deleteBook,this));
   this.$container.on('click', '#table-cover-id', $.proxy(this.tableBookInfo,this))
   this.$container.on('blur',  ".library-content", $.proxy(this.updateBookDetails, this))
   $('#pageNum').on('click', $.proxy(this.paginateTable, this));
-  $('.pagination').on('click', $.proxy(this.selectedPage, this));
-  $('#next').on('click', $.proxy(this.incrementPage, this));
-  $('#prev').on('click', $.proxy(this.decrementPage, this));
+  $('#pageNum').on('click','.pagination', $.proxy(this.selectedPage, this));
+  $('#pageNum').on('click', '#next', $.proxy(this.incrementPage, this));
+  $('#pageNum').on('click', '#prev',  $.proxy(this.decrementPage, this));
 
 
 };
 DataTable.prototype._bindCustomListeners = function () {
-  $(document).on('objUpdate', $.proxy(this._updateTable, this));
+  $(document).on('objUpdate', $.proxy(this.updatePaginateTble, this));
   $(document).on('searchUpdate', $.proxy(this._searchTable, this));
 };
 
@@ -39,8 +40,10 @@ DataTable.prototype._deleteBook = function (e) {
   if(this.removeBookByID($btnClicked.attr("del-row"))) {
 
     alert("Your book was removed");
+    // this.removeNumPages(e);
     // this.setNumPages(e)
-    this.updatePaginateTble(e);
+    // this.updatePaginateTble(e);
+
 
     return true;
 
@@ -92,10 +95,11 @@ DataTable.prototype._dbTable = function () {
 };
 
 DataTable.prototype.setNumPages = function () {
-  this.totalPages = Math.ceil(window.bookShelf.length / this.numberResults);
+  $('#pageNum').empty();
+  window.totalPages = Math.ceil(window.bookShelf.length / window.numberResults);
   $('#pageNum').append(`<a href="javascript:void(0)" id="prev">&laquo;</a>`)
 
-  for(var i = 0; i < this.totalPages; i++) {
+  for(var i = 0; i < window.totalPages; i++) {
     $('#pageNum').append(`<a href="javascript:void(0)" class="pagination">${i+1}</a>`)
   }
   $('#pageNum').append(`<a href="javascript:void(0)" id="next">&raquo;</a>`)
@@ -103,34 +107,49 @@ DataTable.prototype.setNumPages = function () {
   return;
 };
 
+DataTable.prototype.removeNumPages = function () {
+  $('#pageNum').remove();
+
+};
+
+
 DataTable.prototype.selectedPage = function (e) {
   e.stopPropagation();
   var selected = $(e.currentTarget).html();
-  this.paginateTable(selected, this.numberResults);
-  this.currentPage = selected;
+  console.log(selected);
+  this.paginateTable(selected, window.numberResults);
+  window.currentPage = selected;
 
 
 };
 
 DataTable.prototype.updatePaginateTble = function (e) {
-  var newTotalPages = Math.ceil(window.bookShelf.length / this.numberResults)
-  if (newTotalPages < this.totalPages) {
-    this.totalPages = Math.ceil(window.bookShelf.length / this.numberResults)
-    var tempArr = $('#pageNum').children();
-    tempArr[tempArr.length - 2].remove();
-    this.currentPage--;
+  // this.removeNumPages()
+  var newTotalPages = Math.ceil(window.bookShelf.length / window.numberResults)
+  if (newTotalPages < window.totalPages) {
+    this.setNumPages(e);
+    if(window.currentPage > window.totalPages) {
+      window.currentPage--;
+      this.paginateTable(window.currentPage, e.detail.numberResults);
+      return;
+    }
+
+
+
+    // this.paginateTable(e.detail.currentPage, e.detail.numberResults);
+
   }
   this.paginateTable(e.detail.currentPage, e.detail.numberResults);
+
 
 };
 
 
 DataTable.prototype.incrementPage = function(e) {
   e.stopPropagation();
-  if(this.currentPage !== this.totalPages) {
-    // console.log(this.currentPage);
-    this.currentPage++;
-    this.paginateTable(this.currentPage, this.numberResults)
+  if(window.currentPage < window.totalPages) {
+    window.currentPage++;
+    this.paginateTable(window.currentPage, window.numberResults)
   } else {
     alert("You have reached the end of the library!");
   }
@@ -138,11 +157,11 @@ DataTable.prototype.incrementPage = function(e) {
 
 DataTable.prototype.decrementPage = function (e) {
   e.stopPropagation();
-  if (this.currentPage === 1) {
+  if (window.currentPage === 1) {
     alert("You cannot move any further back!");
   } else {
-    this.currentPage--;
-    this.paginateTable(this.currentPage, this.numberResults)
+    window.currentPage--;
+    this.paginateTable(window.currentPage, window.numberResults)
   }
 };
 
@@ -153,10 +172,13 @@ DataTable.prototype.paginateTable = function (page, numberPages) {
     method: 'GET',
     success: (data) => {
       console.log(data);
-      window.bookShelf = this._createBookObj(data);
-      this._updateTable(window.bookShelf);
+      var pageResults = this._createBookObj(data);
+      this._updateTable(pageResults);
+      // this.setNumPages();
+
     }
   })
+
   return paginate;
 };
 
@@ -181,7 +203,7 @@ DataTable.prototype.updateBookContent = function (_id, update) {
     dataType: 'text',
     method: 'PUT',
     success: (data) => {
-      this.handlerTrigger('objUpdate', window.bookShelf);
+      this.handlerTrigger('searchUpdate', window.bookShelf);
       // this._dbTable();
 
     }
@@ -259,6 +281,7 @@ DataTable.prototype._createRow = function (book) {
       $(tr).append(td);
     }
   }
+
 
   // var tdDel = document.createElement('td');
   // var delBtn = document.createElement('button');
