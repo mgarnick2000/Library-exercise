@@ -129,11 +129,15 @@ DataTable.prototype.updatePaginateTble = function (e) {
       return;
     }
   } else {
-    this.setNumPages(e);
-    this.paginateTable(e.detail.currentPage, e.detail.numberResults);
+    if(newTotalPages > window.totalPages) {
+      window.currentPage = newTotalPages;
+      this.setNumPages(e);
+      this.paginateTable(window.currentPage, e.detail.numberResults);
+      return;
   }
-  
-};
+  this.setNumPages(e);
+  };
+}
 
 
 DataTable.prototype.incrementPage = function(e) {
@@ -194,7 +198,9 @@ DataTable.prototype.updateBookContent = function (_id, update) {
     dataType: 'text',
     method: 'PUT',
     success: (data) => {
-      this.handlerTrigger('searchUpdate', window.bookShelf);
+      // this.handlerTrigger('searchUpdate', window.bookShelf);
+      this.paginateTable(window.currentPage, window.numberResults)
+
       // this._dbTable();
 
     }
