@@ -31,16 +31,16 @@ SearchUI.prototype._handleSearch = async function (args) {
   this._searchLoadIcon()
   var searchInput = this.$container.find('#exampleInputSearch').val();
   if (searchInput.length > 0) {
-  var searchResults = await this.search(searchInput);
-  $('#load-btn').remove();
-  this.handlerTrigger('searchUpdate', searchResults)
-  $('#search-form')[0].reset()
+    var searchResults = await this.search(searchInput);
+    $('#load-btn').remove();
+    this.handlerTrigger('searchUpdate', searchResults)
+    $('#search-form')[0].reset()
   } else {
-  $('#load-btn').remove();
-  alert("please add content to search for books!")
-  // this.handlerTrigger('searchUpdate', searchResults)
-  $('#search-form')[0].reset()
-  return;
+    $('#load-btn').remove();
+    alert("please add content to search for books!")
+    // this.handlerTrigger('searchUpdate', searchResults)
+    $('#search-form')[0].reset()
+    return;
   }
 };
 

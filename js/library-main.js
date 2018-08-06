@@ -139,7 +139,6 @@ Library.prototype._dbDeleteId = function (id) {
     dataType: 'text',
     method: "DELETE",
     success: async (data) => {
-      console.log("this happened");
       await this._refreshTable();
       this.handlerTrigger('objUpdate', {currentPage: window.currentPage, numberResults: window.numberResults})
 
