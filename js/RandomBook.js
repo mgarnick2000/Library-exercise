@@ -5,7 +5,7 @@ var RandomBookUI = function(container) {
 RandomBookUI.prototype = Object.create(Library.prototype);
 
 RandomBookUI.prototype.init = function() {
-  this.pull();
+  // this.pull();
   this._bindEvents();
 }
 
@@ -18,10 +18,12 @@ RandomBookUI.prototype._handleRandBook = function () {
     this.$container.find('modal-body').html(this._createRandBook());
     return false;
 };
-RandomBookUI.prototype._createRandBook = function () {
+RandomBookUI.prototype._createRandBook = async function (_id) {
 
-  var books = this.getRandomBook();
-  $('.modal-title-rand').html(books.Title + " written by " + books.Author)
+  var randBook = this.getRandomBookByID(_id); /*this is the book object from the bookshelf*/
+  var books = await this.getRandBkByID(randBook._id) /*this is from the ajax get request */
+  books = new Book(books); /* this creates the book in a book object.*/
+  $('.modal-title-rand').html(books.Title + " written by " + books.Author);
   $('#cover-img').attr('src', books.Cover);
   $('#coverImgPrev').attr('src', books.Cover);
   // $('#randBkDetails');
@@ -31,6 +33,7 @@ RandomBookUI.prototype._createRandBook = function () {
   $('#randBkPages').html(books.Number_Of_Pages + " pages");
   $('#randBkPubDate').html(books.Publish_Date);
   $('#randBkPubDate').html("Publication Date:" + " " + books.Publish_Date);
+  $('#randBkRating').html(books.Rating);
   // this.$container.find('#randBkRating')
   // this.$container.find('span').addClass('glyphicon glyphicon-star checked')
   // this.$container.find('#randBkRating').append('#randBkDetails')

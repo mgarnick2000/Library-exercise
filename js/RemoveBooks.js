@@ -5,7 +5,7 @@ var RemoveBooks = function(container) {
 RemoveBooks.prototype = Object.create(Library.prototype);
 
 RemoveBooks.prototype.init = function() {
-  this.pull();
+  // this.pull();
   this._bindEvents()
 }
 

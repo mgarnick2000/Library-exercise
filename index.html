@@ -31,9 +31,9 @@
       <!-- Library Banner with Add and Remove buttons along with their Modals. -->
       <div class="row banner">
         <div class="col-md-1 lib-margin"></div>
-        <div class="col-md-2 pull-left rem-books">
+        <div class="col-md-2 rem-books">
           <!-- remove books modal  -->
-          <button class="btn btn-default btn-lg" type="remove-books" data-toggle="modal" data-target="#remBkModal"> - Remove Books</button>
+          <button id="rem-bk-btn"class="btn btn-default btn-lg" type="remove-books" data-toggle="modal" data-target="#remBkModal"> - Remove Books</button>
           <div id="remBkModal" class="modal fade" role="dialog">
             <div class="modal-dialog">
               <!-- Modal content-->
@@ -88,15 +88,15 @@
                         </div>
                         <div class="col-md-3 star-rating-input-lable">
                           <label for="star-rating" name="Rating" class="control-label">Star Rating</label>
-                          <input type="text" name="rating" class="form-control" placeholder="type 1-5 Stars" id="star-rating">
-                          <div id="star-rating" class="star-rating-val">
+                          <input type="text" name="Rating" class="form-control" placeholder="type 1-5 Stars" id="star-rating">
+                          <!-- <div id="star-rating" class="star-rating-val">
                               <span class="glyphicon glyphicon-star" data-rating="1"></span>
                               <span class="glyphicon glyphicon-star" data-rating="2"></span>
                               <span class="glyphicon glyphicon-star" data-rating="3"></span>
                               <span class="glyphicon glyphicon-star" data-rating="4"></span>
                               <span class="glyphicon glyphicon-star" data-rating="5"></span>
-                              <input type="hidden" name="rating" class="rating-value" value="2.56">
-                          </div>
+                              <input type="hidden" name="Rating" class="rating-value">
+                          </div> -->
                         </div>
                           <div class="input-group-btn">
                             <!-- <button type="button" name="Rating" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Choose Rating<span class="caret"></span></button>
@@ -107,7 +107,7 @@
                               <li><input type="radio" class="stars" name="Rating"> 4-Star <span class="glyphicon glyphicon-star" aria-hidden="true"></span></li>
                               <li><input type="radio" class="stars" name="Rating"> 5-Star <span class="glyphicon glyphicon-star" aria-hidden="true"></span></li>
                             </ul>
-                          </div><! /btn-group --> -->
+                          </div><! /btn-group -->
                         </div>
                       </div>
                       <div class="row form-group pages-pubDate">
@@ -116,8 +116,8 @@
                           <input type="text" name="Number_Of_Pages" class="form-control" id="book-pages">
                         </div>
                         <div class="col-xs-6 col-md-6 pubDate-modal">
-                          <label for="book-pubDate" class="control-label">Publication Date</label>
-                          <input type="text" name="Publish_Date" class="form-control" id="book-pubDate">
+                          <label for="book-pubDate" class="control-label">Publication Year</label>
+                          <input type="text" name="Publish_Date" class="form-control" placeholder="Only Enter the Year" id="book-pubDate">
                         </div>
                       </div>
                       <div class="form-group">
@@ -158,7 +158,7 @@
       </div>
       <!--Get RandomBooks and Authors, Search lable and input, Show all Books and Authors.  -->
       <div class="row rand-search-show-back">
-        <div class="col-xs-4 col-md-4">
+        <div class="col-xs-4 col-md-3">
           <!--Show all books modal  -->
           <button id="show-books" class="btn btn-default btn-md pull-left show-rand-book-btn" type="showBooks" data-toggle="modal" data-target="#allBkModal">Show All Books</button>
           <div id="allBkModal" class="modal fade" role="dialog">
@@ -215,12 +215,12 @@
                     <p id='randSynopsis'class="Synopsis-details">Synopsis</p>
                     <p id='randBkPages'>1152 pages</p>
                     <p id='randBkPubDate'>Publication date: January 01, 1975</p>
-                    <p id='randBkRating'>
+                    <p id='randBkRating'>Rating
+                      <!-- <span class="glyphicon glyphicon-star checked" aria-hidden="true"></span>
                       <span class="glyphicon glyphicon-star checked" aria-hidden="true"></span>
                       <span class="glyphicon glyphicon-star checked" aria-hidden="true"></span>
                       <span class="glyphicon glyphicon-star checked" aria-hidden="true"></span>
-                      <span class="glyphicon glyphicon-star checked" aria-hidden="true"></span>
-                      <span class="glyphicon glyphicon-star checked" aria-hidden="true"></span>
+                      <span class="glyphicon glyphicon-star checked" aria-hidden="true"></span> -->
                     </p>
                   </div>
                   </div>
@@ -234,14 +234,24 @@
         </div>
         <!-- random book modal ends -->
         <!-- search input and label begins here  -->
-        <div class="col-xs-8 col-md-5 search-func">
+        <div class="col-xs-8 col-md-6 search-func">
           <form id="search-form" class="form-inline">
             <div class="form-group">
               <label class="sr-only" for="exampleInputSearch">Search feature</label>
               <input type="title-author" class="form-control" id="exampleInputSearch" placeholder="Search Title, Author, or Publication Year">
             </div>
-            <button id="search-btn" class="btn btn-default btn-md search-btn" type="search-books">Search</button>
+            <button id="search-btn" class="btn btn-default btn-md search-btn" type="button">Search</button>
             <button id="return-lib-btn" class="btn btn-default btn-md search-btn" type="button" name="return-lib-button">Back to Library</button>
+            <div id="pageNum">
+              <!-- <a href="javascript:void(0)">&laquo;</a>
+              <a href="javascript:void(0)">1</a>
+              <a href="javascript:void(0)">2</a>
+              <a href="javascript:void(0)">3</a>
+              <a href="javascript:void(0)">4</a>
+              <a href="javascript:void(0)">5</a>
+              <a href="javascript:void(0)">6</a>
+              <a href="javascript:void(0)">&raquo;</a> -->
+            </div>
           </form>
         </div>
         <div class="col-xs-12 col-md-3 show-auth-rand-book">
@@ -299,12 +309,12 @@
                     <p id='coverSynopsis'class="Synopsis-details">Synopsis</p>
                     <p id='coverBkPages'>1152 pages</p>
                     <p id='coverBkPubDate'>Publication date: January 01, 1975</p>
-                    <p id='coverBkRating'>
+                    <p id='coverBkRating'>Rating
+                      <!-- <span class="glyphicon glyphicon-star checked" aria-hidden="true"></span>
                       <span class="glyphicon glyphicon-star checked" aria-hidden="true"></span>
                       <span class="glyphicon glyphicon-star checked" aria-hidden="true"></span>
                       <span class="glyphicon glyphicon-star checked" aria-hidden="true"></span>
-                      <span class="glyphicon glyphicon-star checked" aria-hidden="true"></span>
-                      <span class="glyphicon glyphicon-star checked" aria-hidden="true"></span>
+                      <span class="glyphicon glyphicon-star checked" aria-hidden="true"></span> -->
                     </p>
                   </div>
                   </div>

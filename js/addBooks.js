@@ -21,6 +21,8 @@ addBooksUI.prototype._bindEvents = function() {
 }
 
 
+
+
 addBooksUI.prototype._queueBooks = function() {
 // If selecting input field by id, push the data to temporary _tempBookShelf
 // uptick the first letter in a string with i++
@@ -51,10 +53,12 @@ addBooksUI.prototype._queueBooks = function() {
   }
 } else{
   alert("this book already exists in the library");
+  $('#addBookForm')[0].reset();
   return console.log("this book already exists in the library");
 }
   this.numberBooksInQueue++;
   $('.cart-num').text(this.numberBooksInQueue + ' ');
+  newBook.Publish_Date = newBook.Publish_Date.toString();
   this._tempBookShelf.push(newBook);
   $('#addBookForm')[0].reset();
   // this.numberBookInQueue = 0;
@@ -68,10 +72,10 @@ addBooksUI.prototype.clearTempBookQueue = function () {
   return true;
 };
 
-
 addBooksUI.prototype._addBooksToLib = function(book) {
   if (this.checkDuplicates(book)) {
   this.addBooks(this._tempBookShelf);
+  // this.setNumPages();
   $('.lib-num').text(this.numberBooksInQueue + ' ');
   $('#addBookForm')[0].reset();
   this.clearTempBookQueue()

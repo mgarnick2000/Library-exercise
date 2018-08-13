@@ -6,7 +6,7 @@ var ShowAllBooksUI = function(container) {
 ShowAllBooksUI.prototype = Object.create(Library.prototype);
 
 ShowAllBooksUI.prototype.init = function () {
-  this.pull();
+  // this.pull();
   this._bindEvents();
   return false;
 };
