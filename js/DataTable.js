@@ -170,7 +170,7 @@ DataTable.prototype.paginateTable = function (page, numberPages) {
     success: (data) => {
       console.log(data);
       var pageResults = this._createBookObj(data);
-      
+
       this._updateTable(pageResults);
       // this.setNumPages();
 
@@ -189,7 +189,6 @@ DataTable.prototype._updateTable = function (e) {
     this.$container.find('#table-head').replaceWith(this._createHeader(e[0]))
     $.each(e, function(index, book){
       $tbody.append(_self._createRow(book));
-      // $tbody.remove(_self._deleteBook(book))
     });
   }
 };
@@ -203,9 +202,6 @@ DataTable.prototype.updateBookContent = function (_id, update) {
     success: (data) => {
       // this.handlerTrigger('searchUpdate', window.bookShelf);
       this.paginateTable(window.currentPage, window.numberResults)
-
-      // this._dbTable();
-
     }
   })
 };

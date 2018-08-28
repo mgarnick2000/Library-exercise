@@ -51,22 +51,22 @@ Library.prototype._refreshTable = function () {
   return refresh;
 };
 
-Library.prototype._dbPostBookShelf = function (book) {
-  $.ajax({
-    url: window.libraryURL,
-    dataType: 'json',
-    method: "POST",
-    data: book,
-    success: (data) => {
-      // window.bookShelf = this._createBookObj(data)
-      window.bookShelf.push(new Book(data));
-      // this._refreshTable(book);
-      this.handlerTrigger('objUpdate')
-
-    }
-  })
-  return console.log("bookshelf updated!");
-};
+// Library.prototype._dbPostBookShelf = function (book) {
+//   $.ajax({
+//     url: window.libraryURL,
+//     dataType: 'json',
+//     method: "POST",
+//     data: book,
+//     success: (data) => {
+//       // window.bookShelf = this._createBookObj(data)
+//       window.bookShelf.push(new Book(data));
+//       // this._refreshTable(book);
+//       this.handlerTrigger('objUpdate')
+//
+//     }
+//   })
+//   return console.log("bookshelf updated!");
+// };
 
 Library.prototype._createBookObj = function (obj) {
   var objArray = [];
